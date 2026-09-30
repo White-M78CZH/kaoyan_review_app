@@ -487,15 +487,1048 @@ class SubjectsCompanion extends UpdateCompanion<Subject> {
   }
 }
 
+class $StudyItemsTable extends StudyItems
+    with TableInfo<$StudyItemsTable, StudyItem> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $StudyItemsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _content_typeMeta = const VerificationMeta(
+    'content_type',
+  );
+  @override
+  late final GeneratedColumn<String> content_type = GeneratedColumn<String>(
+    'content_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _subject_idMeta = const VerificationMeta(
+    'subject_id',
+  );
+  @override
+  late final GeneratedColumn<String> subject_id = GeneratedColumn<String>(
+    'subject_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _category_idMeta = const VerificationMeta(
+    'category_id',
+  );
+  @override
+  late final GeneratedColumn<String> category_id = GeneratedColumn<String>(
+    'category_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _contentMeta = const VerificationMeta(
+    'content',
+  );
+  @override
+  late final GeneratedColumn<String> content = GeneratedColumn<String>(
+    'content',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _my_answerMeta = const VerificationMeta(
+    'my_answer',
+  );
+  @override
+  late final GeneratedColumn<String> my_answer = GeneratedColumn<String>(
+    'my_answer',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _standard_answerMeta = const VerificationMeta(
+    'standard_answer',
+  );
+  @override
+  late final GeneratedColumn<String> standard_answer = GeneratedColumn<String>(
+    'standard_answer',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _personal_noteMeta = const VerificationMeta(
+    'personal_note',
+  );
+  @override
+  late final GeneratedColumn<String> personal_note = GeneratedColumn<String>(
+    'personal_note',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _mastery_levelMeta = const VerificationMeta(
+    'mastery_level',
+  );
+  @override
+  late final GeneratedColumn<String> mastery_level = GeneratedColumn<String>(
+    'mastery_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _is_mistakeMeta = const VerificationMeta(
+    'is_mistake',
+  );
+  @override
+  late final GeneratedColumn<int> is_mistake = GeneratedColumn<int>(
+    'is_mistake',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _is_favoriteMeta = const VerificationMeta(
+    'is_favorite',
+  );
+  @override
+  late final GeneratedColumn<int> is_favorite = GeneratedColumn<int>(
+    'is_favorite',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _difficultyMeta = const VerificationMeta(
+    'difficulty',
+  );
+  @override
+  late final GeneratedColumn<String> difficulty = GeneratedColumn<String>(
+    'difficulty',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _risk_levelMeta = const VerificationMeta(
+    'risk_level',
+  );
+  @override
+  late final GeneratedColumn<String> risk_level = GeneratedColumn<String>(
+    'risk_level',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _created_atMeta = const VerificationMeta(
+    'created_at',
+  );
+  @override
+  late final GeneratedColumn<int> created_at = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updated_atMeta = const VerificationMeta(
+    'updated_at',
+  );
+  @override
+  late final GeneratedColumn<int> updated_at = GeneratedColumn<int>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deleted_atMeta = const VerificationMeta(
+    'deleted_at',
+  );
+  @override
+  late final GeneratedColumn<int> deleted_at = GeneratedColumn<int>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    content_type,
+    title,
+    subject_id,
+    category_id,
+    content,
+    my_answer,
+    standard_answer,
+    personal_note,
+    mastery_level,
+    is_mistake,
+    is_favorite,
+    difficulty,
+    risk_level,
+    created_at,
+    updated_at,
+    deleted_at,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'study_items';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<StudyItem> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('content_type')) {
+      context.handle(
+        _content_typeMeta,
+        content_type.isAcceptableOrUnknown(
+          data['content_type']!,
+          _content_typeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_content_typeMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    }
+    if (data.containsKey('subject_id')) {
+      context.handle(
+        _subject_idMeta,
+        subject_id.isAcceptableOrUnknown(data['subject_id']!, _subject_idMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_subject_idMeta);
+    }
+    if (data.containsKey('category_id')) {
+      context.handle(
+        _category_idMeta,
+        category_id.isAcceptableOrUnknown(
+          data['category_id']!,
+          _category_idMeta,
+        ),
+      );
+    }
+    if (data.containsKey('content')) {
+      context.handle(
+        _contentMeta,
+        content.isAcceptableOrUnknown(data['content']!, _contentMeta),
+      );
+    }
+    if (data.containsKey('my_answer')) {
+      context.handle(
+        _my_answerMeta,
+        my_answer.isAcceptableOrUnknown(data['my_answer']!, _my_answerMeta),
+      );
+    }
+    if (data.containsKey('standard_answer')) {
+      context.handle(
+        _standard_answerMeta,
+        standard_answer.isAcceptableOrUnknown(
+          data['standard_answer']!,
+          _standard_answerMeta,
+        ),
+      );
+    }
+    if (data.containsKey('personal_note')) {
+      context.handle(
+        _personal_noteMeta,
+        personal_note.isAcceptableOrUnknown(
+          data['personal_note']!,
+          _personal_noteMeta,
+        ),
+      );
+    }
+    if (data.containsKey('mastery_level')) {
+      context.handle(
+        _mastery_levelMeta,
+        mastery_level.isAcceptableOrUnknown(
+          data['mastery_level']!,
+          _mastery_levelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mastery_levelMeta);
+    }
+    if (data.containsKey('is_mistake')) {
+      context.handle(
+        _is_mistakeMeta,
+        is_mistake.isAcceptableOrUnknown(data['is_mistake']!, _is_mistakeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_is_mistakeMeta);
+    }
+    if (data.containsKey('is_favorite')) {
+      context.handle(
+        _is_favoriteMeta,
+        is_favorite.isAcceptableOrUnknown(
+          data['is_favorite']!,
+          _is_favoriteMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_is_favoriteMeta);
+    }
+    if (data.containsKey('difficulty')) {
+      context.handle(
+        _difficultyMeta,
+        difficulty.isAcceptableOrUnknown(data['difficulty']!, _difficultyMeta),
+      );
+    }
+    if (data.containsKey('risk_level')) {
+      context.handle(
+        _risk_levelMeta,
+        risk_level.isAcceptableOrUnknown(data['risk_level']!, _risk_levelMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _created_atMeta,
+        created_at.isAcceptableOrUnknown(data['created_at']!, _created_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_created_atMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updated_atMeta,
+        updated_at.isAcceptableOrUnknown(data['updated_at']!, _updated_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updated_atMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deleted_atMeta,
+        deleted_at.isAcceptableOrUnknown(data['deleted_at']!, _deleted_atMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  StudyItem map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return StudyItem(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      content_type: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}content_type'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      ),
+      subject_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}subject_id'],
+      )!,
+      category_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}category_id'],
+      ),
+      content: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}content'],
+      ),
+      my_answer: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}my_answer'],
+      ),
+      standard_answer: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}standard_answer'],
+      ),
+      personal_note: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}personal_note'],
+      ),
+      mastery_level: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}mastery_level'],
+      )!,
+      is_mistake: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_mistake'],
+      )!,
+      is_favorite: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_favorite'],
+      )!,
+      difficulty: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}difficulty'],
+      ),
+      risk_level: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}risk_level'],
+      ),
+      created_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updated_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deleted_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $StudyItemsTable createAlias(String alias) {
+    return $StudyItemsTable(attachedDatabase, alias);
+  }
+}
+
+class StudyItem extends DataClass implements Insertable<StudyItem> {
+  /// 学习内容ID，主键
+  final String id;
+
+  /// question / knowledge / note
+  final String content_type;
+
+  /// 标题
+  final String? title;
+
+  /// 所属学科
+  final String subject_id;
+
+  /// 所属分类
+  final String? category_id;
+
+  /// 正文内容
+  final String? content;
+
+  /// 我的解答
+  final String? my_answer;
+
+  /// 标准答案
+  final String? standard_answer;
+
+  /// 个人备注
+  final String? personal_note;
+
+  /// red / yellow / green
+  final String mastery_level;
+
+  /// 是否错题
+  final int is_mistake;
+
+  /// 是否收藏
+  final int is_favorite;
+
+  /// easy / medium / hard
+  final String? difficulty;
+
+  /// low / medium / high / very_high
+  final String? risk_level;
+
+  /// 创建时间，毫秒级时间戳
+  final int created_at;
+
+  /// 修改时间，毫秒级时间戳
+  final int updated_at;
+
+  /// 删除时间，毫秒级时间戳，未删除为空
+  final int? deleted_at;
+  const StudyItem({
+    required this.id,
+    required this.content_type,
+    this.title,
+    required this.subject_id,
+    this.category_id,
+    this.content,
+    this.my_answer,
+    this.standard_answer,
+    this.personal_note,
+    required this.mastery_level,
+    required this.is_mistake,
+    required this.is_favorite,
+    this.difficulty,
+    this.risk_level,
+    required this.created_at,
+    required this.updated_at,
+    this.deleted_at,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['content_type'] = Variable<String>(content_type);
+    if (!nullToAbsent || title != null) {
+      map['title'] = Variable<String>(title);
+    }
+    map['subject_id'] = Variable<String>(subject_id);
+    if (!nullToAbsent || category_id != null) {
+      map['category_id'] = Variable<String>(category_id);
+    }
+    if (!nullToAbsent || content != null) {
+      map['content'] = Variable<String>(content);
+    }
+    if (!nullToAbsent || my_answer != null) {
+      map['my_answer'] = Variable<String>(my_answer);
+    }
+    if (!nullToAbsent || standard_answer != null) {
+      map['standard_answer'] = Variable<String>(standard_answer);
+    }
+    if (!nullToAbsent || personal_note != null) {
+      map['personal_note'] = Variable<String>(personal_note);
+    }
+    map['mastery_level'] = Variable<String>(mastery_level);
+    map['is_mistake'] = Variable<int>(is_mistake);
+    map['is_favorite'] = Variable<int>(is_favorite);
+    if (!nullToAbsent || difficulty != null) {
+      map['difficulty'] = Variable<String>(difficulty);
+    }
+    if (!nullToAbsent || risk_level != null) {
+      map['risk_level'] = Variable<String>(risk_level);
+    }
+    map['created_at'] = Variable<int>(created_at);
+    map['updated_at'] = Variable<int>(updated_at);
+    if (!nullToAbsent || deleted_at != null) {
+      map['deleted_at'] = Variable<int>(deleted_at);
+    }
+    return map;
+  }
+
+  StudyItemsCompanion toCompanion(bool nullToAbsent) {
+    return StudyItemsCompanion(
+      id: Value(id),
+      content_type: Value(content_type),
+      title: title == null && nullToAbsent
+          ? const Value.absent()
+          : Value(title),
+      subject_id: Value(subject_id),
+      category_id: category_id == null && nullToAbsent
+          ? const Value.absent()
+          : Value(category_id),
+      content: content == null && nullToAbsent
+          ? const Value.absent()
+          : Value(content),
+      my_answer: my_answer == null && nullToAbsent
+          ? const Value.absent()
+          : Value(my_answer),
+      standard_answer: standard_answer == null && nullToAbsent
+          ? const Value.absent()
+          : Value(standard_answer),
+      personal_note: personal_note == null && nullToAbsent
+          ? const Value.absent()
+          : Value(personal_note),
+      mastery_level: Value(mastery_level),
+      is_mistake: Value(is_mistake),
+      is_favorite: Value(is_favorite),
+      difficulty: difficulty == null && nullToAbsent
+          ? const Value.absent()
+          : Value(difficulty),
+      risk_level: risk_level == null && nullToAbsent
+          ? const Value.absent()
+          : Value(risk_level),
+      created_at: Value(created_at),
+      updated_at: Value(updated_at),
+      deleted_at: deleted_at == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deleted_at),
+    );
+  }
+
+  factory StudyItem.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return StudyItem(
+      id: serializer.fromJson<String>(json['id']),
+      content_type: serializer.fromJson<String>(json['content_type']),
+      title: serializer.fromJson<String?>(json['title']),
+      subject_id: serializer.fromJson<String>(json['subject_id']),
+      category_id: serializer.fromJson<String?>(json['category_id']),
+      content: serializer.fromJson<String?>(json['content']),
+      my_answer: serializer.fromJson<String?>(json['my_answer']),
+      standard_answer: serializer.fromJson<String?>(json['standard_answer']),
+      personal_note: serializer.fromJson<String?>(json['personal_note']),
+      mastery_level: serializer.fromJson<String>(json['mastery_level']),
+      is_mistake: serializer.fromJson<int>(json['is_mistake']),
+      is_favorite: serializer.fromJson<int>(json['is_favorite']),
+      difficulty: serializer.fromJson<String?>(json['difficulty']),
+      risk_level: serializer.fromJson<String?>(json['risk_level']),
+      created_at: serializer.fromJson<int>(json['created_at']),
+      updated_at: serializer.fromJson<int>(json['updated_at']),
+      deleted_at: serializer.fromJson<int?>(json['deleted_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'content_type': serializer.toJson<String>(content_type),
+      'title': serializer.toJson<String?>(title),
+      'subject_id': serializer.toJson<String>(subject_id),
+      'category_id': serializer.toJson<String?>(category_id),
+      'content': serializer.toJson<String?>(content),
+      'my_answer': serializer.toJson<String?>(my_answer),
+      'standard_answer': serializer.toJson<String?>(standard_answer),
+      'personal_note': serializer.toJson<String?>(personal_note),
+      'mastery_level': serializer.toJson<String>(mastery_level),
+      'is_mistake': serializer.toJson<int>(is_mistake),
+      'is_favorite': serializer.toJson<int>(is_favorite),
+      'difficulty': serializer.toJson<String?>(difficulty),
+      'risk_level': serializer.toJson<String?>(risk_level),
+      'created_at': serializer.toJson<int>(created_at),
+      'updated_at': serializer.toJson<int>(updated_at),
+      'deleted_at': serializer.toJson<int?>(deleted_at),
+    };
+  }
+
+  StudyItem copyWith({
+    String? id,
+    String? content_type,
+    Value<String?> title = const Value.absent(),
+    String? subject_id,
+    Value<String?> category_id = const Value.absent(),
+    Value<String?> content = const Value.absent(),
+    Value<String?> my_answer = const Value.absent(),
+    Value<String?> standard_answer = const Value.absent(),
+    Value<String?> personal_note = const Value.absent(),
+    String? mastery_level,
+    int? is_mistake,
+    int? is_favorite,
+    Value<String?> difficulty = const Value.absent(),
+    Value<String?> risk_level = const Value.absent(),
+    int? created_at,
+    int? updated_at,
+    Value<int?> deleted_at = const Value.absent(),
+  }) => StudyItem(
+    id: id ?? this.id,
+    content_type: content_type ?? this.content_type,
+    title: title.present ? title.value : this.title,
+    subject_id: subject_id ?? this.subject_id,
+    category_id: category_id.present ? category_id.value : this.category_id,
+    content: content.present ? content.value : this.content,
+    my_answer: my_answer.present ? my_answer.value : this.my_answer,
+    standard_answer: standard_answer.present
+        ? standard_answer.value
+        : this.standard_answer,
+    personal_note: personal_note.present
+        ? personal_note.value
+        : this.personal_note,
+    mastery_level: mastery_level ?? this.mastery_level,
+    is_mistake: is_mistake ?? this.is_mistake,
+    is_favorite: is_favorite ?? this.is_favorite,
+    difficulty: difficulty.present ? difficulty.value : this.difficulty,
+    risk_level: risk_level.present ? risk_level.value : this.risk_level,
+    created_at: created_at ?? this.created_at,
+    updated_at: updated_at ?? this.updated_at,
+    deleted_at: deleted_at.present ? deleted_at.value : this.deleted_at,
+  );
+  StudyItem copyWithCompanion(StudyItemsCompanion data) {
+    return StudyItem(
+      id: data.id.present ? data.id.value : this.id,
+      content_type: data.content_type.present
+          ? data.content_type.value
+          : this.content_type,
+      title: data.title.present ? data.title.value : this.title,
+      subject_id: data.subject_id.present
+          ? data.subject_id.value
+          : this.subject_id,
+      category_id: data.category_id.present
+          ? data.category_id.value
+          : this.category_id,
+      content: data.content.present ? data.content.value : this.content,
+      my_answer: data.my_answer.present ? data.my_answer.value : this.my_answer,
+      standard_answer: data.standard_answer.present
+          ? data.standard_answer.value
+          : this.standard_answer,
+      personal_note: data.personal_note.present
+          ? data.personal_note.value
+          : this.personal_note,
+      mastery_level: data.mastery_level.present
+          ? data.mastery_level.value
+          : this.mastery_level,
+      is_mistake: data.is_mistake.present
+          ? data.is_mistake.value
+          : this.is_mistake,
+      is_favorite: data.is_favorite.present
+          ? data.is_favorite.value
+          : this.is_favorite,
+      difficulty: data.difficulty.present
+          ? data.difficulty.value
+          : this.difficulty,
+      risk_level: data.risk_level.present
+          ? data.risk_level.value
+          : this.risk_level,
+      created_at: data.created_at.present
+          ? data.created_at.value
+          : this.created_at,
+      updated_at: data.updated_at.present
+          ? data.updated_at.value
+          : this.updated_at,
+      deleted_at: data.deleted_at.present
+          ? data.deleted_at.value
+          : this.deleted_at,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StudyItem(')
+          ..write('id: $id, ')
+          ..write('content_type: $content_type, ')
+          ..write('title: $title, ')
+          ..write('subject_id: $subject_id, ')
+          ..write('category_id: $category_id, ')
+          ..write('content: $content, ')
+          ..write('my_answer: $my_answer, ')
+          ..write('standard_answer: $standard_answer, ')
+          ..write('personal_note: $personal_note, ')
+          ..write('mastery_level: $mastery_level, ')
+          ..write('is_mistake: $is_mistake, ')
+          ..write('is_favorite: $is_favorite, ')
+          ..write('difficulty: $difficulty, ')
+          ..write('risk_level: $risk_level, ')
+          ..write('created_at: $created_at, ')
+          ..write('updated_at: $updated_at, ')
+          ..write('deleted_at: $deleted_at')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    content_type,
+    title,
+    subject_id,
+    category_id,
+    content,
+    my_answer,
+    standard_answer,
+    personal_note,
+    mastery_level,
+    is_mistake,
+    is_favorite,
+    difficulty,
+    risk_level,
+    created_at,
+    updated_at,
+    deleted_at,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is StudyItem &&
+          other.id == this.id &&
+          other.content_type == this.content_type &&
+          other.title == this.title &&
+          other.subject_id == this.subject_id &&
+          other.category_id == this.category_id &&
+          other.content == this.content &&
+          other.my_answer == this.my_answer &&
+          other.standard_answer == this.standard_answer &&
+          other.personal_note == this.personal_note &&
+          other.mastery_level == this.mastery_level &&
+          other.is_mistake == this.is_mistake &&
+          other.is_favorite == this.is_favorite &&
+          other.difficulty == this.difficulty &&
+          other.risk_level == this.risk_level &&
+          other.created_at == this.created_at &&
+          other.updated_at == this.updated_at &&
+          other.deleted_at == this.deleted_at);
+}
+
+class StudyItemsCompanion extends UpdateCompanion<StudyItem> {
+  final Value<String> id;
+  final Value<String> content_type;
+  final Value<String?> title;
+  final Value<String> subject_id;
+  final Value<String?> category_id;
+  final Value<String?> content;
+  final Value<String?> my_answer;
+  final Value<String?> standard_answer;
+  final Value<String?> personal_note;
+  final Value<String> mastery_level;
+  final Value<int> is_mistake;
+  final Value<int> is_favorite;
+  final Value<String?> difficulty;
+  final Value<String?> risk_level;
+  final Value<int> created_at;
+  final Value<int> updated_at;
+  final Value<int?> deleted_at;
+  final Value<int> rowid;
+  const StudyItemsCompanion({
+    this.id = const Value.absent(),
+    this.content_type = const Value.absent(),
+    this.title = const Value.absent(),
+    this.subject_id = const Value.absent(),
+    this.category_id = const Value.absent(),
+    this.content = const Value.absent(),
+    this.my_answer = const Value.absent(),
+    this.standard_answer = const Value.absent(),
+    this.personal_note = const Value.absent(),
+    this.mastery_level = const Value.absent(),
+    this.is_mistake = const Value.absent(),
+    this.is_favorite = const Value.absent(),
+    this.difficulty = const Value.absent(),
+    this.risk_level = const Value.absent(),
+    this.created_at = const Value.absent(),
+    this.updated_at = const Value.absent(),
+    this.deleted_at = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  StudyItemsCompanion.insert({
+    required String id,
+    required String content_type,
+    this.title = const Value.absent(),
+    required String subject_id,
+    this.category_id = const Value.absent(),
+    this.content = const Value.absent(),
+    this.my_answer = const Value.absent(),
+    this.standard_answer = const Value.absent(),
+    this.personal_note = const Value.absent(),
+    required String mastery_level,
+    required int is_mistake,
+    required int is_favorite,
+    this.difficulty = const Value.absent(),
+    this.risk_level = const Value.absent(),
+    required int created_at,
+    required int updated_at,
+    this.deleted_at = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       content_type = Value(content_type),
+       subject_id = Value(subject_id),
+       mastery_level = Value(mastery_level),
+       is_mistake = Value(is_mistake),
+       is_favorite = Value(is_favorite),
+       created_at = Value(created_at),
+       updated_at = Value(updated_at);
+  static Insertable<StudyItem> custom({
+    Expression<String>? id,
+    Expression<String>? content_type,
+    Expression<String>? title,
+    Expression<String>? subject_id,
+    Expression<String>? category_id,
+    Expression<String>? content,
+    Expression<String>? my_answer,
+    Expression<String>? standard_answer,
+    Expression<String>? personal_note,
+    Expression<String>? mastery_level,
+    Expression<int>? is_mistake,
+    Expression<int>? is_favorite,
+    Expression<String>? difficulty,
+    Expression<String>? risk_level,
+    Expression<int>? created_at,
+    Expression<int>? updated_at,
+    Expression<int>? deleted_at,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (content_type != null) 'content_type': content_type,
+      if (title != null) 'title': title,
+      if (subject_id != null) 'subject_id': subject_id,
+      if (category_id != null) 'category_id': category_id,
+      if (content != null) 'content': content,
+      if (my_answer != null) 'my_answer': my_answer,
+      if (standard_answer != null) 'standard_answer': standard_answer,
+      if (personal_note != null) 'personal_note': personal_note,
+      if (mastery_level != null) 'mastery_level': mastery_level,
+      if (is_mistake != null) 'is_mistake': is_mistake,
+      if (is_favorite != null) 'is_favorite': is_favorite,
+      if (difficulty != null) 'difficulty': difficulty,
+      if (risk_level != null) 'risk_level': risk_level,
+      if (created_at != null) 'created_at': created_at,
+      if (updated_at != null) 'updated_at': updated_at,
+      if (deleted_at != null) 'deleted_at': deleted_at,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  StudyItemsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? content_type,
+    Value<String?>? title,
+    Value<String>? subject_id,
+    Value<String?>? category_id,
+    Value<String?>? content,
+    Value<String?>? my_answer,
+    Value<String?>? standard_answer,
+    Value<String?>? personal_note,
+    Value<String>? mastery_level,
+    Value<int>? is_mistake,
+    Value<int>? is_favorite,
+    Value<String?>? difficulty,
+    Value<String?>? risk_level,
+    Value<int>? created_at,
+    Value<int>? updated_at,
+    Value<int?>? deleted_at,
+    Value<int>? rowid,
+  }) {
+    return StudyItemsCompanion(
+      id: id ?? this.id,
+      content_type: content_type ?? this.content_type,
+      title: title ?? this.title,
+      subject_id: subject_id ?? this.subject_id,
+      category_id: category_id ?? this.category_id,
+      content: content ?? this.content,
+      my_answer: my_answer ?? this.my_answer,
+      standard_answer: standard_answer ?? this.standard_answer,
+      personal_note: personal_note ?? this.personal_note,
+      mastery_level: mastery_level ?? this.mastery_level,
+      is_mistake: is_mistake ?? this.is_mistake,
+      is_favorite: is_favorite ?? this.is_favorite,
+      difficulty: difficulty ?? this.difficulty,
+      risk_level: risk_level ?? this.risk_level,
+      created_at: created_at ?? this.created_at,
+      updated_at: updated_at ?? this.updated_at,
+      deleted_at: deleted_at ?? this.deleted_at,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (content_type.present) {
+      map['content_type'] = Variable<String>(content_type.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (subject_id.present) {
+      map['subject_id'] = Variable<String>(subject_id.value);
+    }
+    if (category_id.present) {
+      map['category_id'] = Variable<String>(category_id.value);
+    }
+    if (content.present) {
+      map['content'] = Variable<String>(content.value);
+    }
+    if (my_answer.present) {
+      map['my_answer'] = Variable<String>(my_answer.value);
+    }
+    if (standard_answer.present) {
+      map['standard_answer'] = Variable<String>(standard_answer.value);
+    }
+    if (personal_note.present) {
+      map['personal_note'] = Variable<String>(personal_note.value);
+    }
+    if (mastery_level.present) {
+      map['mastery_level'] = Variable<String>(mastery_level.value);
+    }
+    if (is_mistake.present) {
+      map['is_mistake'] = Variable<int>(is_mistake.value);
+    }
+    if (is_favorite.present) {
+      map['is_favorite'] = Variable<int>(is_favorite.value);
+    }
+    if (difficulty.present) {
+      map['difficulty'] = Variable<String>(difficulty.value);
+    }
+    if (risk_level.present) {
+      map['risk_level'] = Variable<String>(risk_level.value);
+    }
+    if (created_at.present) {
+      map['created_at'] = Variable<int>(created_at.value);
+    }
+    if (updated_at.present) {
+      map['updated_at'] = Variable<int>(updated_at.value);
+    }
+    if (deleted_at.present) {
+      map['deleted_at'] = Variable<int>(deleted_at.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StudyItemsCompanion(')
+          ..write('id: $id, ')
+          ..write('content_type: $content_type, ')
+          ..write('title: $title, ')
+          ..write('subject_id: $subject_id, ')
+          ..write('category_id: $category_id, ')
+          ..write('content: $content, ')
+          ..write('my_answer: $my_answer, ')
+          ..write('standard_answer: $standard_answer, ')
+          ..write('personal_note: $personal_note, ')
+          ..write('mastery_level: $mastery_level, ')
+          ..write('is_mistake: $is_mistake, ')
+          ..write('is_favorite: $is_favorite, ')
+          ..write('difficulty: $difficulty, ')
+          ..write('risk_level: $risk_level, ')
+          ..write('created_at: $created_at, ')
+          ..write('updated_at: $updated_at, ')
+          ..write('deleted_at: $deleted_at, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
   late final $SubjectsTable subjects = $SubjectsTable(this);
+  late final $StudyItemsTable studyItems = $StudyItemsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities => [subjects];
+  List<DatabaseSchemaEntity> get allSchemaEntities => [subjects, studyItems];
 }
 
 typedef $$SubjectsTableCreateCompanionBuilder = SubjectsCompanion Function({
@@ -747,10 +1780,470 @@ typedef $$SubjectsTableProcessedTableManager =
       Subject,
       PrefetchHooks Function()
     >;
+typedef $$StudyItemsTableCreateCompanionBuilder = StudyItemsCompanion Function({
+  required String id,
+  required String content_type,
+  Value<String?> title,
+  required String subject_id,
+  Value<String?> category_id,
+  Value<String?> content,
+  Value<String?> my_answer,
+  Value<String?> standard_answer,
+  Value<String?> personal_note,
+  required String mastery_level,
+  required int is_mistake,
+  required int is_favorite,
+  Value<String?> difficulty,
+  Value<String?> risk_level,
+  required int created_at,
+  required int updated_at,
+  Value<int?> deleted_at,
+  Value<int> rowid,
+});
+typedef $$StudyItemsTableUpdateCompanionBuilder = StudyItemsCompanion Function({
+  Value<String> id,
+  Value<String> content_type,
+  Value<String?> title,
+  Value<String> subject_id,
+  Value<String?> category_id,
+  Value<String?> content,
+  Value<String?> my_answer,
+  Value<String?> standard_answer,
+  Value<String?> personal_note,
+  Value<String> mastery_level,
+  Value<int> is_mistake,
+  Value<int> is_favorite,
+  Value<String?> difficulty,
+  Value<String?> risk_level,
+  Value<int> created_at,
+  Value<int> updated_at,
+  Value<int?> deleted_at,
+  Value<int> rowid,
+});
+
+class $$StudyItemsTableFilterComposer
+    extends Composer<_$AppDatabase, $StudyItemsTable> {
+  $$StudyItemsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get content_type => $composableBuilder(
+    column: $table.content_type,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get subject_id => $composableBuilder(
+    column: $table.subject_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get category_id => $composableBuilder(
+    column: $table.category_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get content => $composableBuilder(
+    column: $table.content,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get my_answer => $composableBuilder(
+    column: $table.my_answer,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get standard_answer => $composableBuilder(
+    column: $table.standard_answer,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get personal_note => $composableBuilder(
+    column: $table.personal_note,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get mastery_level => $composableBuilder(
+    column: $table.mastery_level,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get is_mistake => $composableBuilder(
+    column: $table.is_mistake,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get is_favorite => $composableBuilder(
+    column: $table.is_favorite,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get risk_level => $composableBuilder(
+    column: $table.risk_level,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get deleted_at => $composableBuilder(
+    column: $table.deleted_at,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$StudyItemsTableOrderingComposer
+    extends Composer<_$AppDatabase, $StudyItemsTable> {
+  $$StudyItemsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get content_type => $composableBuilder(
+    column: $table.content_type,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get subject_id => $composableBuilder(
+    column: $table.subject_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get category_id => $composableBuilder(
+    column: $table.category_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get content => $composableBuilder(
+    column: $table.content,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get my_answer => $composableBuilder(
+    column: $table.my_answer,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get standard_answer => $composableBuilder(
+    column: $table.standard_answer,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get personal_note => $composableBuilder(
+    column: $table.personal_note,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get mastery_level => $composableBuilder(
+    column: $table.mastery_level,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get is_mistake => $composableBuilder(
+    column: $table.is_mistake,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get is_favorite => $composableBuilder(
+    column: $table.is_favorite,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get risk_level => $composableBuilder(
+    column: $table.risk_level,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get deleted_at => $composableBuilder(
+    column: $table.deleted_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$StudyItemsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $StudyItemsTable> {
+  $$StudyItemsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get content_type => $composableBuilder(
+    column: $table.content_type,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get subject_id => $composableBuilder(
+    column: $table.subject_id,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get category_id => $composableBuilder(
+    column: $table.category_id,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get content =>
+      $composableBuilder(column: $table.content, builder: (column) => column);
+
+  GeneratedColumn<String> get my_answer =>
+      $composableBuilder(column: $table.my_answer, builder: (column) => column);
+
+  GeneratedColumn<String> get standard_answer => $composableBuilder(
+    column: $table.standard_answer,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get personal_note => $composableBuilder(
+    column: $table.personal_note,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get mastery_level => $composableBuilder(
+    column: $table.mastery_level,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get is_mistake => $composableBuilder(
+    column: $table.is_mistake,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get is_favorite => $composableBuilder(
+    column: $table.is_favorite,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get risk_level => $composableBuilder(
+    column: $table.risk_level,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get deleted_at => $composableBuilder(
+    column: $table.deleted_at,
+    builder: (column) => column,
+  );
+}
+
+class $$StudyItemsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $StudyItemsTable,
+          StudyItem,
+          $$StudyItemsTableFilterComposer,
+          $$StudyItemsTableOrderingComposer,
+          $$StudyItemsTableAnnotationComposer,
+          $$StudyItemsTableCreateCompanionBuilder,
+          $$StudyItemsTableUpdateCompanionBuilder,
+          (
+            StudyItem,
+            BaseReferences<_$AppDatabase, $StudyItemsTable, StudyItem>,
+          ),
+          StudyItem,
+          PrefetchHooks Function()
+        > {
+  $$StudyItemsTableTableManager(_$AppDatabase db, $StudyItemsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$StudyItemsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$StudyItemsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$StudyItemsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> content_type = const Value.absent(),
+                Value<String?> title = const Value.absent(),
+                Value<String> subject_id = const Value.absent(),
+                Value<String?> category_id = const Value.absent(),
+                Value<String?> content = const Value.absent(),
+                Value<String?> my_answer = const Value.absent(),
+                Value<String?> standard_answer = const Value.absent(),
+                Value<String?> personal_note = const Value.absent(),
+                Value<String> mastery_level = const Value.absent(),
+                Value<int> is_mistake = const Value.absent(),
+                Value<int> is_favorite = const Value.absent(),
+                Value<String?> difficulty = const Value.absent(),
+                Value<String?> risk_level = const Value.absent(),
+                Value<int> created_at = const Value.absent(),
+                Value<int> updated_at = const Value.absent(),
+                Value<int?> deleted_at = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => StudyItemsCompanion(
+                id: id,
+                content_type: content_type,
+                title: title,
+                subject_id: subject_id,
+                category_id: category_id,
+                content: content,
+                my_answer: my_answer,
+                standard_answer: standard_answer,
+                personal_note: personal_note,
+                mastery_level: mastery_level,
+                is_mistake: is_mistake,
+                is_favorite: is_favorite,
+                difficulty: difficulty,
+                risk_level: risk_level,
+                created_at: created_at,
+                updated_at: updated_at,
+                deleted_at: deleted_at,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String content_type,
+                Value<String?> title = const Value.absent(),
+                required String subject_id,
+                Value<String?> category_id = const Value.absent(),
+                Value<String?> content = const Value.absent(),
+                Value<String?> my_answer = const Value.absent(),
+                Value<String?> standard_answer = const Value.absent(),
+                Value<String?> personal_note = const Value.absent(),
+                required String mastery_level,
+                required int is_mistake,
+                required int is_favorite,
+                Value<String?> difficulty = const Value.absent(),
+                Value<String?> risk_level = const Value.absent(),
+                required int created_at,
+                required int updated_at,
+                Value<int?> deleted_at = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => StudyItemsCompanion.insert(
+                id: id,
+                content_type: content_type,
+                title: title,
+                subject_id: subject_id,
+                category_id: category_id,
+                content: content,
+                my_answer: my_answer,
+                standard_answer: standard_answer,
+                personal_note: personal_note,
+                mastery_level: mastery_level,
+                is_mistake: is_mistake,
+                is_favorite: is_favorite,
+                difficulty: difficulty,
+                risk_level: risk_level,
+                created_at: created_at,
+                updated_at: updated_at,
+                deleted_at: deleted_at,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$StudyItemsTable, StudyItem>(table),
+                  BaseReferences<_$AppDatabase, $StudyItemsTable, StudyItem>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$StudyItemsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $StudyItemsTable,
+      StudyItem,
+      $$StudyItemsTableFilterComposer,
+      $$StudyItemsTableOrderingComposer,
+      $$StudyItemsTableAnnotationComposer,
+      $$StudyItemsTableCreateCompanionBuilder,
+      $$StudyItemsTableUpdateCompanionBuilder,
+      (StudyItem, BaseReferences<_$AppDatabase, $StudyItemsTable, StudyItem>),
+      StudyItem,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
   $AppDatabaseManager(this._db);
   $$SubjectsTableTableManager get subjects =>
       $$SubjectsTableTableManager(_db, _db.subjects);
+  $$StudyItemsTableTableManager get studyItems =>
+      $$StudyItemsTableTableManager(_db, _db.studyItems);
 }

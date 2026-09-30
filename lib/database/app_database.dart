@@ -4,6 +4,7 @@ import 'package:drift_flutter/drift_flutter.dart';
 import 'tables/categories.dart';
 import 'tables/fsrs_cards.dart';
 import 'tables/images.dart';
+import 'tables/mistake_records.dart';
 import 'tables/review_records.dart';
 import 'tables/study_item_tags.dart';
 import 'tables/study_items.dart';
@@ -30,20 +31,21 @@ const String _databaseName = 'kaoyan_review_app';
     StudyItemTags,
     FsrsCards,
     ReviewRecords,
+    MistakeRecords,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(driftDatabase(name: _databaseName));
 
   @override
-  int get schemaVersion => 8;
+  int get schemaVersion => 9;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
     onCreate: (Migrator m) async {
       // 全新安装：一次性创建当前 schemaVersion 对应的全部表
       // （subjects、study_items、categories、images、tags、study_item_tags、
-      // fsrs_cards、review_records）。
+      // fsrs_cards、review_records、mistake_records）。
       await m.createAll();
     },
     onUpgrade: (Migrator m, int from, int to) async {
@@ -82,6 +84,12 @@ class AppDatabase extends _$AppDatabase {
       // 不删除任何已有表，不重建数据库。
       if (from < 8) {
         await m.createTable(reviewRecords);
+      }
+      // v8 -> v9：仅新增 mistake_records 表，保留 subjects、study_items、
+      // categories、images、tags、study_item_tags、fsrs_cards、review_records
+      // 及其已有数据。不删除任何已有表，不重建数据库。
+      if (from < 9) {
+        await m.createTable(mistakeRecords);
       }
     },
   );

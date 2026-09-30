@@ -4655,6 +4655,568 @@ class ReviewRecordsCompanion extends UpdateCompanion<ReviewRecord> {
   }
 }
 
+class $MistakeRecordsTable extends MistakeRecords
+    with TableInfo<$MistakeRecordsTable, MistakeRecord> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MistakeRecordsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _study_item_idMeta = const VerificationMeta(
+    'study_item_id',
+  );
+  @override
+  late final GeneratedColumn<String> study_item_id = GeneratedColumn<String>(
+    'study_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _first_marked_atMeta = const VerificationMeta(
+    'first_marked_at',
+  );
+  @override
+  late final GeneratedColumn<int> first_marked_at = GeneratedColumn<int>(
+    'first_marked_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _last_error_atMeta = const VerificationMeta(
+    'last_error_at',
+  );
+  @override
+  late final GeneratedColumn<int> last_error_at = GeneratedColumn<int>(
+    'last_error_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _error_countMeta = const VerificationMeta(
+    'error_count',
+  );
+  @override
+  late final GeneratedColumn<int> error_count = GeneratedColumn<int>(
+    'error_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _last_error_reasonMeta = const VerificationMeta(
+    'last_error_reason',
+  );
+  @override
+  late final GeneratedColumn<String> last_error_reason =
+      GeneratedColumn<String>(
+        'last_error_reason',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _created_atMeta = const VerificationMeta(
+    'created_at',
+  );
+  @override
+  late final GeneratedColumn<int> created_at = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updated_atMeta = const VerificationMeta(
+    'updated_at',
+  );
+  @override
+  late final GeneratedColumn<int> updated_at = GeneratedColumn<int>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    study_item_id,
+    first_marked_at,
+    last_error_at,
+    error_count,
+    last_error_reason,
+    created_at,
+    updated_at,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'mistake_records';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MistakeRecord> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('study_item_id')) {
+      context.handle(
+        _study_item_idMeta,
+        study_item_id.isAcceptableOrUnknown(
+          data['study_item_id']!,
+          _study_item_idMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_study_item_idMeta);
+    }
+    if (data.containsKey('first_marked_at')) {
+      context.handle(
+        _first_marked_atMeta,
+        first_marked_at.isAcceptableOrUnknown(
+          data['first_marked_at']!,
+          _first_marked_atMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_first_marked_atMeta);
+    }
+    if (data.containsKey('last_error_at')) {
+      context.handle(
+        _last_error_atMeta,
+        last_error_at.isAcceptableOrUnknown(
+          data['last_error_at']!,
+          _last_error_atMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_last_error_atMeta);
+    }
+    if (data.containsKey('error_count')) {
+      context.handle(
+        _error_countMeta,
+        error_count.isAcceptableOrUnknown(
+          data['error_count']!,
+          _error_countMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_error_countMeta);
+    }
+    if (data.containsKey('last_error_reason')) {
+      context.handle(
+        _last_error_reasonMeta,
+        last_error_reason.isAcceptableOrUnknown(
+          data['last_error_reason']!,
+          _last_error_reasonMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _created_atMeta,
+        created_at.isAcceptableOrUnknown(data['created_at']!, _created_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_created_atMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updated_atMeta,
+        updated_at.isAcceptableOrUnknown(data['updated_at']!, _updated_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updated_atMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MistakeRecord map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MistakeRecord(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      study_item_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}study_item_id'],
+      )!,
+      first_marked_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}first_marked_at'],
+      )!,
+      last_error_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}last_error_at'],
+      )!,
+      error_count: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}error_count'],
+      )!,
+      last_error_reason: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}last_error_reason'],
+      ),
+      created_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updated_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  $MistakeRecordsTable createAlias(String alias) {
+    return $MistakeRecordsTable(attachedDatabase, alias);
+  }
+}
+
+class MistakeRecord extends DataClass implements Insertable<MistakeRecord> {
+  /// 错题记录ID，主键
+  final String id;
+
+  /// 学习内容ID
+  final String study_item_id;
+
+  /// 首次标记时间，毫秒级时间戳
+  final int first_marked_at;
+
+  /// 最近错误时间，毫秒级时间戳
+  final int last_error_at;
+
+  /// 历史错误次数
+  final int error_count;
+
+  /// 最近错误原因摘要；尚未填写过错误原因时为空
+  final String? last_error_reason;
+
+  /// 创建时间，毫秒级时间戳
+  final int created_at;
+
+  /// 修改时间，毫秒级时间戳
+  final int updated_at;
+  const MistakeRecord({
+    required this.id,
+    required this.study_item_id,
+    required this.first_marked_at,
+    required this.last_error_at,
+    required this.error_count,
+    this.last_error_reason,
+    required this.created_at,
+    required this.updated_at,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['study_item_id'] = Variable<String>(study_item_id);
+    map['first_marked_at'] = Variable<int>(first_marked_at);
+    map['last_error_at'] = Variable<int>(last_error_at);
+    map['error_count'] = Variable<int>(error_count);
+    if (!nullToAbsent || last_error_reason != null) {
+      map['last_error_reason'] = Variable<String>(last_error_reason);
+    }
+    map['created_at'] = Variable<int>(created_at);
+    map['updated_at'] = Variable<int>(updated_at);
+    return map;
+  }
+
+  MistakeRecordsCompanion toCompanion(bool nullToAbsent) {
+    return MistakeRecordsCompanion(
+      id: Value(id),
+      study_item_id: Value(study_item_id),
+      first_marked_at: Value(first_marked_at),
+      last_error_at: Value(last_error_at),
+      error_count: Value(error_count),
+      last_error_reason: last_error_reason == null && nullToAbsent
+          ? const Value.absent()
+          : Value(last_error_reason),
+      created_at: Value(created_at),
+      updated_at: Value(updated_at),
+    );
+  }
+
+  factory MistakeRecord.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MistakeRecord(
+      id: serializer.fromJson<String>(json['id']),
+      study_item_id: serializer.fromJson<String>(json['study_item_id']),
+      first_marked_at: serializer.fromJson<int>(json['first_marked_at']),
+      last_error_at: serializer.fromJson<int>(json['last_error_at']),
+      error_count: serializer.fromJson<int>(json['error_count']),
+      last_error_reason: serializer.fromJson<String?>(
+        json['last_error_reason'],
+      ),
+      created_at: serializer.fromJson<int>(json['created_at']),
+      updated_at: serializer.fromJson<int>(json['updated_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'study_item_id': serializer.toJson<String>(study_item_id),
+      'first_marked_at': serializer.toJson<int>(first_marked_at),
+      'last_error_at': serializer.toJson<int>(last_error_at),
+      'error_count': serializer.toJson<int>(error_count),
+      'last_error_reason': serializer.toJson<String?>(last_error_reason),
+      'created_at': serializer.toJson<int>(created_at),
+      'updated_at': serializer.toJson<int>(updated_at),
+    };
+  }
+
+  MistakeRecord copyWith({
+    String? id,
+    String? study_item_id,
+    int? first_marked_at,
+    int? last_error_at,
+    int? error_count,
+    Value<String?> last_error_reason = const Value.absent(),
+    int? created_at,
+    int? updated_at,
+  }) => MistakeRecord(
+    id: id ?? this.id,
+    study_item_id: study_item_id ?? this.study_item_id,
+    first_marked_at: first_marked_at ?? this.first_marked_at,
+    last_error_at: last_error_at ?? this.last_error_at,
+    error_count: error_count ?? this.error_count,
+    last_error_reason: last_error_reason.present
+        ? last_error_reason.value
+        : this.last_error_reason,
+    created_at: created_at ?? this.created_at,
+    updated_at: updated_at ?? this.updated_at,
+  );
+  MistakeRecord copyWithCompanion(MistakeRecordsCompanion data) {
+    return MistakeRecord(
+      id: data.id.present ? data.id.value : this.id,
+      study_item_id: data.study_item_id.present
+          ? data.study_item_id.value
+          : this.study_item_id,
+      first_marked_at: data.first_marked_at.present
+          ? data.first_marked_at.value
+          : this.first_marked_at,
+      last_error_at: data.last_error_at.present
+          ? data.last_error_at.value
+          : this.last_error_at,
+      error_count: data.error_count.present
+          ? data.error_count.value
+          : this.error_count,
+      last_error_reason: data.last_error_reason.present
+          ? data.last_error_reason.value
+          : this.last_error_reason,
+      created_at: data.created_at.present
+          ? data.created_at.value
+          : this.created_at,
+      updated_at: data.updated_at.present
+          ? data.updated_at.value
+          : this.updated_at,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MistakeRecord(')
+          ..write('id: $id, ')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('first_marked_at: $first_marked_at, ')
+          ..write('last_error_at: $last_error_at, ')
+          ..write('error_count: $error_count, ')
+          ..write('last_error_reason: $last_error_reason, ')
+          ..write('created_at: $created_at, ')
+          ..write('updated_at: $updated_at')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    study_item_id,
+    first_marked_at,
+    last_error_at,
+    error_count,
+    last_error_reason,
+    created_at,
+    updated_at,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MistakeRecord &&
+          other.id == this.id &&
+          other.study_item_id == this.study_item_id &&
+          other.first_marked_at == this.first_marked_at &&
+          other.last_error_at == this.last_error_at &&
+          other.error_count == this.error_count &&
+          other.last_error_reason == this.last_error_reason &&
+          other.created_at == this.created_at &&
+          other.updated_at == this.updated_at);
+}
+
+class MistakeRecordsCompanion extends UpdateCompanion<MistakeRecord> {
+  final Value<String> id;
+  final Value<String> study_item_id;
+  final Value<int> first_marked_at;
+  final Value<int> last_error_at;
+  final Value<int> error_count;
+  final Value<String?> last_error_reason;
+  final Value<int> created_at;
+  final Value<int> updated_at;
+  final Value<int> rowid;
+  const MistakeRecordsCompanion({
+    this.id = const Value.absent(),
+    this.study_item_id = const Value.absent(),
+    this.first_marked_at = const Value.absent(),
+    this.last_error_at = const Value.absent(),
+    this.error_count = const Value.absent(),
+    this.last_error_reason = const Value.absent(),
+    this.created_at = const Value.absent(),
+    this.updated_at = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  MistakeRecordsCompanion.insert({
+    required String id,
+    required String study_item_id,
+    required int first_marked_at,
+    required int last_error_at,
+    required int error_count,
+    this.last_error_reason = const Value.absent(),
+    required int created_at,
+    required int updated_at,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       study_item_id = Value(study_item_id),
+       first_marked_at = Value(first_marked_at),
+       last_error_at = Value(last_error_at),
+       error_count = Value(error_count),
+       created_at = Value(created_at),
+       updated_at = Value(updated_at);
+  static Insertable<MistakeRecord> custom({
+    Expression<String>? id,
+    Expression<String>? study_item_id,
+    Expression<int>? first_marked_at,
+    Expression<int>? last_error_at,
+    Expression<int>? error_count,
+    Expression<String>? last_error_reason,
+    Expression<int>? created_at,
+    Expression<int>? updated_at,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (study_item_id != null) 'study_item_id': study_item_id,
+      if (first_marked_at != null) 'first_marked_at': first_marked_at,
+      if (last_error_at != null) 'last_error_at': last_error_at,
+      if (error_count != null) 'error_count': error_count,
+      if (last_error_reason != null) 'last_error_reason': last_error_reason,
+      if (created_at != null) 'created_at': created_at,
+      if (updated_at != null) 'updated_at': updated_at,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  MistakeRecordsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? study_item_id,
+    Value<int>? first_marked_at,
+    Value<int>? last_error_at,
+    Value<int>? error_count,
+    Value<String?>? last_error_reason,
+    Value<int>? created_at,
+    Value<int>? updated_at,
+    Value<int>? rowid,
+  }) {
+    return MistakeRecordsCompanion(
+      id: id ?? this.id,
+      study_item_id: study_item_id ?? this.study_item_id,
+      first_marked_at: first_marked_at ?? this.first_marked_at,
+      last_error_at: last_error_at ?? this.last_error_at,
+      error_count: error_count ?? this.error_count,
+      last_error_reason: last_error_reason ?? this.last_error_reason,
+      created_at: created_at ?? this.created_at,
+      updated_at: updated_at ?? this.updated_at,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (study_item_id.present) {
+      map['study_item_id'] = Variable<String>(study_item_id.value);
+    }
+    if (first_marked_at.present) {
+      map['first_marked_at'] = Variable<int>(first_marked_at.value);
+    }
+    if (last_error_at.present) {
+      map['last_error_at'] = Variable<int>(last_error_at.value);
+    }
+    if (error_count.present) {
+      map['error_count'] = Variable<int>(error_count.value);
+    }
+    if (last_error_reason.present) {
+      map['last_error_reason'] = Variable<String>(last_error_reason.value);
+    }
+    if (created_at.present) {
+      map['created_at'] = Variable<int>(created_at.value);
+    }
+    if (updated_at.present) {
+      map['updated_at'] = Variable<int>(updated_at.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MistakeRecordsCompanion(')
+          ..write('id: $id, ')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('first_marked_at: $first_marked_at, ')
+          ..write('last_error_at: $last_error_at, ')
+          ..write('error_count: $error_count, ')
+          ..write('last_error_reason: $last_error_reason, ')
+          ..write('created_at: $created_at, ')
+          ..write('updated_at: $updated_at, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -4666,6 +5228,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $StudyItemTagsTable studyItemTags = $StudyItemTagsTable(this);
   late final $FsrsCardsTable fsrsCards = $FsrsCardsTable(this);
   late final $ReviewRecordsTable reviewRecords = $ReviewRecordsTable(this);
+  late final $MistakeRecordsTable mistakeRecords = $MistakeRecordsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -4679,6 +5242,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     studyItemTags,
     fsrsCards,
     reviewRecords,
+    mistakeRecords,
   ];
 }
 
@@ -6982,6 +7546,288 @@ typedef $$ReviewRecordsTableProcessedTableManager =
       ReviewRecord,
       PrefetchHooks Function()
     >;
+typedef $$MistakeRecordsTableCreateCompanionBuilder =
+    MistakeRecordsCompanion Function({
+      required String id,
+      required String study_item_id,
+      required int first_marked_at,
+      required int last_error_at,
+      required int error_count,
+      Value<String?> last_error_reason,
+      required int created_at,
+      required int updated_at,
+      Value<int> rowid,
+    });
+typedef $$MistakeRecordsTableUpdateCompanionBuilder =
+    MistakeRecordsCompanion Function({
+      Value<String> id,
+      Value<String> study_item_id,
+      Value<int> first_marked_at,
+      Value<int> last_error_at,
+      Value<int> error_count,
+      Value<String?> last_error_reason,
+      Value<int> created_at,
+      Value<int> updated_at,
+      Value<int> rowid,
+    });
+
+class $$MistakeRecordsTableFilterComposer
+    extends Composer<_$AppDatabase, $MistakeRecordsTable> {
+  $$MistakeRecordsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get first_marked_at => $composableBuilder(
+    column: $table.first_marked_at,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get last_error_at => $composableBuilder(
+    column: $table.last_error_at,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get error_count => $composableBuilder(
+    column: $table.error_count,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get last_error_reason => $composableBuilder(
+    column: $table.last_error_reason,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$MistakeRecordsTableOrderingComposer
+    extends Composer<_$AppDatabase, $MistakeRecordsTable> {
+  $$MistakeRecordsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get first_marked_at => $composableBuilder(
+    column: $table.first_marked_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get last_error_at => $composableBuilder(
+    column: $table.last_error_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get error_count => $composableBuilder(
+    column: $table.error_count,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get last_error_reason => $composableBuilder(
+    column: $table.last_error_reason,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$MistakeRecordsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MistakeRecordsTable> {
+  $$MistakeRecordsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get first_marked_at => $composableBuilder(
+    column: $table.first_marked_at,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get last_error_at => $composableBuilder(
+    column: $table.last_error_at,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get error_count => $composableBuilder(
+    column: $table.error_count,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get last_error_reason => $composableBuilder(
+    column: $table.last_error_reason,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => column,
+  );
+}
+
+class $$MistakeRecordsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $MistakeRecordsTable,
+          MistakeRecord,
+          $$MistakeRecordsTableFilterComposer,
+          $$MistakeRecordsTableOrderingComposer,
+          $$MistakeRecordsTableAnnotationComposer,
+          $$MistakeRecordsTableCreateCompanionBuilder,
+          $$MistakeRecordsTableUpdateCompanionBuilder,
+          (
+            MistakeRecord,
+            BaseReferences<_$AppDatabase, $MistakeRecordsTable, MistakeRecord>,
+          ),
+          MistakeRecord,
+          PrefetchHooks Function()
+        > {
+  $$MistakeRecordsTableTableManager(
+    _$AppDatabase db,
+    $MistakeRecordsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MistakeRecordsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MistakeRecordsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MistakeRecordsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> study_item_id = const Value.absent(),
+                Value<int> first_marked_at = const Value.absent(),
+                Value<int> last_error_at = const Value.absent(),
+                Value<int> error_count = const Value.absent(),
+                Value<String?> last_error_reason = const Value.absent(),
+                Value<int> created_at = const Value.absent(),
+                Value<int> updated_at = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MistakeRecordsCompanion(
+                id: id,
+                study_item_id: study_item_id,
+                first_marked_at: first_marked_at,
+                last_error_at: last_error_at,
+                error_count: error_count,
+                last_error_reason: last_error_reason,
+                created_at: created_at,
+                updated_at: updated_at,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String study_item_id,
+                required int first_marked_at,
+                required int last_error_at,
+                required int error_count,
+                Value<String?> last_error_reason = const Value.absent(),
+                required int created_at,
+                required int updated_at,
+                Value<int> rowid = const Value.absent(),
+              }) => MistakeRecordsCompanion.insert(
+                id: id,
+                study_item_id: study_item_id,
+                first_marked_at: first_marked_at,
+                last_error_at: last_error_at,
+                error_count: error_count,
+                last_error_reason: last_error_reason,
+                created_at: created_at,
+                updated_at: updated_at,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$MistakeRecordsTable, MistakeRecord>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $MistakeRecordsTable,
+                    MistakeRecord
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$MistakeRecordsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $MistakeRecordsTable,
+      MistakeRecord,
+      $$MistakeRecordsTableFilterComposer,
+      $$MistakeRecordsTableOrderingComposer,
+      $$MistakeRecordsTableAnnotationComposer,
+      $$MistakeRecordsTableCreateCompanionBuilder,
+      $$MistakeRecordsTableUpdateCompanionBuilder,
+      (
+        MistakeRecord,
+        BaseReferences<_$AppDatabase, $MistakeRecordsTable, MistakeRecord>,
+      ),
+      MistakeRecord,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -7001,4 +7847,6 @@ class $AppDatabaseManager {
       $$FsrsCardsTableTableManager(_db, _db.fsrsCards);
   $$ReviewRecordsTableTableManager get reviewRecords =>
       $$ReviewRecordsTableTableManager(_db, _db.reviewRecords);
+  $$MistakeRecordsTableTableManager get mistakeRecords =>
+      $$MistakeRecordsTableTableManager(_db, _db.mistakeRecords);
 }

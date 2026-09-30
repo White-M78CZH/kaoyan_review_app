@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'data/category_repository.dart';
+import 'data/image_repository.dart';
 import 'data/study_item_repository.dart';
 import 'data/subject_repository.dart';
 import 'database/app_database.dart';
 import 'pages/subject_list_page.dart';
+import 'utils/image_storage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +19,7 @@ Future<void> main() async {
       subjectRepository: SubjectRepository(database),
       categoryRepository: CategoryRepository(database),
       studyItemRepository: StudyItemRepository(database),
+      imageRepository: ImageRepository(database, const ImageStorage()),
     ),
   );
 }
@@ -30,11 +33,13 @@ class KaoyanReviewApp extends StatelessWidget {
     required this.subjectRepository,
     required this.categoryRepository,
     required this.studyItemRepository,
+    required this.imageRepository,
   });
 
   final SubjectRepository subjectRepository;
   final CategoryRepository categoryRepository;
   final StudyItemRepository studyItemRepository;
+  final ImageRepository imageRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +54,7 @@ class KaoyanReviewApp extends StatelessWidget {
         subjectRepository: subjectRepository,
         categoryRepository: categoryRepository,
         studyItemRepository: studyItemRepository,
+        imageRepository: imageRepository,
       ),
     );
   }

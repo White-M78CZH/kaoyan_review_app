@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/category_repository.dart';
+import '../data/image_repository.dart';
 import '../data/study_item_repository.dart';
 import '../data/subject_repository.dart';
 import '../database/app_database.dart';
@@ -14,11 +15,13 @@ class SubjectListPage extends StatelessWidget {
     required this.subjectRepository,
     required this.categoryRepository,
     required this.studyItemRepository,
+    required this.imageRepository,
   });
 
   final SubjectRepository subjectRepository;
   final CategoryRepository categoryRepository;
   final StudyItemRepository studyItemRepository;
+  final ImageRepository imageRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +87,7 @@ class SubjectListPage extends StatelessWidget {
                         subject: subject,
                         categoryRepository: categoryRepository,
                         studyItemRepository: studyItemRepository,
+                        imageRepository: imageRepository,
                       ),
                     ),
                   );

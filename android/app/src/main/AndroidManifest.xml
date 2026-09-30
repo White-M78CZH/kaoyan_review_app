@@ -1,4 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 从系统相册选择图片（image_picker）：
+         Android 13+ 使用系统照片选择器，无需权限；
+         Android 12 及以下需要读取外部存储权限，故以 maxSdkVersion=32 限定。 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <application
         android:label="kaoyan_review_app"
         android:name="${applicationName}"

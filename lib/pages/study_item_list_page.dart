@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/category_repository.dart';
+import '../data/image_repository.dart';
 import '../data/study_item_repository.dart';
 import '../database/app_database.dart';
 import '../utils/study_item_meta.dart';
@@ -16,11 +17,13 @@ class StudyItemListPage extends StatefulWidget {
     super.key,
     required this.studyItemRepository,
     required this.categoryRepository,
+    required this.imageRepository,
     required this.subject,
   });
 
   final StudyItemRepository studyItemRepository;
   final CategoryRepository categoryRepository;
+  final ImageRepository imageRepository;
   final Subject subject;
 
   @override
@@ -89,6 +92,7 @@ class _StudyItemListPageState extends State<StudyItemListPage> {
         builder: (_) => StudyItemDetailPage(
           studyItemRepository: widget.studyItemRepository,
           categoryRepository: widget.categoryRepository,
+          imageRepository: widget.imageRepository,
           subject: widget.subject,
           item: item,
         ),

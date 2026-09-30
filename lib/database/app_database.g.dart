@@ -7138,6 +7138,445 @@ class PracticeSessionsCompanion extends UpdateCompanion<PracticeSession> {
   }
 }
 
+class $PracticeRecordsTable extends PracticeRecords
+    with TableInfo<$PracticeRecordsTable, PracticeRecord> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $PracticeRecordsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _session_idMeta = const VerificationMeta(
+    'session_id',
+  );
+  @override
+  late final GeneratedColumn<String> session_id = GeneratedColumn<String>(
+    'session_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _study_item_idMeta = const VerificationMeta(
+    'study_item_id',
+  );
+  @override
+  late final GeneratedColumn<String> study_item_id = GeneratedColumn<String>(
+    'study_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resultMeta = const VerificationMeta('result');
+  @override
+  late final GeneratedColumn<String> result = GeneratedColumn<String>(
+    'result',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _response_timeMeta = const VerificationMeta(
+    'response_time',
+  );
+  @override
+  late final GeneratedColumn<int> response_time = GeneratedColumn<int>(
+    'response_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _created_atMeta = const VerificationMeta(
+    'created_at',
+  );
+  @override
+  late final GeneratedColumn<int> created_at = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    session_id,
+    study_item_id,
+    result,
+    response_time,
+    created_at,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'practice_records';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<PracticeRecord> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('session_id')) {
+      context.handle(
+        _session_idMeta,
+        session_id.isAcceptableOrUnknown(data['session_id']!, _session_idMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_session_idMeta);
+    }
+    if (data.containsKey('study_item_id')) {
+      context.handle(
+        _study_item_idMeta,
+        study_item_id.isAcceptableOrUnknown(
+          data['study_item_id']!,
+          _study_item_idMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_study_item_idMeta);
+    }
+    if (data.containsKey('result')) {
+      context.handle(
+        _resultMeta,
+        result.isAcceptableOrUnknown(data['result']!, _resultMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_resultMeta);
+    }
+    if (data.containsKey('response_time')) {
+      context.handle(
+        _response_timeMeta,
+        response_time.isAcceptableOrUnknown(
+          data['response_time']!,
+          _response_timeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_response_timeMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _created_atMeta,
+        created_at.isAcceptableOrUnknown(data['created_at']!, _created_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_created_atMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  PracticeRecord map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return PracticeRecord(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      session_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}session_id'],
+      )!,
+      study_item_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}study_item_id'],
+      )!,
+      result: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}result'],
+      )!,
+      response_time: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}response_time'],
+      )!,
+      created_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $PracticeRecordsTable createAlias(String alias) {
+    return $PracticeRecordsTable(attachedDatabase, alias);
+  }
+}
+
+class PracticeRecord extends DataClass implements Insertable<PracticeRecord> {
+  /// 记录ID，主键
+  final String id;
+
+  /// 刷题活动ID
+  final String session_id;
+
+  /// 学习内容ID
+  final String study_item_id;
+
+  /// 做题结果：correct / wrong / hesitated / skipped
+  final String result;
+
+  /// 做题耗时
+  final int response_time;
+
+  /// 做题时间，毫秒级时间戳
+  final int created_at;
+  const PracticeRecord({
+    required this.id,
+    required this.session_id,
+    required this.study_item_id,
+    required this.result,
+    required this.response_time,
+    required this.created_at,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['session_id'] = Variable<String>(session_id);
+    map['study_item_id'] = Variable<String>(study_item_id);
+    map['result'] = Variable<String>(result);
+    map['response_time'] = Variable<int>(response_time);
+    map['created_at'] = Variable<int>(created_at);
+    return map;
+  }
+
+  PracticeRecordsCompanion toCompanion(bool nullToAbsent) {
+    return PracticeRecordsCompanion(
+      id: Value(id),
+      session_id: Value(session_id),
+      study_item_id: Value(study_item_id),
+      result: Value(result),
+      response_time: Value(response_time),
+      created_at: Value(created_at),
+    );
+  }
+
+  factory PracticeRecord.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return PracticeRecord(
+      id: serializer.fromJson<String>(json['id']),
+      session_id: serializer.fromJson<String>(json['session_id']),
+      study_item_id: serializer.fromJson<String>(json['study_item_id']),
+      result: serializer.fromJson<String>(json['result']),
+      response_time: serializer.fromJson<int>(json['response_time']),
+      created_at: serializer.fromJson<int>(json['created_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'session_id': serializer.toJson<String>(session_id),
+      'study_item_id': serializer.toJson<String>(study_item_id),
+      'result': serializer.toJson<String>(result),
+      'response_time': serializer.toJson<int>(response_time),
+      'created_at': serializer.toJson<int>(created_at),
+    };
+  }
+
+  PracticeRecord copyWith({
+    String? id,
+    String? session_id,
+    String? study_item_id,
+    String? result,
+    int? response_time,
+    int? created_at,
+  }) => PracticeRecord(
+    id: id ?? this.id,
+    session_id: session_id ?? this.session_id,
+    study_item_id: study_item_id ?? this.study_item_id,
+    result: result ?? this.result,
+    response_time: response_time ?? this.response_time,
+    created_at: created_at ?? this.created_at,
+  );
+  PracticeRecord copyWithCompanion(PracticeRecordsCompanion data) {
+    return PracticeRecord(
+      id: data.id.present ? data.id.value : this.id,
+      session_id: data.session_id.present
+          ? data.session_id.value
+          : this.session_id,
+      study_item_id: data.study_item_id.present
+          ? data.study_item_id.value
+          : this.study_item_id,
+      result: data.result.present ? data.result.value : this.result,
+      response_time: data.response_time.present
+          ? data.response_time.value
+          : this.response_time,
+      created_at: data.created_at.present
+          ? data.created_at.value
+          : this.created_at,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PracticeRecord(')
+          ..write('id: $id, ')
+          ..write('session_id: $session_id, ')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('result: $result, ')
+          ..write('response_time: $response_time, ')
+          ..write('created_at: $created_at')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    session_id,
+    study_item_id,
+    result,
+    response_time,
+    created_at,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is PracticeRecord &&
+          other.id == this.id &&
+          other.session_id == this.session_id &&
+          other.study_item_id == this.study_item_id &&
+          other.result == this.result &&
+          other.response_time == this.response_time &&
+          other.created_at == this.created_at);
+}
+
+class PracticeRecordsCompanion extends UpdateCompanion<PracticeRecord> {
+  final Value<String> id;
+  final Value<String> session_id;
+  final Value<String> study_item_id;
+  final Value<String> result;
+  final Value<int> response_time;
+  final Value<int> created_at;
+  final Value<int> rowid;
+  const PracticeRecordsCompanion({
+    this.id = const Value.absent(),
+    this.session_id = const Value.absent(),
+    this.study_item_id = const Value.absent(),
+    this.result = const Value.absent(),
+    this.response_time = const Value.absent(),
+    this.created_at = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  PracticeRecordsCompanion.insert({
+    required String id,
+    required String session_id,
+    required String study_item_id,
+    required String result,
+    required int response_time,
+    required int created_at,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       session_id = Value(session_id),
+       study_item_id = Value(study_item_id),
+       result = Value(result),
+       response_time = Value(response_time),
+       created_at = Value(created_at);
+  static Insertable<PracticeRecord> custom({
+    Expression<String>? id,
+    Expression<String>? session_id,
+    Expression<String>? study_item_id,
+    Expression<String>? result,
+    Expression<int>? response_time,
+    Expression<int>? created_at,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (session_id != null) 'session_id': session_id,
+      if (study_item_id != null) 'study_item_id': study_item_id,
+      if (result != null) 'result': result,
+      if (response_time != null) 'response_time': response_time,
+      if (created_at != null) 'created_at': created_at,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  PracticeRecordsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? session_id,
+    Value<String>? study_item_id,
+    Value<String>? result,
+    Value<int>? response_time,
+    Value<int>? created_at,
+    Value<int>? rowid,
+  }) {
+    return PracticeRecordsCompanion(
+      id: id ?? this.id,
+      session_id: session_id ?? this.session_id,
+      study_item_id: study_item_id ?? this.study_item_id,
+      result: result ?? this.result,
+      response_time: response_time ?? this.response_time,
+      created_at: created_at ?? this.created_at,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (session_id.present) {
+      map['session_id'] = Variable<String>(session_id.value);
+    }
+    if (study_item_id.present) {
+      map['study_item_id'] = Variable<String>(study_item_id.value);
+    }
+    if (result.present) {
+      map['result'] = Variable<String>(result.value);
+    }
+    if (response_time.present) {
+      map['response_time'] = Variable<int>(response_time.value);
+    }
+    if (created_at.present) {
+      map['created_at'] = Variable<int>(created_at.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PracticeRecordsCompanion(')
+          ..write('id: $id, ')
+          ..write('session_id: $session_id, ')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('result: $result, ')
+          ..write('response_time: $response_time, ')
+          ..write('created_at: $created_at, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -7155,6 +7594,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $MistakeRecordReasonsTable(this);
   late final $PracticePlansTable practicePlans = $PracticePlansTable(this);
   late final $PracticeSessionsTable practiceSessions = $PracticeSessionsTable(
+    this,
+  );
+  late final $PracticeRecordsTable practiceRecords = $PracticeRecordsTable(
     this,
   );
   @override
@@ -7175,6 +7617,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     mistakeRecordReasons,
     practicePlans,
     practiceSessions,
+    practiceRecords,
   ];
 }
 
@@ -10793,6 +11236,248 @@ typedef $$PracticeSessionsTableProcessedTableManager =
       PracticeSession,
       PrefetchHooks Function()
     >;
+typedef $$PracticeRecordsTableCreateCompanionBuilder =
+    PracticeRecordsCompanion Function({
+      required String id,
+      required String session_id,
+      required String study_item_id,
+      required String result,
+      required int response_time,
+      required int created_at,
+      Value<int> rowid,
+    });
+typedef $$PracticeRecordsTableUpdateCompanionBuilder =
+    PracticeRecordsCompanion Function({
+      Value<String> id,
+      Value<String> session_id,
+      Value<String> study_item_id,
+      Value<String> result,
+      Value<int> response_time,
+      Value<int> created_at,
+      Value<int> rowid,
+    });
+
+class $$PracticeRecordsTableFilterComposer
+    extends Composer<_$AppDatabase, $PracticeRecordsTable> {
+  $$PracticeRecordsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get session_id => $composableBuilder(
+    column: $table.session_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get result => $composableBuilder(
+    column: $table.result,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get response_time => $composableBuilder(
+    column: $table.response_time,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$PracticeRecordsTableOrderingComposer
+    extends Composer<_$AppDatabase, $PracticeRecordsTable> {
+  $$PracticeRecordsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get session_id => $composableBuilder(
+    column: $table.session_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get result => $composableBuilder(
+    column: $table.result,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get response_time => $composableBuilder(
+    column: $table.response_time,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$PracticeRecordsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $PracticeRecordsTable> {
+  $$PracticeRecordsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get session_id => $composableBuilder(
+    column: $table.session_id,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get result =>
+      $composableBuilder(column: $table.result, builder: (column) => column);
+
+  GeneratedColumn<int> get response_time => $composableBuilder(
+    column: $table.response_time,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => column,
+  );
+}
+
+class $$PracticeRecordsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $PracticeRecordsTable,
+          PracticeRecord,
+          $$PracticeRecordsTableFilterComposer,
+          $$PracticeRecordsTableOrderingComposer,
+          $$PracticeRecordsTableAnnotationComposer,
+          $$PracticeRecordsTableCreateCompanionBuilder,
+          $$PracticeRecordsTableUpdateCompanionBuilder,
+          (
+            PracticeRecord,
+            BaseReferences<
+              _$AppDatabase,
+              $PracticeRecordsTable,
+              PracticeRecord
+            >,
+          ),
+          PracticeRecord,
+          PrefetchHooks Function()
+        > {
+  $$PracticeRecordsTableTableManager(
+    _$AppDatabase db,
+    $PracticeRecordsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$PracticeRecordsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PracticeRecordsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PracticeRecordsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> session_id = const Value.absent(),
+                Value<String> study_item_id = const Value.absent(),
+                Value<String> result = const Value.absent(),
+                Value<int> response_time = const Value.absent(),
+                Value<int> created_at = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => PracticeRecordsCompanion(
+                id: id,
+                session_id: session_id,
+                study_item_id: study_item_id,
+                result: result,
+                response_time: response_time,
+                created_at: created_at,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String session_id,
+                required String study_item_id,
+                required String result,
+                required int response_time,
+                required int created_at,
+                Value<int> rowid = const Value.absent(),
+              }) => PracticeRecordsCompanion.insert(
+                id: id,
+                session_id: session_id,
+                study_item_id: study_item_id,
+                result: result,
+                response_time: response_time,
+                created_at: created_at,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$PracticeRecordsTable, PracticeRecord>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $PracticeRecordsTable,
+                    PracticeRecord
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$PracticeRecordsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $PracticeRecordsTable,
+      PracticeRecord,
+      $$PracticeRecordsTableFilterComposer,
+      $$PracticeRecordsTableOrderingComposer,
+      $$PracticeRecordsTableAnnotationComposer,
+      $$PracticeRecordsTableCreateCompanionBuilder,
+      $$PracticeRecordsTableUpdateCompanionBuilder,
+      (
+        PracticeRecord,
+        BaseReferences<_$AppDatabase, $PracticeRecordsTable, PracticeRecord>,
+      ),
+      PracticeRecord,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -10822,4 +11507,6 @@ class $AppDatabaseManager {
       $$PracticePlansTableTableManager(_db, _db.practicePlans);
   $$PracticeSessionsTableTableManager get practiceSessions =>
       $$PracticeSessionsTableTableManager(_db, _db.practiceSessions);
+  $$PracticeRecordsTableTableManager get practiceRecords =>
+      $$PracticeRecordsTableTableManager(_db, _db.practiceRecords);
 }

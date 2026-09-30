@@ -7,6 +7,7 @@ import 'tables/images.dart';
 import 'tables/mistake_reasons.dart';
 import 'tables/mistake_record_reasons.dart';
 import 'tables/mistake_records.dart';
+import 'tables/practice_plans.dart';
 import 'tables/review_records.dart';
 import 'tables/study_item_tags.dart';
 import 'tables/study_items.dart';
@@ -36,13 +37,14 @@ const String _databaseName = 'kaoyan_review_app';
     MistakeRecords,
     MistakeReasons,
     MistakeRecordReasons,
+    PracticePlans,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(driftDatabase(name: _databaseName));
 
   @override
-  int get schemaVersion => 11;
+  int get schemaVersion => 12;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -50,7 +52,7 @@ class AppDatabase extends _$AppDatabase {
       // 全新安装：一次性创建当前 schemaVersion 对应的全部表
       // （subjects、study_items、categories、images、tags、study_item_tags、
       // fsrs_cards、review_records、mistake_records、mistake_reasons、
-      // mistake_record_reasons）。
+      // mistake_record_reasons、practice_plans）。
       await m.createAll();
     },
     onUpgrade: (Migrator m, int from, int to) async {
@@ -108,6 +110,13 @@ class AppDatabase extends _$AppDatabase {
       // 不删除任何已有表，不重建数据库。
       if (from < 11) {
         await m.createTable(mistakeRecordReasons);
+      }
+      // v11 -> v12：仅新增 practice_plans 表，保留 subjects、study_items、
+      // categories、images、tags、study_item_tags、fsrs_cards、review_records、
+      // mistake_records、mistake_reasons、mistake_record_reasons 及其已有数据。
+      // 不删除任何已有表，不重建数据库。
+      if (from < 12) {
+        await m.createTable(practicePlans);
       }
     },
   );

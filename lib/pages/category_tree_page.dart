@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../data/category_repository.dart';
+import '../data/study_item_repository.dart';
 import '../database/app_database.dart';
 import 'category_form_page.dart';
+import 'study_item_list_page.dart';
 
 /// 某个科目下的分类树管理页。
 ///
@@ -12,15 +14,36 @@ class CategoryTreePage extends StatelessWidget {
     super.key,
     required this.subject,
     required this.categoryRepository,
+    required this.studyItemRepository,
   });
 
   final Subject subject;
   final CategoryRepository categoryRepository;
+  final StudyItemRepository studyItemRepository;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('${subject.name} · 分类')),
+      appBar: AppBar(
+        title: Text('${subject.name} · 分类'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.library_books_outlined),
+            tooltip: '学习内容',
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => StudyItemListPage(
+                    studyItemRepository: studyItemRepository,
+                    categoryRepository: categoryRepository,
+                    subject: subject,
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
       body: StreamBuilder<List<Category>>(
         stream: categoryRepository.watchBySubject(subject.id),
         builder: (

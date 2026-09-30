@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/category_repository.dart';
+import '../data/study_item_repository.dart';
 import '../data/subject_repository.dart';
 import '../database/app_database.dart';
 import 'category_tree_page.dart';
@@ -12,10 +13,12 @@ class SubjectListPage extends StatelessWidget {
     super.key,
     required this.subjectRepository,
     required this.categoryRepository,
+    required this.studyItemRepository,
   });
 
   final SubjectRepository subjectRepository;
   final CategoryRepository categoryRepository;
+  final StudyItemRepository studyItemRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +83,7 @@ class SubjectListPage extends StatelessWidget {
                       builder: (_) => CategoryTreePage(
                         subject: subject,
                         categoryRepository: categoryRepository,
+                        studyItemRepository: studyItemRepository,
                       ),
                     ),
                   );

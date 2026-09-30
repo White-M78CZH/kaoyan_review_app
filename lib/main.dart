@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'data/category_repository.dart';
+import 'data/study_item_repository.dart';
 import 'data/subject_repository.dart';
 import 'database/app_database.dart';
 import 'pages/subject_list_page.dart';
@@ -15,22 +16,25 @@ Future<void> main() async {
     KaoyanReviewApp(
       subjectRepository: SubjectRepository(database),
       categoryRepository: CategoryRepository(database),
+      studyItemRepository: StudyItemRepository(database),
     ),
   );
 }
 
 /// APP 根组件。
 ///
-/// 当前阶段入口为「科目管理」，从科目进入分类树管理。
+/// 当前阶段入口为「科目管理」，从科目进入分类树管理，再进入学习内容管理。
 class KaoyanReviewApp extends StatelessWidget {
   const KaoyanReviewApp({
     super.key,
     required this.subjectRepository,
     required this.categoryRepository,
+    required this.studyItemRepository,
   });
 
   final SubjectRepository subjectRepository;
   final CategoryRepository categoryRepository;
+  final StudyItemRepository studyItemRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +48,7 @@ class KaoyanReviewApp extends StatelessWidget {
       home: SubjectListPage(
         subjectRepository: subjectRepository,
         categoryRepository: categoryRepository,
+        studyItemRepository: studyItemRepository,
       ),
     );
   }

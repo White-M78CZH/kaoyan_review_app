@@ -5,6 +5,7 @@ import 'tables/categories.dart';
 import 'tables/images.dart';
 import 'tables/study_items.dart';
 import 'tables/subjects.dart';
+import 'tables/tags.dart';
 
 part 'app_database.g.dart';
 
@@ -16,18 +17,18 @@ const String _databaseName = 'kaoyan_review_app';
 /// 技术：SQLite + Drift
 /// 连接：drift_flutter
 /// 文件：getApplicationDocumentsDirectory() 下的 kaoyan_review_app.sqlite
-@DriftDatabase(tables: [Subjects, StudyItems, Categories, Images])
+@DriftDatabase(tables: [Subjects, StudyItems, Categories, Images, Tags])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(driftDatabase(name: _databaseName));
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
     onCreate: (Migrator m) async {
       // 全新安装：一次性创建当前 schemaVersion 对应的全部表
-      // （subjects、study_items、categories、images）。
+      // （subjects、study_items、categories、images、tags）。
       await m.createAll();
     },
     onUpgrade: (Migrator m, int from, int to) async {
@@ -44,6 +45,11 @@ class AppDatabase extends _$AppDatabase {
       // 及其已有数据。不删除任何已有表，不重建数据库。
       if (from < 4) {
         await m.createTable(images);
+      }
+      // v4 -> v5：仅新增 tags 表，保留 subjects、study_items、categories、images
+      // 及其已有数据。不删除任何已有表，不重建数据库。
+      if (from < 5) {
+        await m.createTable(tags);
       }
     },
   );

@@ -7577,6 +7577,892 @@ class PracticeRecordsCompanion extends UpdateCompanion<PracticeRecord> {
   }
 }
 
+class $AppSettingsTable extends AppSettings
+    with TableInfo<$AppSettingsTable, AppSetting> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $AppSettingsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _daily_review_limitMeta =
+      const VerificationMeta('daily_review_limit');
+  @override
+  late final GeneratedColumn<int> daily_review_limit = GeneratedColumn<int>(
+    'daily_review_limit',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _daily_new_limitMeta = const VerificationMeta(
+    'daily_new_limit',
+  );
+  @override
+  late final GeneratedColumn<int> daily_new_limit = GeneratedColumn<int>(
+    'daily_new_limit',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _default_sort_typeMeta = const VerificationMeta(
+    'default_sort_type',
+  );
+  @override
+  late final GeneratedColumn<String> default_sort_type =
+      GeneratedColumn<String>(
+        'default_sort_type',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _image_qualityMeta = const VerificationMeta(
+    'image_quality',
+  );
+  @override
+  late final GeneratedColumn<int> image_quality = GeneratedColumn<int>(
+    'image_quality',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _generate_thumbnailMeta =
+      const VerificationMeta('generate_thumbnail');
+  @override
+  late final GeneratedColumn<int> generate_thumbnail = GeneratedColumn<int>(
+    'generate_thumbnail',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _show_next_review_timeMeta =
+      const VerificationMeta('show_next_review_time');
+  @override
+  late final GeneratedColumn<int> show_next_review_time = GeneratedColumn<int>(
+    'show_next_review_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _count_practice_as_reviewMeta =
+      const VerificationMeta('count_practice_as_review');
+  @override
+  late final GeneratedColumn<int> count_practice_as_review =
+      GeneratedColumn<int>(
+        'count_practice_as_review',
+        aliasedName,
+        false,
+        type: DriftSqlType.int,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _initial_red_daysMeta = const VerificationMeta(
+    'initial_red_days',
+  );
+  @override
+  late final GeneratedColumn<int> initial_red_days = GeneratedColumn<int>(
+    'initial_red_days',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _initial_yellow_daysMeta =
+      const VerificationMeta('initial_yellow_days');
+  @override
+  late final GeneratedColumn<int> initial_yellow_days = GeneratedColumn<int>(
+    'initial_yellow_days',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _initial_green_daysMeta =
+      const VerificationMeta('initial_green_days');
+  @override
+  late final GeneratedColumn<int> initial_green_days = GeneratedColumn<int>(
+    'initial_green_days',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _backup_reminder_daysMeta =
+      const VerificationMeta('backup_reminder_days');
+  @override
+  late final GeneratedColumn<int> backup_reminder_days = GeneratedColumn<int>(
+    'backup_reminder_days',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _theme_modeMeta = const VerificationMeta(
+    'theme_mode',
+  );
+  @override
+  late final GeneratedColumn<String> theme_mode = GeneratedColumn<String>(
+    'theme_mode',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updated_atMeta = const VerificationMeta(
+    'updated_at',
+  );
+  @override
+  late final GeneratedColumn<int> updated_at = GeneratedColumn<int>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    daily_review_limit,
+    daily_new_limit,
+    default_sort_type,
+    image_quality,
+    generate_thumbnail,
+    show_next_review_time,
+    count_practice_as_review,
+    initial_red_days,
+    initial_yellow_days,
+    initial_green_days,
+    backup_reminder_days,
+    theme_mode,
+    updated_at,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'app_settings';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<AppSetting> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('daily_review_limit')) {
+      context.handle(
+        _daily_review_limitMeta,
+        daily_review_limit.isAcceptableOrUnknown(
+          data['daily_review_limit']!,
+          _daily_review_limitMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_daily_review_limitMeta);
+    }
+    if (data.containsKey('daily_new_limit')) {
+      context.handle(
+        _daily_new_limitMeta,
+        daily_new_limit.isAcceptableOrUnknown(
+          data['daily_new_limit']!,
+          _daily_new_limitMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_daily_new_limitMeta);
+    }
+    if (data.containsKey('default_sort_type')) {
+      context.handle(
+        _default_sort_typeMeta,
+        default_sort_type.isAcceptableOrUnknown(
+          data['default_sort_type']!,
+          _default_sort_typeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_default_sort_typeMeta);
+    }
+    if (data.containsKey('image_quality')) {
+      context.handle(
+        _image_qualityMeta,
+        image_quality.isAcceptableOrUnknown(
+          data['image_quality']!,
+          _image_qualityMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_image_qualityMeta);
+    }
+    if (data.containsKey('generate_thumbnail')) {
+      context.handle(
+        _generate_thumbnailMeta,
+        generate_thumbnail.isAcceptableOrUnknown(
+          data['generate_thumbnail']!,
+          _generate_thumbnailMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_generate_thumbnailMeta);
+    }
+    if (data.containsKey('show_next_review_time')) {
+      context.handle(
+        _show_next_review_timeMeta,
+        show_next_review_time.isAcceptableOrUnknown(
+          data['show_next_review_time']!,
+          _show_next_review_timeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_show_next_review_timeMeta);
+    }
+    if (data.containsKey('count_practice_as_review')) {
+      context.handle(
+        _count_practice_as_reviewMeta,
+        count_practice_as_review.isAcceptableOrUnknown(
+          data['count_practice_as_review']!,
+          _count_practice_as_reviewMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_count_practice_as_reviewMeta);
+    }
+    if (data.containsKey('initial_red_days')) {
+      context.handle(
+        _initial_red_daysMeta,
+        initial_red_days.isAcceptableOrUnknown(
+          data['initial_red_days']!,
+          _initial_red_daysMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_initial_red_daysMeta);
+    }
+    if (data.containsKey('initial_yellow_days')) {
+      context.handle(
+        _initial_yellow_daysMeta,
+        initial_yellow_days.isAcceptableOrUnknown(
+          data['initial_yellow_days']!,
+          _initial_yellow_daysMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_initial_yellow_daysMeta);
+    }
+    if (data.containsKey('initial_green_days')) {
+      context.handle(
+        _initial_green_daysMeta,
+        initial_green_days.isAcceptableOrUnknown(
+          data['initial_green_days']!,
+          _initial_green_daysMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_initial_green_daysMeta);
+    }
+    if (data.containsKey('backup_reminder_days')) {
+      context.handle(
+        _backup_reminder_daysMeta,
+        backup_reminder_days.isAcceptableOrUnknown(
+          data['backup_reminder_days']!,
+          _backup_reminder_daysMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_backup_reminder_daysMeta);
+    }
+    if (data.containsKey('theme_mode')) {
+      context.handle(
+        _theme_modeMeta,
+        theme_mode.isAcceptableOrUnknown(data['theme_mode']!, _theme_modeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_theme_modeMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updated_atMeta,
+        updated_at.isAcceptableOrUnknown(data['updated_at']!, _updated_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updated_atMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  AppSetting map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return AppSetting(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      daily_review_limit: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}daily_review_limit'],
+      )!,
+      daily_new_limit: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}daily_new_limit'],
+      )!,
+      default_sort_type: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}default_sort_type'],
+      )!,
+      image_quality: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}image_quality'],
+      )!,
+      generate_thumbnail: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}generate_thumbnail'],
+      )!,
+      show_next_review_time: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}show_next_review_time'],
+      )!,
+      count_practice_as_review: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}count_practice_as_review'],
+      )!,
+      initial_red_days: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}initial_red_days'],
+      )!,
+      initial_yellow_days: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}initial_yellow_days'],
+      )!,
+      initial_green_days: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}initial_green_days'],
+      )!,
+      backup_reminder_days: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}backup_reminder_days'],
+      )!,
+      theme_mode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}theme_mode'],
+      )!,
+      updated_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  $AppSettingsTable createAlias(String alias) {
+    return $AppSettingsTable(attachedDatabase, alias);
+  }
+}
+
+class AppSetting extends DataClass implements Insertable<AppSetting> {
+  /// 主键，业务约定固定为 1
+  final int id;
+
+  /// 每日复习上限
+  final int daily_review_limit;
+
+  /// 每日新内容上限
+  final int daily_new_limit;
+
+  /// 默认排序方式
+  final String default_sort_type;
+
+  /// 图片压缩质量
+  final int image_quality;
+
+  /// 是否生成缩略图
+  final int generate_thumbnail;
+
+  /// 是否显示下一次复习时间
+  final int show_next_review_time;
+
+  /// 专项刷题是否计入复习
+  final int count_practice_as_review;
+
+  /// 红色首次复习间隔
+  final int initial_red_days;
+
+  /// 黄色首次复习间隔
+  final int initial_yellow_days;
+
+  /// 绿色首次复习间隔
+  final int initial_green_days;
+
+  /// 备份提醒周期
+  final int backup_reminder_days;
+
+  /// system / light / dark
+  final String theme_mode;
+
+  /// 修改时间，毫秒级时间戳
+  final int updated_at;
+  const AppSetting({
+    required this.id,
+    required this.daily_review_limit,
+    required this.daily_new_limit,
+    required this.default_sort_type,
+    required this.image_quality,
+    required this.generate_thumbnail,
+    required this.show_next_review_time,
+    required this.count_practice_as_review,
+    required this.initial_red_days,
+    required this.initial_yellow_days,
+    required this.initial_green_days,
+    required this.backup_reminder_days,
+    required this.theme_mode,
+    required this.updated_at,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['daily_review_limit'] = Variable<int>(daily_review_limit);
+    map['daily_new_limit'] = Variable<int>(daily_new_limit);
+    map['default_sort_type'] = Variable<String>(default_sort_type);
+    map['image_quality'] = Variable<int>(image_quality);
+    map['generate_thumbnail'] = Variable<int>(generate_thumbnail);
+    map['show_next_review_time'] = Variable<int>(show_next_review_time);
+    map['count_practice_as_review'] = Variable<int>(count_practice_as_review);
+    map['initial_red_days'] = Variable<int>(initial_red_days);
+    map['initial_yellow_days'] = Variable<int>(initial_yellow_days);
+    map['initial_green_days'] = Variable<int>(initial_green_days);
+    map['backup_reminder_days'] = Variable<int>(backup_reminder_days);
+    map['theme_mode'] = Variable<String>(theme_mode);
+    map['updated_at'] = Variable<int>(updated_at);
+    return map;
+  }
+
+  AppSettingsCompanion toCompanion(bool nullToAbsent) {
+    return AppSettingsCompanion(
+      id: Value(id),
+      daily_review_limit: Value(daily_review_limit),
+      daily_new_limit: Value(daily_new_limit),
+      default_sort_type: Value(default_sort_type),
+      image_quality: Value(image_quality),
+      generate_thumbnail: Value(generate_thumbnail),
+      show_next_review_time: Value(show_next_review_time),
+      count_practice_as_review: Value(count_practice_as_review),
+      initial_red_days: Value(initial_red_days),
+      initial_yellow_days: Value(initial_yellow_days),
+      initial_green_days: Value(initial_green_days),
+      backup_reminder_days: Value(backup_reminder_days),
+      theme_mode: Value(theme_mode),
+      updated_at: Value(updated_at),
+    );
+  }
+
+  factory AppSetting.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return AppSetting(
+      id: serializer.fromJson<int>(json['id']),
+      daily_review_limit: serializer.fromJson<int>(json['daily_review_limit']),
+      daily_new_limit: serializer.fromJson<int>(json['daily_new_limit']),
+      default_sort_type: serializer.fromJson<String>(json['default_sort_type']),
+      image_quality: serializer.fromJson<int>(json['image_quality']),
+      generate_thumbnail: serializer.fromJson<int>(json['generate_thumbnail']),
+      show_next_review_time: serializer.fromJson<int>(
+        json['show_next_review_time'],
+      ),
+      count_practice_as_review: serializer.fromJson<int>(
+        json['count_practice_as_review'],
+      ),
+      initial_red_days: serializer.fromJson<int>(json['initial_red_days']),
+      initial_yellow_days: serializer.fromJson<int>(
+        json['initial_yellow_days'],
+      ),
+      initial_green_days: serializer.fromJson<int>(json['initial_green_days']),
+      backup_reminder_days: serializer.fromJson<int>(
+        json['backup_reminder_days'],
+      ),
+      theme_mode: serializer.fromJson<String>(json['theme_mode']),
+      updated_at: serializer.fromJson<int>(json['updated_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'daily_review_limit': serializer.toJson<int>(daily_review_limit),
+      'daily_new_limit': serializer.toJson<int>(daily_new_limit),
+      'default_sort_type': serializer.toJson<String>(default_sort_type),
+      'image_quality': serializer.toJson<int>(image_quality),
+      'generate_thumbnail': serializer.toJson<int>(generate_thumbnail),
+      'show_next_review_time': serializer.toJson<int>(show_next_review_time),
+      'count_practice_as_review': serializer.toJson<int>(
+        count_practice_as_review,
+      ),
+      'initial_red_days': serializer.toJson<int>(initial_red_days),
+      'initial_yellow_days': serializer.toJson<int>(initial_yellow_days),
+      'initial_green_days': serializer.toJson<int>(initial_green_days),
+      'backup_reminder_days': serializer.toJson<int>(backup_reminder_days),
+      'theme_mode': serializer.toJson<String>(theme_mode),
+      'updated_at': serializer.toJson<int>(updated_at),
+    };
+  }
+
+  AppSetting copyWith({
+    int? id,
+    int? daily_review_limit,
+    int? daily_new_limit,
+    String? default_sort_type,
+    int? image_quality,
+    int? generate_thumbnail,
+    int? show_next_review_time,
+    int? count_practice_as_review,
+    int? initial_red_days,
+    int? initial_yellow_days,
+    int? initial_green_days,
+    int? backup_reminder_days,
+    String? theme_mode,
+    int? updated_at,
+  }) => AppSetting(
+    id: id ?? this.id,
+    daily_review_limit: daily_review_limit ?? this.daily_review_limit,
+    daily_new_limit: daily_new_limit ?? this.daily_new_limit,
+    default_sort_type: default_sort_type ?? this.default_sort_type,
+    image_quality: image_quality ?? this.image_quality,
+    generate_thumbnail: generate_thumbnail ?? this.generate_thumbnail,
+    show_next_review_time: show_next_review_time ?? this.show_next_review_time,
+    count_practice_as_review:
+        count_practice_as_review ?? this.count_practice_as_review,
+    initial_red_days: initial_red_days ?? this.initial_red_days,
+    initial_yellow_days: initial_yellow_days ?? this.initial_yellow_days,
+    initial_green_days: initial_green_days ?? this.initial_green_days,
+    backup_reminder_days: backup_reminder_days ?? this.backup_reminder_days,
+    theme_mode: theme_mode ?? this.theme_mode,
+    updated_at: updated_at ?? this.updated_at,
+  );
+  AppSetting copyWithCompanion(AppSettingsCompanion data) {
+    return AppSetting(
+      id: data.id.present ? data.id.value : this.id,
+      daily_review_limit: data.daily_review_limit.present
+          ? data.daily_review_limit.value
+          : this.daily_review_limit,
+      daily_new_limit: data.daily_new_limit.present
+          ? data.daily_new_limit.value
+          : this.daily_new_limit,
+      default_sort_type: data.default_sort_type.present
+          ? data.default_sort_type.value
+          : this.default_sort_type,
+      image_quality: data.image_quality.present
+          ? data.image_quality.value
+          : this.image_quality,
+      generate_thumbnail: data.generate_thumbnail.present
+          ? data.generate_thumbnail.value
+          : this.generate_thumbnail,
+      show_next_review_time: data.show_next_review_time.present
+          ? data.show_next_review_time.value
+          : this.show_next_review_time,
+      count_practice_as_review: data.count_practice_as_review.present
+          ? data.count_practice_as_review.value
+          : this.count_practice_as_review,
+      initial_red_days: data.initial_red_days.present
+          ? data.initial_red_days.value
+          : this.initial_red_days,
+      initial_yellow_days: data.initial_yellow_days.present
+          ? data.initial_yellow_days.value
+          : this.initial_yellow_days,
+      initial_green_days: data.initial_green_days.present
+          ? data.initial_green_days.value
+          : this.initial_green_days,
+      backup_reminder_days: data.backup_reminder_days.present
+          ? data.backup_reminder_days.value
+          : this.backup_reminder_days,
+      theme_mode: data.theme_mode.present
+          ? data.theme_mode.value
+          : this.theme_mode,
+      updated_at: data.updated_at.present
+          ? data.updated_at.value
+          : this.updated_at,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AppSetting(')
+          ..write('id: $id, ')
+          ..write('daily_review_limit: $daily_review_limit, ')
+          ..write('daily_new_limit: $daily_new_limit, ')
+          ..write('default_sort_type: $default_sort_type, ')
+          ..write('image_quality: $image_quality, ')
+          ..write('generate_thumbnail: $generate_thumbnail, ')
+          ..write('show_next_review_time: $show_next_review_time, ')
+          ..write('count_practice_as_review: $count_practice_as_review, ')
+          ..write('initial_red_days: $initial_red_days, ')
+          ..write('initial_yellow_days: $initial_yellow_days, ')
+          ..write('initial_green_days: $initial_green_days, ')
+          ..write('backup_reminder_days: $backup_reminder_days, ')
+          ..write('theme_mode: $theme_mode, ')
+          ..write('updated_at: $updated_at')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    daily_review_limit,
+    daily_new_limit,
+    default_sort_type,
+    image_quality,
+    generate_thumbnail,
+    show_next_review_time,
+    count_practice_as_review,
+    initial_red_days,
+    initial_yellow_days,
+    initial_green_days,
+    backup_reminder_days,
+    theme_mode,
+    updated_at,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is AppSetting &&
+          other.id == this.id &&
+          other.daily_review_limit == this.daily_review_limit &&
+          other.daily_new_limit == this.daily_new_limit &&
+          other.default_sort_type == this.default_sort_type &&
+          other.image_quality == this.image_quality &&
+          other.generate_thumbnail == this.generate_thumbnail &&
+          other.show_next_review_time == this.show_next_review_time &&
+          other.count_practice_as_review == this.count_practice_as_review &&
+          other.initial_red_days == this.initial_red_days &&
+          other.initial_yellow_days == this.initial_yellow_days &&
+          other.initial_green_days == this.initial_green_days &&
+          other.backup_reminder_days == this.backup_reminder_days &&
+          other.theme_mode == this.theme_mode &&
+          other.updated_at == this.updated_at);
+}
+
+class AppSettingsCompanion extends UpdateCompanion<AppSetting> {
+  final Value<int> id;
+  final Value<int> daily_review_limit;
+  final Value<int> daily_new_limit;
+  final Value<String> default_sort_type;
+  final Value<int> image_quality;
+  final Value<int> generate_thumbnail;
+  final Value<int> show_next_review_time;
+  final Value<int> count_practice_as_review;
+  final Value<int> initial_red_days;
+  final Value<int> initial_yellow_days;
+  final Value<int> initial_green_days;
+  final Value<int> backup_reminder_days;
+  final Value<String> theme_mode;
+  final Value<int> updated_at;
+  const AppSettingsCompanion({
+    this.id = const Value.absent(),
+    this.daily_review_limit = const Value.absent(),
+    this.daily_new_limit = const Value.absent(),
+    this.default_sort_type = const Value.absent(),
+    this.image_quality = const Value.absent(),
+    this.generate_thumbnail = const Value.absent(),
+    this.show_next_review_time = const Value.absent(),
+    this.count_practice_as_review = const Value.absent(),
+    this.initial_red_days = const Value.absent(),
+    this.initial_yellow_days = const Value.absent(),
+    this.initial_green_days = const Value.absent(),
+    this.backup_reminder_days = const Value.absent(),
+    this.theme_mode = const Value.absent(),
+    this.updated_at = const Value.absent(),
+  });
+  AppSettingsCompanion.insert({
+    this.id = const Value.absent(),
+    required int daily_review_limit,
+    required int daily_new_limit,
+    required String default_sort_type,
+    required int image_quality,
+    required int generate_thumbnail,
+    required int show_next_review_time,
+    required int count_practice_as_review,
+    required int initial_red_days,
+    required int initial_yellow_days,
+    required int initial_green_days,
+    required int backup_reminder_days,
+    required String theme_mode,
+    required int updated_at,
+  }) : daily_review_limit = Value(daily_review_limit),
+       daily_new_limit = Value(daily_new_limit),
+       default_sort_type = Value(default_sort_type),
+       image_quality = Value(image_quality),
+       generate_thumbnail = Value(generate_thumbnail),
+       show_next_review_time = Value(show_next_review_time),
+       count_practice_as_review = Value(count_practice_as_review),
+       initial_red_days = Value(initial_red_days),
+       initial_yellow_days = Value(initial_yellow_days),
+       initial_green_days = Value(initial_green_days),
+       backup_reminder_days = Value(backup_reminder_days),
+       theme_mode = Value(theme_mode),
+       updated_at = Value(updated_at);
+  static Insertable<AppSetting> custom({
+    Expression<int>? id,
+    Expression<int>? daily_review_limit,
+    Expression<int>? daily_new_limit,
+    Expression<String>? default_sort_type,
+    Expression<int>? image_quality,
+    Expression<int>? generate_thumbnail,
+    Expression<int>? show_next_review_time,
+    Expression<int>? count_practice_as_review,
+    Expression<int>? initial_red_days,
+    Expression<int>? initial_yellow_days,
+    Expression<int>? initial_green_days,
+    Expression<int>? backup_reminder_days,
+    Expression<String>? theme_mode,
+    Expression<int>? updated_at,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (daily_review_limit != null) 'daily_review_limit': daily_review_limit,
+      if (daily_new_limit != null) 'daily_new_limit': daily_new_limit,
+      if (default_sort_type != null) 'default_sort_type': default_sort_type,
+      if (image_quality != null) 'image_quality': image_quality,
+      if (generate_thumbnail != null) 'generate_thumbnail': generate_thumbnail,
+      if (show_next_review_time != null)
+        'show_next_review_time': show_next_review_time,
+      if (count_practice_as_review != null)
+        'count_practice_as_review': count_practice_as_review,
+      if (initial_red_days != null) 'initial_red_days': initial_red_days,
+      if (initial_yellow_days != null)
+        'initial_yellow_days': initial_yellow_days,
+      if (initial_green_days != null) 'initial_green_days': initial_green_days,
+      if (backup_reminder_days != null)
+        'backup_reminder_days': backup_reminder_days,
+      if (theme_mode != null) 'theme_mode': theme_mode,
+      if (updated_at != null) 'updated_at': updated_at,
+    });
+  }
+
+  AppSettingsCompanion copyWith({
+    Value<int>? id,
+    Value<int>? daily_review_limit,
+    Value<int>? daily_new_limit,
+    Value<String>? default_sort_type,
+    Value<int>? image_quality,
+    Value<int>? generate_thumbnail,
+    Value<int>? show_next_review_time,
+    Value<int>? count_practice_as_review,
+    Value<int>? initial_red_days,
+    Value<int>? initial_yellow_days,
+    Value<int>? initial_green_days,
+    Value<int>? backup_reminder_days,
+    Value<String>? theme_mode,
+    Value<int>? updated_at,
+  }) {
+    return AppSettingsCompanion(
+      id: id ?? this.id,
+      daily_review_limit: daily_review_limit ?? this.daily_review_limit,
+      daily_new_limit: daily_new_limit ?? this.daily_new_limit,
+      default_sort_type: default_sort_type ?? this.default_sort_type,
+      image_quality: image_quality ?? this.image_quality,
+      generate_thumbnail: generate_thumbnail ?? this.generate_thumbnail,
+      show_next_review_time:
+          show_next_review_time ?? this.show_next_review_time,
+      count_practice_as_review:
+          count_practice_as_review ?? this.count_practice_as_review,
+      initial_red_days: initial_red_days ?? this.initial_red_days,
+      initial_yellow_days: initial_yellow_days ?? this.initial_yellow_days,
+      initial_green_days: initial_green_days ?? this.initial_green_days,
+      backup_reminder_days: backup_reminder_days ?? this.backup_reminder_days,
+      theme_mode: theme_mode ?? this.theme_mode,
+      updated_at: updated_at ?? this.updated_at,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (daily_review_limit.present) {
+      map['daily_review_limit'] = Variable<int>(daily_review_limit.value);
+    }
+    if (daily_new_limit.present) {
+      map['daily_new_limit'] = Variable<int>(daily_new_limit.value);
+    }
+    if (default_sort_type.present) {
+      map['default_sort_type'] = Variable<String>(default_sort_type.value);
+    }
+    if (image_quality.present) {
+      map['image_quality'] = Variable<int>(image_quality.value);
+    }
+    if (generate_thumbnail.present) {
+      map['generate_thumbnail'] = Variable<int>(generate_thumbnail.value);
+    }
+    if (show_next_review_time.present) {
+      map['show_next_review_time'] = Variable<int>(show_next_review_time.value);
+    }
+    if (count_practice_as_review.present) {
+      map['count_practice_as_review'] = Variable<int>(
+        count_practice_as_review.value,
+      );
+    }
+    if (initial_red_days.present) {
+      map['initial_red_days'] = Variable<int>(initial_red_days.value);
+    }
+    if (initial_yellow_days.present) {
+      map['initial_yellow_days'] = Variable<int>(initial_yellow_days.value);
+    }
+    if (initial_green_days.present) {
+      map['initial_green_days'] = Variable<int>(initial_green_days.value);
+    }
+    if (backup_reminder_days.present) {
+      map['backup_reminder_days'] = Variable<int>(backup_reminder_days.value);
+    }
+    if (theme_mode.present) {
+      map['theme_mode'] = Variable<String>(theme_mode.value);
+    }
+    if (updated_at.present) {
+      map['updated_at'] = Variable<int>(updated_at.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AppSettingsCompanion(')
+          ..write('id: $id, ')
+          ..write('daily_review_limit: $daily_review_limit, ')
+          ..write('daily_new_limit: $daily_new_limit, ')
+          ..write('default_sort_type: $default_sort_type, ')
+          ..write('image_quality: $image_quality, ')
+          ..write('generate_thumbnail: $generate_thumbnail, ')
+          ..write('show_next_review_time: $show_next_review_time, ')
+          ..write('count_practice_as_review: $count_practice_as_review, ')
+          ..write('initial_red_days: $initial_red_days, ')
+          ..write('initial_yellow_days: $initial_yellow_days, ')
+          ..write('initial_green_days: $initial_green_days, ')
+          ..write('backup_reminder_days: $backup_reminder_days, ')
+          ..write('theme_mode: $theme_mode, ')
+          ..write('updated_at: $updated_at')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -7599,6 +8485,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $PracticeRecordsTable practiceRecords = $PracticeRecordsTable(
     this,
   );
+  late final $AppSettingsTable appSettings = $AppSettingsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -7618,6 +8505,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     practicePlans,
     practiceSessions,
     practiceRecords,
+    appSettings,
   ];
 }
 
@@ -11478,6 +12366,406 @@ typedef $$PracticeRecordsTableProcessedTableManager =
       PracticeRecord,
       PrefetchHooks Function()
     >;
+typedef $$AppSettingsTableCreateCompanionBuilder =
+    AppSettingsCompanion Function({
+      Value<int> id,
+      required int daily_review_limit,
+      required int daily_new_limit,
+      required String default_sort_type,
+      required int image_quality,
+      required int generate_thumbnail,
+      required int show_next_review_time,
+      required int count_practice_as_review,
+      required int initial_red_days,
+      required int initial_yellow_days,
+      required int initial_green_days,
+      required int backup_reminder_days,
+      required String theme_mode,
+      required int updated_at,
+    });
+typedef $$AppSettingsTableUpdateCompanionBuilder =
+    AppSettingsCompanion Function({
+      Value<int> id,
+      Value<int> daily_review_limit,
+      Value<int> daily_new_limit,
+      Value<String> default_sort_type,
+      Value<int> image_quality,
+      Value<int> generate_thumbnail,
+      Value<int> show_next_review_time,
+      Value<int> count_practice_as_review,
+      Value<int> initial_red_days,
+      Value<int> initial_yellow_days,
+      Value<int> initial_green_days,
+      Value<int> backup_reminder_days,
+      Value<String> theme_mode,
+      Value<int> updated_at,
+    });
+
+class $$AppSettingsTableFilterComposer
+    extends Composer<_$AppDatabase, $AppSettingsTable> {
+  $$AppSettingsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get daily_review_limit => $composableBuilder(
+    column: $table.daily_review_limit,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get daily_new_limit => $composableBuilder(
+    column: $table.daily_new_limit,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get default_sort_type => $composableBuilder(
+    column: $table.default_sort_type,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get image_quality => $composableBuilder(
+    column: $table.image_quality,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get generate_thumbnail => $composableBuilder(
+    column: $table.generate_thumbnail,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get show_next_review_time => $composableBuilder(
+    column: $table.show_next_review_time,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get count_practice_as_review => $composableBuilder(
+    column: $table.count_practice_as_review,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get initial_red_days => $composableBuilder(
+    column: $table.initial_red_days,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get initial_yellow_days => $composableBuilder(
+    column: $table.initial_yellow_days,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get initial_green_days => $composableBuilder(
+    column: $table.initial_green_days,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get backup_reminder_days => $composableBuilder(
+    column: $table.backup_reminder_days,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get theme_mode => $composableBuilder(
+    column: $table.theme_mode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$AppSettingsTableOrderingComposer
+    extends Composer<_$AppDatabase, $AppSettingsTable> {
+  $$AppSettingsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get daily_review_limit => $composableBuilder(
+    column: $table.daily_review_limit,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get daily_new_limit => $composableBuilder(
+    column: $table.daily_new_limit,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get default_sort_type => $composableBuilder(
+    column: $table.default_sort_type,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get image_quality => $composableBuilder(
+    column: $table.image_quality,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get generate_thumbnail => $composableBuilder(
+    column: $table.generate_thumbnail,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get show_next_review_time => $composableBuilder(
+    column: $table.show_next_review_time,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get count_practice_as_review => $composableBuilder(
+    column: $table.count_practice_as_review,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get initial_red_days => $composableBuilder(
+    column: $table.initial_red_days,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get initial_yellow_days => $composableBuilder(
+    column: $table.initial_yellow_days,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get initial_green_days => $composableBuilder(
+    column: $table.initial_green_days,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get backup_reminder_days => $composableBuilder(
+    column: $table.backup_reminder_days,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get theme_mode => $composableBuilder(
+    column: $table.theme_mode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$AppSettingsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $AppSettingsTable> {
+  $$AppSettingsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get daily_review_limit => $composableBuilder(
+    column: $table.daily_review_limit,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get daily_new_limit => $composableBuilder(
+    column: $table.daily_new_limit,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get default_sort_type => $composableBuilder(
+    column: $table.default_sort_type,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get image_quality => $composableBuilder(
+    column: $table.image_quality,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get generate_thumbnail => $composableBuilder(
+    column: $table.generate_thumbnail,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get show_next_review_time => $composableBuilder(
+    column: $table.show_next_review_time,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get count_practice_as_review => $composableBuilder(
+    column: $table.count_practice_as_review,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get initial_red_days => $composableBuilder(
+    column: $table.initial_red_days,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get initial_yellow_days => $composableBuilder(
+    column: $table.initial_yellow_days,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get initial_green_days => $composableBuilder(
+    column: $table.initial_green_days,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get backup_reminder_days => $composableBuilder(
+    column: $table.backup_reminder_days,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get theme_mode => $composableBuilder(
+    column: $table.theme_mode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => column,
+  );
+}
+
+class $$AppSettingsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $AppSettingsTable,
+          AppSetting,
+          $$AppSettingsTableFilterComposer,
+          $$AppSettingsTableOrderingComposer,
+          $$AppSettingsTableAnnotationComposer,
+          $$AppSettingsTableCreateCompanionBuilder,
+          $$AppSettingsTableUpdateCompanionBuilder,
+          (
+            AppSetting,
+            BaseReferences<_$AppDatabase, $AppSettingsTable, AppSetting>,
+          ),
+          AppSetting,
+          PrefetchHooks Function()
+        > {
+  $$AppSettingsTableTableManager(_$AppDatabase db, $AppSettingsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$AppSettingsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$AppSettingsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$AppSettingsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> daily_review_limit = const Value.absent(),
+                Value<int> daily_new_limit = const Value.absent(),
+                Value<String> default_sort_type = const Value.absent(),
+                Value<int> image_quality = const Value.absent(),
+                Value<int> generate_thumbnail = const Value.absent(),
+                Value<int> show_next_review_time = const Value.absent(),
+                Value<int> count_practice_as_review = const Value.absent(),
+                Value<int> initial_red_days = const Value.absent(),
+                Value<int> initial_yellow_days = const Value.absent(),
+                Value<int> initial_green_days = const Value.absent(),
+                Value<int> backup_reminder_days = const Value.absent(),
+                Value<String> theme_mode = const Value.absent(),
+                Value<int> updated_at = const Value.absent(),
+              }) => AppSettingsCompanion(
+                id: id,
+                daily_review_limit: daily_review_limit,
+                daily_new_limit: daily_new_limit,
+                default_sort_type: default_sort_type,
+                image_quality: image_quality,
+                generate_thumbnail: generate_thumbnail,
+                show_next_review_time: show_next_review_time,
+                count_practice_as_review: count_practice_as_review,
+                initial_red_days: initial_red_days,
+                initial_yellow_days: initial_yellow_days,
+                initial_green_days: initial_green_days,
+                backup_reminder_days: backup_reminder_days,
+                theme_mode: theme_mode,
+                updated_at: updated_at,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int daily_review_limit,
+                required int daily_new_limit,
+                required String default_sort_type,
+                required int image_quality,
+                required int generate_thumbnail,
+                required int show_next_review_time,
+                required int count_practice_as_review,
+                required int initial_red_days,
+                required int initial_yellow_days,
+                required int initial_green_days,
+                required int backup_reminder_days,
+                required String theme_mode,
+                required int updated_at,
+              }) => AppSettingsCompanion.insert(
+                id: id,
+                daily_review_limit: daily_review_limit,
+                daily_new_limit: daily_new_limit,
+                default_sort_type: default_sort_type,
+                image_quality: image_quality,
+                generate_thumbnail: generate_thumbnail,
+                show_next_review_time: show_next_review_time,
+                count_practice_as_review: count_practice_as_review,
+                initial_red_days: initial_red_days,
+                initial_yellow_days: initial_yellow_days,
+                initial_green_days: initial_green_days,
+                backup_reminder_days: backup_reminder_days,
+                theme_mode: theme_mode,
+                updated_at: updated_at,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$AppSettingsTable, AppSetting>(table),
+                  BaseReferences<_$AppDatabase, $AppSettingsTable, AppSetting>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$AppSettingsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $AppSettingsTable,
+      AppSetting,
+      $$AppSettingsTableFilterComposer,
+      $$AppSettingsTableOrderingComposer,
+      $$AppSettingsTableAnnotationComposer,
+      $$AppSettingsTableCreateCompanionBuilder,
+      $$AppSettingsTableUpdateCompanionBuilder,
+      (
+        AppSetting,
+        BaseReferences<_$AppDatabase, $AppSettingsTable, AppSetting>,
+      ),
+      AppSetting,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -11509,4 +12797,6 @@ class $AppDatabaseManager {
       $$PracticeSessionsTableTableManager(_db, _db.practiceSessions);
   $$PracticeRecordsTableTableManager get practiceRecords =>
       $$PracticeRecordsTableTableManager(_db, _db.practiceRecords);
+  $$AppSettingsTableTableManager get appSettings =>
+      $$AppSettingsTableTableManager(_db, _db.appSettings);
 }

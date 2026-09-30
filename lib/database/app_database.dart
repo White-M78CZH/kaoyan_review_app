@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
 
+import 'tables/app_settings.dart';
 import 'tables/categories.dart';
 import 'tables/fsrs_cards.dart';
 import 'tables/images.dart';
@@ -42,13 +43,14 @@ const String _databaseName = 'kaoyan_review_app';
     PracticePlans,
     PracticeSessions,
     PracticeRecords,
+    AppSettings,
   ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(driftDatabase(name: _databaseName));
 
   @override
-  int get schemaVersion => 14;
+  int get schemaVersion => 15;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -57,7 +59,7 @@ class AppDatabase extends _$AppDatabase {
       // （subjects、study_items、categories、images、tags、study_item_tags、
       // fsrs_cards、review_records、mistake_records、mistake_reasons、
       // mistake_record_reasons、practice_plans、practice_sessions、
-      // practice_records）。
+      // practice_records、app_settings）。
       await m.createAll();
     },
     onUpgrade: (Migrator m, int from, int to) async {
@@ -136,6 +138,14 @@ class AppDatabase extends _$AppDatabase {
       // practice_sessions 及其已有数据。不删除任何已有表，不重建数据库。
       if (from < 14) {
         await m.createTable(practiceRecords);
+      }
+      // v14 -> v15：仅新增 app_settings 表，保留 subjects、study_items、
+      // categories、images、tags、study_item_tags、fsrs_cards、review_records、
+      // mistake_records、mistake_reasons、mistake_record_reasons、practice_plans、
+      // practice_sessions、practice_records 及其已有数据。
+      // 不删除任何已有表，不重建数据库。
+      if (from < 15) {
+        await m.createTable(appSettings);
       }
     },
   );

@@ -2107,12 +2107,613 @@ class CategoriesCompanion extends UpdateCompanion<Category> {
   }
 }
 
+class $ImagesTable extends Images with TableInfo<$ImagesTable, ImageRecord> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ImagesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _study_item_idMeta = const VerificationMeta(
+    'study_item_id',
+  );
+  @override
+  late final GeneratedColumn<String> study_item_id = GeneratedColumn<String>(
+    'study_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _file_pathMeta = const VerificationMeta(
+    'file_path',
+  );
+  @override
+  late final GeneratedColumn<String> file_path = GeneratedColumn<String>(
+    'file_path',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _thumbnail_pathMeta = const VerificationMeta(
+    'thumbnail_path',
+  );
+  @override
+  late final GeneratedColumn<String> thumbnail_path = GeneratedColumn<String>(
+    'thumbnail_path',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _original_widthMeta = const VerificationMeta(
+    'original_width',
+  );
+  @override
+  late final GeneratedColumn<int> original_width = GeneratedColumn<int>(
+    'original_width',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _original_heightMeta = const VerificationMeta(
+    'original_height',
+  );
+  @override
+  late final GeneratedColumn<int> original_height = GeneratedColumn<int>(
+    'original_height',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _file_sizeMeta = const VerificationMeta(
+    'file_size',
+  );
+  @override
+  late final GeneratedColumn<int> file_size = GeneratedColumn<int>(
+    'file_size',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sort_orderMeta = const VerificationMeta(
+    'sort_order',
+  );
+  @override
+  late final GeneratedColumn<int> sort_order = GeneratedColumn<int>(
+    'sort_order',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _created_atMeta = const VerificationMeta(
+    'created_at',
+  );
+  @override
+  late final GeneratedColumn<int> created_at = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    study_item_id,
+    file_path,
+    thumbnail_path,
+    original_width,
+    original_height,
+    file_size,
+    sort_order,
+    created_at,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'images';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ImageRecord> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('study_item_id')) {
+      context.handle(
+        _study_item_idMeta,
+        study_item_id.isAcceptableOrUnknown(
+          data['study_item_id']!,
+          _study_item_idMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_study_item_idMeta);
+    }
+    if (data.containsKey('file_path')) {
+      context.handle(
+        _file_pathMeta,
+        file_path.isAcceptableOrUnknown(data['file_path']!, _file_pathMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_file_pathMeta);
+    }
+    if (data.containsKey('thumbnail_path')) {
+      context.handle(
+        _thumbnail_pathMeta,
+        thumbnail_path.isAcceptableOrUnknown(
+          data['thumbnail_path']!,
+          _thumbnail_pathMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_thumbnail_pathMeta);
+    }
+    if (data.containsKey('original_width')) {
+      context.handle(
+        _original_widthMeta,
+        original_width.isAcceptableOrUnknown(
+          data['original_width']!,
+          _original_widthMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_original_widthMeta);
+    }
+    if (data.containsKey('original_height')) {
+      context.handle(
+        _original_heightMeta,
+        original_height.isAcceptableOrUnknown(
+          data['original_height']!,
+          _original_heightMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_original_heightMeta);
+    }
+    if (data.containsKey('file_size')) {
+      context.handle(
+        _file_sizeMeta,
+        file_size.isAcceptableOrUnknown(data['file_size']!, _file_sizeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_file_sizeMeta);
+    }
+    if (data.containsKey('sort_order')) {
+      context.handle(
+        _sort_orderMeta,
+        sort_order.isAcceptableOrUnknown(data['sort_order']!, _sort_orderMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_sort_orderMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _created_atMeta,
+        created_at.isAcceptableOrUnknown(data['created_at']!, _created_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_created_atMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ImageRecord map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ImageRecord(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      study_item_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}study_item_id'],
+      )!,
+      file_path: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}file_path'],
+      )!,
+      thumbnail_path: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}thumbnail_path'],
+      )!,
+      original_width: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}original_width'],
+      )!,
+      original_height: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}original_height'],
+      )!,
+      file_size: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}file_size'],
+      )!,
+      sort_order: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sort_order'],
+      )!,
+      created_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $ImagesTable createAlias(String alias) {
+    return $ImagesTable(attachedDatabase, alias);
+  }
+}
+
+class ImageRecord extends DataClass implements Insertable<ImageRecord> {
+  /// 图片ID，主键
+  final String id;
+
+  /// 所属学习内容
+  final String study_item_id;
+
+  /// 原图路径
+  final String file_path;
+
+  /// 缩略图路径
+  final String thumbnail_path;
+
+  /// 原始宽度
+  final int original_width;
+
+  /// 原始高度
+  final int original_height;
+
+  /// 文件大小
+  final int file_size;
+
+  /// 图片顺序
+  final int sort_order;
+
+  /// 添加时间，毫秒级时间戳
+  final int created_at;
+  const ImageRecord({
+    required this.id,
+    required this.study_item_id,
+    required this.file_path,
+    required this.thumbnail_path,
+    required this.original_width,
+    required this.original_height,
+    required this.file_size,
+    required this.sort_order,
+    required this.created_at,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['study_item_id'] = Variable<String>(study_item_id);
+    map['file_path'] = Variable<String>(file_path);
+    map['thumbnail_path'] = Variable<String>(thumbnail_path);
+    map['original_width'] = Variable<int>(original_width);
+    map['original_height'] = Variable<int>(original_height);
+    map['file_size'] = Variable<int>(file_size);
+    map['sort_order'] = Variable<int>(sort_order);
+    map['created_at'] = Variable<int>(created_at);
+    return map;
+  }
+
+  ImagesCompanion toCompanion(bool nullToAbsent) {
+    return ImagesCompanion(
+      id: Value(id),
+      study_item_id: Value(study_item_id),
+      file_path: Value(file_path),
+      thumbnail_path: Value(thumbnail_path),
+      original_width: Value(original_width),
+      original_height: Value(original_height),
+      file_size: Value(file_size),
+      sort_order: Value(sort_order),
+      created_at: Value(created_at),
+    );
+  }
+
+  factory ImageRecord.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ImageRecord(
+      id: serializer.fromJson<String>(json['id']),
+      study_item_id: serializer.fromJson<String>(json['study_item_id']),
+      file_path: serializer.fromJson<String>(json['file_path']),
+      thumbnail_path: serializer.fromJson<String>(json['thumbnail_path']),
+      original_width: serializer.fromJson<int>(json['original_width']),
+      original_height: serializer.fromJson<int>(json['original_height']),
+      file_size: serializer.fromJson<int>(json['file_size']),
+      sort_order: serializer.fromJson<int>(json['sort_order']),
+      created_at: serializer.fromJson<int>(json['created_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'study_item_id': serializer.toJson<String>(study_item_id),
+      'file_path': serializer.toJson<String>(file_path),
+      'thumbnail_path': serializer.toJson<String>(thumbnail_path),
+      'original_width': serializer.toJson<int>(original_width),
+      'original_height': serializer.toJson<int>(original_height),
+      'file_size': serializer.toJson<int>(file_size),
+      'sort_order': serializer.toJson<int>(sort_order),
+      'created_at': serializer.toJson<int>(created_at),
+    };
+  }
+
+  ImageRecord copyWith({
+    String? id,
+    String? study_item_id,
+    String? file_path,
+    String? thumbnail_path,
+    int? original_width,
+    int? original_height,
+    int? file_size,
+    int? sort_order,
+    int? created_at,
+  }) => ImageRecord(
+    id: id ?? this.id,
+    study_item_id: study_item_id ?? this.study_item_id,
+    file_path: file_path ?? this.file_path,
+    thumbnail_path: thumbnail_path ?? this.thumbnail_path,
+    original_width: original_width ?? this.original_width,
+    original_height: original_height ?? this.original_height,
+    file_size: file_size ?? this.file_size,
+    sort_order: sort_order ?? this.sort_order,
+    created_at: created_at ?? this.created_at,
+  );
+  ImageRecord copyWithCompanion(ImagesCompanion data) {
+    return ImageRecord(
+      id: data.id.present ? data.id.value : this.id,
+      study_item_id: data.study_item_id.present
+          ? data.study_item_id.value
+          : this.study_item_id,
+      file_path: data.file_path.present ? data.file_path.value : this.file_path,
+      thumbnail_path: data.thumbnail_path.present
+          ? data.thumbnail_path.value
+          : this.thumbnail_path,
+      original_width: data.original_width.present
+          ? data.original_width.value
+          : this.original_width,
+      original_height: data.original_height.present
+          ? data.original_height.value
+          : this.original_height,
+      file_size: data.file_size.present ? data.file_size.value : this.file_size,
+      sort_order: data.sort_order.present
+          ? data.sort_order.value
+          : this.sort_order,
+      created_at: data.created_at.present
+          ? data.created_at.value
+          : this.created_at,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ImageRecord(')
+          ..write('id: $id, ')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('file_path: $file_path, ')
+          ..write('thumbnail_path: $thumbnail_path, ')
+          ..write('original_width: $original_width, ')
+          ..write('original_height: $original_height, ')
+          ..write('file_size: $file_size, ')
+          ..write('sort_order: $sort_order, ')
+          ..write('created_at: $created_at')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    study_item_id,
+    file_path,
+    thumbnail_path,
+    original_width,
+    original_height,
+    file_size,
+    sort_order,
+    created_at,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ImageRecord &&
+          other.id == this.id &&
+          other.study_item_id == this.study_item_id &&
+          other.file_path == this.file_path &&
+          other.thumbnail_path == this.thumbnail_path &&
+          other.original_width == this.original_width &&
+          other.original_height == this.original_height &&
+          other.file_size == this.file_size &&
+          other.sort_order == this.sort_order &&
+          other.created_at == this.created_at);
+}
+
+class ImagesCompanion extends UpdateCompanion<ImageRecord> {
+  final Value<String> id;
+  final Value<String> study_item_id;
+  final Value<String> file_path;
+  final Value<String> thumbnail_path;
+  final Value<int> original_width;
+  final Value<int> original_height;
+  final Value<int> file_size;
+  final Value<int> sort_order;
+  final Value<int> created_at;
+  final Value<int> rowid;
+  const ImagesCompanion({
+    this.id = const Value.absent(),
+    this.study_item_id = const Value.absent(),
+    this.file_path = const Value.absent(),
+    this.thumbnail_path = const Value.absent(),
+    this.original_width = const Value.absent(),
+    this.original_height = const Value.absent(),
+    this.file_size = const Value.absent(),
+    this.sort_order = const Value.absent(),
+    this.created_at = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ImagesCompanion.insert({
+    required String id,
+    required String study_item_id,
+    required String file_path,
+    required String thumbnail_path,
+    required int original_width,
+    required int original_height,
+    required int file_size,
+    required int sort_order,
+    required int created_at,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       study_item_id = Value(study_item_id),
+       file_path = Value(file_path),
+       thumbnail_path = Value(thumbnail_path),
+       original_width = Value(original_width),
+       original_height = Value(original_height),
+       file_size = Value(file_size),
+       sort_order = Value(sort_order),
+       created_at = Value(created_at);
+  static Insertable<ImageRecord> custom({
+    Expression<String>? id,
+    Expression<String>? study_item_id,
+    Expression<String>? file_path,
+    Expression<String>? thumbnail_path,
+    Expression<int>? original_width,
+    Expression<int>? original_height,
+    Expression<int>? file_size,
+    Expression<int>? sort_order,
+    Expression<int>? created_at,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (study_item_id != null) 'study_item_id': study_item_id,
+      if (file_path != null) 'file_path': file_path,
+      if (thumbnail_path != null) 'thumbnail_path': thumbnail_path,
+      if (original_width != null) 'original_width': original_width,
+      if (original_height != null) 'original_height': original_height,
+      if (file_size != null) 'file_size': file_size,
+      if (sort_order != null) 'sort_order': sort_order,
+      if (created_at != null) 'created_at': created_at,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ImagesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? study_item_id,
+    Value<String>? file_path,
+    Value<String>? thumbnail_path,
+    Value<int>? original_width,
+    Value<int>? original_height,
+    Value<int>? file_size,
+    Value<int>? sort_order,
+    Value<int>? created_at,
+    Value<int>? rowid,
+  }) {
+    return ImagesCompanion(
+      id: id ?? this.id,
+      study_item_id: study_item_id ?? this.study_item_id,
+      file_path: file_path ?? this.file_path,
+      thumbnail_path: thumbnail_path ?? this.thumbnail_path,
+      original_width: original_width ?? this.original_width,
+      original_height: original_height ?? this.original_height,
+      file_size: file_size ?? this.file_size,
+      sort_order: sort_order ?? this.sort_order,
+      created_at: created_at ?? this.created_at,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (study_item_id.present) {
+      map['study_item_id'] = Variable<String>(study_item_id.value);
+    }
+    if (file_path.present) {
+      map['file_path'] = Variable<String>(file_path.value);
+    }
+    if (thumbnail_path.present) {
+      map['thumbnail_path'] = Variable<String>(thumbnail_path.value);
+    }
+    if (original_width.present) {
+      map['original_width'] = Variable<int>(original_width.value);
+    }
+    if (original_height.present) {
+      map['original_height'] = Variable<int>(original_height.value);
+    }
+    if (file_size.present) {
+      map['file_size'] = Variable<int>(file_size.value);
+    }
+    if (sort_order.present) {
+      map['sort_order'] = Variable<int>(sort_order.value);
+    }
+    if (created_at.present) {
+      map['created_at'] = Variable<int>(created_at.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ImagesCompanion(')
+          ..write('id: $id, ')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('file_path: $file_path, ')
+          ..write('thumbnail_path: $thumbnail_path, ')
+          ..write('original_width: $original_width, ')
+          ..write('original_height: $original_height, ')
+          ..write('file_size: $file_size, ')
+          ..write('sort_order: $sort_order, ')
+          ..write('created_at: $created_at, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
   late final $SubjectsTable subjects = $SubjectsTable(this);
   late final $StudyItemsTable studyItems = $StudyItemsTable(this);
   late final $CategoriesTable categories = $CategoriesTable(this);
+  late final $ImagesTable images = $ImagesTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -2121,6 +2722,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     subjects,
     studyItems,
     categories,
+    images,
   ];
 }
 
@@ -3118,6 +3720,298 @@ typedef $$CategoriesTableProcessedTableManager =
       Category,
       PrefetchHooks Function()
     >;
+typedef $$ImagesTableCreateCompanionBuilder = ImagesCompanion Function({
+  required String id,
+  required String study_item_id,
+  required String file_path,
+  required String thumbnail_path,
+  required int original_width,
+  required int original_height,
+  required int file_size,
+  required int sort_order,
+  required int created_at,
+  Value<int> rowid,
+});
+typedef $$ImagesTableUpdateCompanionBuilder = ImagesCompanion Function({
+  Value<String> id,
+  Value<String> study_item_id,
+  Value<String> file_path,
+  Value<String> thumbnail_path,
+  Value<int> original_width,
+  Value<int> original_height,
+  Value<int> file_size,
+  Value<int> sort_order,
+  Value<int> created_at,
+  Value<int> rowid,
+});
+
+class $$ImagesTableFilterComposer
+    extends Composer<_$AppDatabase, $ImagesTable> {
+  $$ImagesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get file_path => $composableBuilder(
+    column: $table.file_path,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get thumbnail_path => $composableBuilder(
+    column: $table.thumbnail_path,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get original_width => $composableBuilder(
+    column: $table.original_width,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get original_height => $composableBuilder(
+    column: $table.original_height,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get file_size => $composableBuilder(
+    column: $table.file_size,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get sort_order => $composableBuilder(
+    column: $table.sort_order,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ImagesTableOrderingComposer
+    extends Composer<_$AppDatabase, $ImagesTable> {
+  $$ImagesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get file_path => $composableBuilder(
+    column: $table.file_path,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get thumbnail_path => $composableBuilder(
+    column: $table.thumbnail_path,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get original_width => $composableBuilder(
+    column: $table.original_width,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get original_height => $composableBuilder(
+    column: $table.original_height,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get file_size => $composableBuilder(
+    column: $table.file_size,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get sort_order => $composableBuilder(
+    column: $table.sort_order,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ImagesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ImagesTable> {
+  $$ImagesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get file_path =>
+      $composableBuilder(column: $table.file_path, builder: (column) => column);
+
+  GeneratedColumn<String> get thumbnail_path => $composableBuilder(
+    column: $table.thumbnail_path,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get original_width => $composableBuilder(
+    column: $table.original_width,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get original_height => $composableBuilder(
+    column: $table.original_height,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get file_size =>
+      $composableBuilder(column: $table.file_size, builder: (column) => column);
+
+  GeneratedColumn<int> get sort_order => $composableBuilder(
+    column: $table.sort_order,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => column,
+  );
+}
+
+class $$ImagesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ImagesTable,
+          ImageRecord,
+          $$ImagesTableFilterComposer,
+          $$ImagesTableOrderingComposer,
+          $$ImagesTableAnnotationComposer,
+          $$ImagesTableCreateCompanionBuilder,
+          $$ImagesTableUpdateCompanionBuilder,
+          (
+            ImageRecord,
+            BaseReferences<_$AppDatabase, $ImagesTable, ImageRecord>,
+          ),
+          ImageRecord,
+          PrefetchHooks Function()
+        > {
+  $$ImagesTableTableManager(_$AppDatabase db, $ImagesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ImagesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ImagesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ImagesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> study_item_id = const Value.absent(),
+                Value<String> file_path = const Value.absent(),
+                Value<String> thumbnail_path = const Value.absent(),
+                Value<int> original_width = const Value.absent(),
+                Value<int> original_height = const Value.absent(),
+                Value<int> file_size = const Value.absent(),
+                Value<int> sort_order = const Value.absent(),
+                Value<int> created_at = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ImagesCompanion(
+                id: id,
+                study_item_id: study_item_id,
+                file_path: file_path,
+                thumbnail_path: thumbnail_path,
+                original_width: original_width,
+                original_height: original_height,
+                file_size: file_size,
+                sort_order: sort_order,
+                created_at: created_at,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String study_item_id,
+                required String file_path,
+                required String thumbnail_path,
+                required int original_width,
+                required int original_height,
+                required int file_size,
+                required int sort_order,
+                required int created_at,
+                Value<int> rowid = const Value.absent(),
+              }) => ImagesCompanion.insert(
+                id: id,
+                study_item_id: study_item_id,
+                file_path: file_path,
+                thumbnail_path: thumbnail_path,
+                original_width: original_width,
+                original_height: original_height,
+                file_size: file_size,
+                sort_order: sort_order,
+                created_at: created_at,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$ImagesTable, ImageRecord>(table),
+                  BaseReferences<_$AppDatabase, $ImagesTable, ImageRecord>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ImagesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ImagesTable,
+      ImageRecord,
+      $$ImagesTableFilterComposer,
+      $$ImagesTableOrderingComposer,
+      $$ImagesTableAnnotationComposer,
+      $$ImagesTableCreateCompanionBuilder,
+      $$ImagesTableUpdateCompanionBuilder,
+      (ImageRecord, BaseReferences<_$AppDatabase, $ImagesTable, ImageRecord>),
+      ImageRecord,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -3128,4 +4022,6 @@ class $AppDatabaseManager {
       $$StudyItemsTableTableManager(_db, _db.studyItems);
   $$CategoriesTableTableManager get categories =>
       $$CategoriesTableTableManager(_db, _db.categories);
+  $$ImagesTableTableManager get images =>
+      $$ImagesTableTableManager(_db, _db.images);
 }

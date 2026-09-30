@@ -6315,6 +6315,829 @@ class PracticePlansCompanion extends UpdateCompanion<PracticePlan> {
   }
 }
 
+class $PracticeSessionsTable extends PracticeSessions
+    with TableInfo<$PracticeSessionsTable, PracticeSession> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $PracticeSessionsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _plan_idMeta = const VerificationMeta(
+    'plan_id',
+  );
+  @override
+  late final GeneratedColumn<String> plan_id = GeneratedColumn<String>(
+    'plan_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _started_atMeta = const VerificationMeta(
+    'started_at',
+  );
+  @override
+  late final GeneratedColumn<int> started_at = GeneratedColumn<int>(
+    'started_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _finished_atMeta = const VerificationMeta(
+    'finished_at',
+  );
+  @override
+  late final GeneratedColumn<int> finished_at = GeneratedColumn<int>(
+    'finished_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _total_countMeta = const VerificationMeta(
+    'total_count',
+  );
+  @override
+  late final GeneratedColumn<int> total_count = GeneratedColumn<int>(
+    'total_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _correct_countMeta = const VerificationMeta(
+    'correct_count',
+  );
+  @override
+  late final GeneratedColumn<int> correct_count = GeneratedColumn<int>(
+    'correct_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _wrong_countMeta = const VerificationMeta(
+    'wrong_count',
+  );
+  @override
+  late final GeneratedColumn<int> wrong_count = GeneratedColumn<int>(
+    'wrong_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _skipped_countMeta = const VerificationMeta(
+    'skipped_count',
+  );
+  @override
+  late final GeneratedColumn<int> skipped_count = GeneratedColumn<int>(
+    'skipped_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hesitated_countMeta = const VerificationMeta(
+    'hesitated_count',
+  );
+  @override
+  late final GeneratedColumn<int> hesitated_count = GeneratedColumn<int>(
+    'hesitated_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _total_timeMeta = const VerificationMeta(
+    'total_time',
+  );
+  @override
+  late final GeneratedColumn<int> total_time = GeneratedColumn<int>(
+    'total_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _average_timeMeta = const VerificationMeta(
+    'average_time',
+  );
+  @override
+  late final GeneratedColumn<double> average_time = GeneratedColumn<double>(
+    'average_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _count_as_reviewMeta = const VerificationMeta(
+    'count_as_review',
+  );
+  @override
+  late final GeneratedColumn<int> count_as_review = GeneratedColumn<int>(
+    'count_as_review',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _created_atMeta = const VerificationMeta(
+    'created_at',
+  );
+  @override
+  late final GeneratedColumn<int> created_at = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    plan_id,
+    started_at,
+    finished_at,
+    total_count,
+    correct_count,
+    wrong_count,
+    skipped_count,
+    hesitated_count,
+    total_time,
+    average_time,
+    count_as_review,
+    created_at,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'practice_sessions';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<PracticeSession> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('plan_id')) {
+      context.handle(
+        _plan_idMeta,
+        plan_id.isAcceptableOrUnknown(data['plan_id']!, _plan_idMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_plan_idMeta);
+    }
+    if (data.containsKey('started_at')) {
+      context.handle(
+        _started_atMeta,
+        started_at.isAcceptableOrUnknown(data['started_at']!, _started_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_started_atMeta);
+    }
+    if (data.containsKey('finished_at')) {
+      context.handle(
+        _finished_atMeta,
+        finished_at.isAcceptableOrUnknown(
+          data['finished_at']!,
+          _finished_atMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_finished_atMeta);
+    }
+    if (data.containsKey('total_count')) {
+      context.handle(
+        _total_countMeta,
+        total_count.isAcceptableOrUnknown(
+          data['total_count']!,
+          _total_countMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_total_countMeta);
+    }
+    if (data.containsKey('correct_count')) {
+      context.handle(
+        _correct_countMeta,
+        correct_count.isAcceptableOrUnknown(
+          data['correct_count']!,
+          _correct_countMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_correct_countMeta);
+    }
+    if (data.containsKey('wrong_count')) {
+      context.handle(
+        _wrong_countMeta,
+        wrong_count.isAcceptableOrUnknown(
+          data['wrong_count']!,
+          _wrong_countMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_wrong_countMeta);
+    }
+    if (data.containsKey('skipped_count')) {
+      context.handle(
+        _skipped_countMeta,
+        skipped_count.isAcceptableOrUnknown(
+          data['skipped_count']!,
+          _skipped_countMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_skipped_countMeta);
+    }
+    if (data.containsKey('hesitated_count')) {
+      context.handle(
+        _hesitated_countMeta,
+        hesitated_count.isAcceptableOrUnknown(
+          data['hesitated_count']!,
+          _hesitated_countMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_hesitated_countMeta);
+    }
+    if (data.containsKey('total_time')) {
+      context.handle(
+        _total_timeMeta,
+        total_time.isAcceptableOrUnknown(data['total_time']!, _total_timeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_total_timeMeta);
+    }
+    if (data.containsKey('average_time')) {
+      context.handle(
+        _average_timeMeta,
+        average_time.isAcceptableOrUnknown(
+          data['average_time']!,
+          _average_timeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_average_timeMeta);
+    }
+    if (data.containsKey('count_as_review')) {
+      context.handle(
+        _count_as_reviewMeta,
+        count_as_review.isAcceptableOrUnknown(
+          data['count_as_review']!,
+          _count_as_reviewMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_count_as_reviewMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _created_atMeta,
+        created_at.isAcceptableOrUnknown(data['created_at']!, _created_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_created_atMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  PracticeSession map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return PracticeSession(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      plan_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}plan_id'],
+      )!,
+      started_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}started_at'],
+      )!,
+      finished_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}finished_at'],
+      )!,
+      total_count: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}total_count'],
+      )!,
+      correct_count: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}correct_count'],
+      )!,
+      wrong_count: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wrong_count'],
+      )!,
+      skipped_count: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}skipped_count'],
+      )!,
+      hesitated_count: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hesitated_count'],
+      )!,
+      total_time: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}total_time'],
+      )!,
+      average_time: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}average_time'],
+      )!,
+      count_as_review: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}count_as_review'],
+      )!,
+      created_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $PracticeSessionsTable createAlias(String alias) {
+    return $PracticeSessionsTable(attachedDatabase, alias);
+  }
+}
+
+class PracticeSession extends DataClass implements Insertable<PracticeSession> {
+  /// 刷题活动ID，主键
+  final String id;
+
+  /// 使用的方案
+  final String plan_id;
+
+  /// 开始时间，毫秒级时间戳
+  final int started_at;
+
+  /// 结束时间，毫秒级时间戳
+  final int finished_at;
+
+  /// 总题数
+  final int total_count;
+
+  /// 正确数量
+  final int correct_count;
+
+  /// 错误数量
+  final int wrong_count;
+
+  /// 跳过数量
+  final int skipped_count;
+
+  /// 困难/犹豫数量
+  final int hesitated_count;
+
+  /// 总耗时
+  final int total_time;
+
+  /// 平均每题耗时
+  final double average_time;
+
+  /// 是否计入复习系统
+  final int count_as_review;
+
+  /// 创建时间，毫秒级时间戳
+  final int created_at;
+  const PracticeSession({
+    required this.id,
+    required this.plan_id,
+    required this.started_at,
+    required this.finished_at,
+    required this.total_count,
+    required this.correct_count,
+    required this.wrong_count,
+    required this.skipped_count,
+    required this.hesitated_count,
+    required this.total_time,
+    required this.average_time,
+    required this.count_as_review,
+    required this.created_at,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['plan_id'] = Variable<String>(plan_id);
+    map['started_at'] = Variable<int>(started_at);
+    map['finished_at'] = Variable<int>(finished_at);
+    map['total_count'] = Variable<int>(total_count);
+    map['correct_count'] = Variable<int>(correct_count);
+    map['wrong_count'] = Variable<int>(wrong_count);
+    map['skipped_count'] = Variable<int>(skipped_count);
+    map['hesitated_count'] = Variable<int>(hesitated_count);
+    map['total_time'] = Variable<int>(total_time);
+    map['average_time'] = Variable<double>(average_time);
+    map['count_as_review'] = Variable<int>(count_as_review);
+    map['created_at'] = Variable<int>(created_at);
+    return map;
+  }
+
+  PracticeSessionsCompanion toCompanion(bool nullToAbsent) {
+    return PracticeSessionsCompanion(
+      id: Value(id),
+      plan_id: Value(plan_id),
+      started_at: Value(started_at),
+      finished_at: Value(finished_at),
+      total_count: Value(total_count),
+      correct_count: Value(correct_count),
+      wrong_count: Value(wrong_count),
+      skipped_count: Value(skipped_count),
+      hesitated_count: Value(hesitated_count),
+      total_time: Value(total_time),
+      average_time: Value(average_time),
+      count_as_review: Value(count_as_review),
+      created_at: Value(created_at),
+    );
+  }
+
+  factory PracticeSession.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return PracticeSession(
+      id: serializer.fromJson<String>(json['id']),
+      plan_id: serializer.fromJson<String>(json['plan_id']),
+      started_at: serializer.fromJson<int>(json['started_at']),
+      finished_at: serializer.fromJson<int>(json['finished_at']),
+      total_count: serializer.fromJson<int>(json['total_count']),
+      correct_count: serializer.fromJson<int>(json['correct_count']),
+      wrong_count: serializer.fromJson<int>(json['wrong_count']),
+      skipped_count: serializer.fromJson<int>(json['skipped_count']),
+      hesitated_count: serializer.fromJson<int>(json['hesitated_count']),
+      total_time: serializer.fromJson<int>(json['total_time']),
+      average_time: serializer.fromJson<double>(json['average_time']),
+      count_as_review: serializer.fromJson<int>(json['count_as_review']),
+      created_at: serializer.fromJson<int>(json['created_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'plan_id': serializer.toJson<String>(plan_id),
+      'started_at': serializer.toJson<int>(started_at),
+      'finished_at': serializer.toJson<int>(finished_at),
+      'total_count': serializer.toJson<int>(total_count),
+      'correct_count': serializer.toJson<int>(correct_count),
+      'wrong_count': serializer.toJson<int>(wrong_count),
+      'skipped_count': serializer.toJson<int>(skipped_count),
+      'hesitated_count': serializer.toJson<int>(hesitated_count),
+      'total_time': serializer.toJson<int>(total_time),
+      'average_time': serializer.toJson<double>(average_time),
+      'count_as_review': serializer.toJson<int>(count_as_review),
+      'created_at': serializer.toJson<int>(created_at),
+    };
+  }
+
+  PracticeSession copyWith({
+    String? id,
+    String? plan_id,
+    int? started_at,
+    int? finished_at,
+    int? total_count,
+    int? correct_count,
+    int? wrong_count,
+    int? skipped_count,
+    int? hesitated_count,
+    int? total_time,
+    double? average_time,
+    int? count_as_review,
+    int? created_at,
+  }) => PracticeSession(
+    id: id ?? this.id,
+    plan_id: plan_id ?? this.plan_id,
+    started_at: started_at ?? this.started_at,
+    finished_at: finished_at ?? this.finished_at,
+    total_count: total_count ?? this.total_count,
+    correct_count: correct_count ?? this.correct_count,
+    wrong_count: wrong_count ?? this.wrong_count,
+    skipped_count: skipped_count ?? this.skipped_count,
+    hesitated_count: hesitated_count ?? this.hesitated_count,
+    total_time: total_time ?? this.total_time,
+    average_time: average_time ?? this.average_time,
+    count_as_review: count_as_review ?? this.count_as_review,
+    created_at: created_at ?? this.created_at,
+  );
+  PracticeSession copyWithCompanion(PracticeSessionsCompanion data) {
+    return PracticeSession(
+      id: data.id.present ? data.id.value : this.id,
+      plan_id: data.plan_id.present ? data.plan_id.value : this.plan_id,
+      started_at: data.started_at.present
+          ? data.started_at.value
+          : this.started_at,
+      finished_at: data.finished_at.present
+          ? data.finished_at.value
+          : this.finished_at,
+      total_count: data.total_count.present
+          ? data.total_count.value
+          : this.total_count,
+      correct_count: data.correct_count.present
+          ? data.correct_count.value
+          : this.correct_count,
+      wrong_count: data.wrong_count.present
+          ? data.wrong_count.value
+          : this.wrong_count,
+      skipped_count: data.skipped_count.present
+          ? data.skipped_count.value
+          : this.skipped_count,
+      hesitated_count: data.hesitated_count.present
+          ? data.hesitated_count.value
+          : this.hesitated_count,
+      total_time: data.total_time.present
+          ? data.total_time.value
+          : this.total_time,
+      average_time: data.average_time.present
+          ? data.average_time.value
+          : this.average_time,
+      count_as_review: data.count_as_review.present
+          ? data.count_as_review.value
+          : this.count_as_review,
+      created_at: data.created_at.present
+          ? data.created_at.value
+          : this.created_at,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PracticeSession(')
+          ..write('id: $id, ')
+          ..write('plan_id: $plan_id, ')
+          ..write('started_at: $started_at, ')
+          ..write('finished_at: $finished_at, ')
+          ..write('total_count: $total_count, ')
+          ..write('correct_count: $correct_count, ')
+          ..write('wrong_count: $wrong_count, ')
+          ..write('skipped_count: $skipped_count, ')
+          ..write('hesitated_count: $hesitated_count, ')
+          ..write('total_time: $total_time, ')
+          ..write('average_time: $average_time, ')
+          ..write('count_as_review: $count_as_review, ')
+          ..write('created_at: $created_at')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    plan_id,
+    started_at,
+    finished_at,
+    total_count,
+    correct_count,
+    wrong_count,
+    skipped_count,
+    hesitated_count,
+    total_time,
+    average_time,
+    count_as_review,
+    created_at,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is PracticeSession &&
+          other.id == this.id &&
+          other.plan_id == this.plan_id &&
+          other.started_at == this.started_at &&
+          other.finished_at == this.finished_at &&
+          other.total_count == this.total_count &&
+          other.correct_count == this.correct_count &&
+          other.wrong_count == this.wrong_count &&
+          other.skipped_count == this.skipped_count &&
+          other.hesitated_count == this.hesitated_count &&
+          other.total_time == this.total_time &&
+          other.average_time == this.average_time &&
+          other.count_as_review == this.count_as_review &&
+          other.created_at == this.created_at);
+}
+
+class PracticeSessionsCompanion extends UpdateCompanion<PracticeSession> {
+  final Value<String> id;
+  final Value<String> plan_id;
+  final Value<int> started_at;
+  final Value<int> finished_at;
+  final Value<int> total_count;
+  final Value<int> correct_count;
+  final Value<int> wrong_count;
+  final Value<int> skipped_count;
+  final Value<int> hesitated_count;
+  final Value<int> total_time;
+  final Value<double> average_time;
+  final Value<int> count_as_review;
+  final Value<int> created_at;
+  final Value<int> rowid;
+  const PracticeSessionsCompanion({
+    this.id = const Value.absent(),
+    this.plan_id = const Value.absent(),
+    this.started_at = const Value.absent(),
+    this.finished_at = const Value.absent(),
+    this.total_count = const Value.absent(),
+    this.correct_count = const Value.absent(),
+    this.wrong_count = const Value.absent(),
+    this.skipped_count = const Value.absent(),
+    this.hesitated_count = const Value.absent(),
+    this.total_time = const Value.absent(),
+    this.average_time = const Value.absent(),
+    this.count_as_review = const Value.absent(),
+    this.created_at = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  PracticeSessionsCompanion.insert({
+    required String id,
+    required String plan_id,
+    required int started_at,
+    required int finished_at,
+    required int total_count,
+    required int correct_count,
+    required int wrong_count,
+    required int skipped_count,
+    required int hesitated_count,
+    required int total_time,
+    required double average_time,
+    required int count_as_review,
+    required int created_at,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       plan_id = Value(plan_id),
+       started_at = Value(started_at),
+       finished_at = Value(finished_at),
+       total_count = Value(total_count),
+       correct_count = Value(correct_count),
+       wrong_count = Value(wrong_count),
+       skipped_count = Value(skipped_count),
+       hesitated_count = Value(hesitated_count),
+       total_time = Value(total_time),
+       average_time = Value(average_time),
+       count_as_review = Value(count_as_review),
+       created_at = Value(created_at);
+  static Insertable<PracticeSession> custom({
+    Expression<String>? id,
+    Expression<String>? plan_id,
+    Expression<int>? started_at,
+    Expression<int>? finished_at,
+    Expression<int>? total_count,
+    Expression<int>? correct_count,
+    Expression<int>? wrong_count,
+    Expression<int>? skipped_count,
+    Expression<int>? hesitated_count,
+    Expression<int>? total_time,
+    Expression<double>? average_time,
+    Expression<int>? count_as_review,
+    Expression<int>? created_at,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (plan_id != null) 'plan_id': plan_id,
+      if (started_at != null) 'started_at': started_at,
+      if (finished_at != null) 'finished_at': finished_at,
+      if (total_count != null) 'total_count': total_count,
+      if (correct_count != null) 'correct_count': correct_count,
+      if (wrong_count != null) 'wrong_count': wrong_count,
+      if (skipped_count != null) 'skipped_count': skipped_count,
+      if (hesitated_count != null) 'hesitated_count': hesitated_count,
+      if (total_time != null) 'total_time': total_time,
+      if (average_time != null) 'average_time': average_time,
+      if (count_as_review != null) 'count_as_review': count_as_review,
+      if (created_at != null) 'created_at': created_at,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  PracticeSessionsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? plan_id,
+    Value<int>? started_at,
+    Value<int>? finished_at,
+    Value<int>? total_count,
+    Value<int>? correct_count,
+    Value<int>? wrong_count,
+    Value<int>? skipped_count,
+    Value<int>? hesitated_count,
+    Value<int>? total_time,
+    Value<double>? average_time,
+    Value<int>? count_as_review,
+    Value<int>? created_at,
+    Value<int>? rowid,
+  }) {
+    return PracticeSessionsCompanion(
+      id: id ?? this.id,
+      plan_id: plan_id ?? this.plan_id,
+      started_at: started_at ?? this.started_at,
+      finished_at: finished_at ?? this.finished_at,
+      total_count: total_count ?? this.total_count,
+      correct_count: correct_count ?? this.correct_count,
+      wrong_count: wrong_count ?? this.wrong_count,
+      skipped_count: skipped_count ?? this.skipped_count,
+      hesitated_count: hesitated_count ?? this.hesitated_count,
+      total_time: total_time ?? this.total_time,
+      average_time: average_time ?? this.average_time,
+      count_as_review: count_as_review ?? this.count_as_review,
+      created_at: created_at ?? this.created_at,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (plan_id.present) {
+      map['plan_id'] = Variable<String>(plan_id.value);
+    }
+    if (started_at.present) {
+      map['started_at'] = Variable<int>(started_at.value);
+    }
+    if (finished_at.present) {
+      map['finished_at'] = Variable<int>(finished_at.value);
+    }
+    if (total_count.present) {
+      map['total_count'] = Variable<int>(total_count.value);
+    }
+    if (correct_count.present) {
+      map['correct_count'] = Variable<int>(correct_count.value);
+    }
+    if (wrong_count.present) {
+      map['wrong_count'] = Variable<int>(wrong_count.value);
+    }
+    if (skipped_count.present) {
+      map['skipped_count'] = Variable<int>(skipped_count.value);
+    }
+    if (hesitated_count.present) {
+      map['hesitated_count'] = Variable<int>(hesitated_count.value);
+    }
+    if (total_time.present) {
+      map['total_time'] = Variable<int>(total_time.value);
+    }
+    if (average_time.present) {
+      map['average_time'] = Variable<double>(average_time.value);
+    }
+    if (count_as_review.present) {
+      map['count_as_review'] = Variable<int>(count_as_review.value);
+    }
+    if (created_at.present) {
+      map['created_at'] = Variable<int>(created_at.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PracticeSessionsCompanion(')
+          ..write('id: $id, ')
+          ..write('plan_id: $plan_id, ')
+          ..write('started_at: $started_at, ')
+          ..write('finished_at: $finished_at, ')
+          ..write('total_count: $total_count, ')
+          ..write('correct_count: $correct_count, ')
+          ..write('wrong_count: $wrong_count, ')
+          ..write('skipped_count: $skipped_count, ')
+          ..write('hesitated_count: $hesitated_count, ')
+          ..write('total_time: $total_time, ')
+          ..write('average_time: $average_time, ')
+          ..write('count_as_review: $count_as_review, ')
+          ..write('created_at: $created_at, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -6331,6 +7154,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $MistakeRecordReasonsTable mistakeRecordReasons =
       $MistakeRecordReasonsTable(this);
   late final $PracticePlansTable practicePlans = $PracticePlansTable(this);
+  late final $PracticeSessionsTable practiceSessions = $PracticeSessionsTable(
+    this,
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -6348,6 +7174,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     mistakeReasons,
     mistakeRecordReasons,
     practicePlans,
+    practiceSessions,
   ];
 }
 
@@ -9577,6 +10404,395 @@ typedef $$PracticePlansTableProcessedTableManager =
       PracticePlan,
       PrefetchHooks Function()
     >;
+typedef $$PracticeSessionsTableCreateCompanionBuilder =
+    PracticeSessionsCompanion Function({
+      required String id,
+      required String plan_id,
+      required int started_at,
+      required int finished_at,
+      required int total_count,
+      required int correct_count,
+      required int wrong_count,
+      required int skipped_count,
+      required int hesitated_count,
+      required int total_time,
+      required double average_time,
+      required int count_as_review,
+      required int created_at,
+      Value<int> rowid,
+    });
+typedef $$PracticeSessionsTableUpdateCompanionBuilder =
+    PracticeSessionsCompanion Function({
+      Value<String> id,
+      Value<String> plan_id,
+      Value<int> started_at,
+      Value<int> finished_at,
+      Value<int> total_count,
+      Value<int> correct_count,
+      Value<int> wrong_count,
+      Value<int> skipped_count,
+      Value<int> hesitated_count,
+      Value<int> total_time,
+      Value<double> average_time,
+      Value<int> count_as_review,
+      Value<int> created_at,
+      Value<int> rowid,
+    });
+
+class $$PracticeSessionsTableFilterComposer
+    extends Composer<_$AppDatabase, $PracticeSessionsTable> {
+  $$PracticeSessionsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get plan_id => $composableBuilder(
+    column: $table.plan_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get started_at => $composableBuilder(
+    column: $table.started_at,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get finished_at => $composableBuilder(
+    column: $table.finished_at,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get total_count => $composableBuilder(
+    column: $table.total_count,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get correct_count => $composableBuilder(
+    column: $table.correct_count,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get wrong_count => $composableBuilder(
+    column: $table.wrong_count,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get skipped_count => $composableBuilder(
+    column: $table.skipped_count,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hesitated_count => $composableBuilder(
+    column: $table.hesitated_count,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get total_time => $composableBuilder(
+    column: $table.total_time,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get average_time => $composableBuilder(
+    column: $table.average_time,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get count_as_review => $composableBuilder(
+    column: $table.count_as_review,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$PracticeSessionsTableOrderingComposer
+    extends Composer<_$AppDatabase, $PracticeSessionsTable> {
+  $$PracticeSessionsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get plan_id => $composableBuilder(
+    column: $table.plan_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get started_at => $composableBuilder(
+    column: $table.started_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get finished_at => $composableBuilder(
+    column: $table.finished_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get total_count => $composableBuilder(
+    column: $table.total_count,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get correct_count => $composableBuilder(
+    column: $table.correct_count,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get wrong_count => $composableBuilder(
+    column: $table.wrong_count,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get skipped_count => $composableBuilder(
+    column: $table.skipped_count,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hesitated_count => $composableBuilder(
+    column: $table.hesitated_count,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get total_time => $composableBuilder(
+    column: $table.total_time,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get average_time => $composableBuilder(
+    column: $table.average_time,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get count_as_review => $composableBuilder(
+    column: $table.count_as_review,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$PracticeSessionsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $PracticeSessionsTable> {
+  $$PracticeSessionsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get plan_id =>
+      $composableBuilder(column: $table.plan_id, builder: (column) => column);
+
+  GeneratedColumn<int> get started_at => $composableBuilder(
+    column: $table.started_at,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get finished_at => $composableBuilder(
+    column: $table.finished_at,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get total_count => $composableBuilder(
+    column: $table.total_count,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get correct_count => $composableBuilder(
+    column: $table.correct_count,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get wrong_count => $composableBuilder(
+    column: $table.wrong_count,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get skipped_count => $composableBuilder(
+    column: $table.skipped_count,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get hesitated_count => $composableBuilder(
+    column: $table.hesitated_count,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get total_time => $composableBuilder(
+    column: $table.total_time,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get average_time => $composableBuilder(
+    column: $table.average_time,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get count_as_review => $composableBuilder(
+    column: $table.count_as_review,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => column,
+  );
+}
+
+class $$PracticeSessionsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $PracticeSessionsTable,
+          PracticeSession,
+          $$PracticeSessionsTableFilterComposer,
+          $$PracticeSessionsTableOrderingComposer,
+          $$PracticeSessionsTableAnnotationComposer,
+          $$PracticeSessionsTableCreateCompanionBuilder,
+          $$PracticeSessionsTableUpdateCompanionBuilder,
+          (
+            PracticeSession,
+            BaseReferences<
+              _$AppDatabase,
+              $PracticeSessionsTable,
+              PracticeSession
+            >,
+          ),
+          PracticeSession,
+          PrefetchHooks Function()
+        > {
+  $$PracticeSessionsTableTableManager(
+    _$AppDatabase db,
+    $PracticeSessionsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$PracticeSessionsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PracticeSessionsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PracticeSessionsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> plan_id = const Value.absent(),
+                Value<int> started_at = const Value.absent(),
+                Value<int> finished_at = const Value.absent(),
+                Value<int> total_count = const Value.absent(),
+                Value<int> correct_count = const Value.absent(),
+                Value<int> wrong_count = const Value.absent(),
+                Value<int> skipped_count = const Value.absent(),
+                Value<int> hesitated_count = const Value.absent(),
+                Value<int> total_time = const Value.absent(),
+                Value<double> average_time = const Value.absent(),
+                Value<int> count_as_review = const Value.absent(),
+                Value<int> created_at = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => PracticeSessionsCompanion(
+                id: id,
+                plan_id: plan_id,
+                started_at: started_at,
+                finished_at: finished_at,
+                total_count: total_count,
+                correct_count: correct_count,
+                wrong_count: wrong_count,
+                skipped_count: skipped_count,
+                hesitated_count: hesitated_count,
+                total_time: total_time,
+                average_time: average_time,
+                count_as_review: count_as_review,
+                created_at: created_at,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String plan_id,
+                required int started_at,
+                required int finished_at,
+                required int total_count,
+                required int correct_count,
+                required int wrong_count,
+                required int skipped_count,
+                required int hesitated_count,
+                required int total_time,
+                required double average_time,
+                required int count_as_review,
+                required int created_at,
+                Value<int> rowid = const Value.absent(),
+              }) => PracticeSessionsCompanion.insert(
+                id: id,
+                plan_id: plan_id,
+                started_at: started_at,
+                finished_at: finished_at,
+                total_count: total_count,
+                correct_count: correct_count,
+                wrong_count: wrong_count,
+                skipped_count: skipped_count,
+                hesitated_count: hesitated_count,
+                total_time: total_time,
+                average_time: average_time,
+                count_as_review: count_as_review,
+                created_at: created_at,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$PracticeSessionsTable, PracticeSession>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $PracticeSessionsTable,
+                    PracticeSession
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$PracticeSessionsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $PracticeSessionsTable,
+      PracticeSession,
+      $$PracticeSessionsTableFilterComposer,
+      $$PracticeSessionsTableOrderingComposer,
+      $$PracticeSessionsTableAnnotationComposer,
+      $$PracticeSessionsTableCreateCompanionBuilder,
+      $$PracticeSessionsTableUpdateCompanionBuilder,
+      (
+        PracticeSession,
+        BaseReferences<_$AppDatabase, $PracticeSessionsTable, PracticeSession>,
+      ),
+      PracticeSession,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -9604,4 +10820,6 @@ class $AppDatabaseManager {
       $$MistakeRecordReasonsTableTableManager(_db, _db.mistakeRecordReasons);
   $$PracticePlansTableTableManager get practicePlans =>
       $$PracticePlansTableTableManager(_db, _db.practicePlans);
+  $$PracticeSessionsTableTableManager get practiceSessions =>
+      $$PracticeSessionsTableTableManager(_db, _db.practiceSessions);
 }

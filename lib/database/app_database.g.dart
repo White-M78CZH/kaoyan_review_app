@@ -1519,16 +1519,609 @@ class StudyItemsCompanion extends UpdateCompanion<StudyItem> {
   }
 }
 
+class $CategoriesTable extends Categories
+    with TableInfo<$CategoriesTable, Category> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CategoriesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _subject_idMeta = const VerificationMeta(
+    'subject_id',
+  );
+  @override
+  late final GeneratedColumn<String> subject_id = GeneratedColumn<String>(
+    'subject_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _parent_idMeta = const VerificationMeta(
+    'parent_id',
+  );
+  @override
+  late final GeneratedColumn<String> parent_id = GeneratedColumn<String>(
+    'parent_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _levelMeta = const VerificationMeta('level');
+  @override
+  late final GeneratedColumn<int> level = GeneratedColumn<int>(
+    'level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sort_orderMeta = const VerificationMeta(
+    'sort_order',
+  );
+  @override
+  late final GeneratedColumn<int> sort_order = GeneratedColumn<int>(
+    'sort_order',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _descriptionMeta = const VerificationMeta(
+    'description',
+  );
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+    'description',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _created_atMeta = const VerificationMeta(
+    'created_at',
+  );
+  @override
+  late final GeneratedColumn<int> created_at = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updated_atMeta = const VerificationMeta(
+    'updated_at',
+  );
+  @override
+  late final GeneratedColumn<int> updated_at = GeneratedColumn<int>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    subject_id,
+    parent_id,
+    name,
+    level,
+    sort_order,
+    description,
+    created_at,
+    updated_at,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'categories';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<Category> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('subject_id')) {
+      context.handle(
+        _subject_idMeta,
+        subject_id.isAcceptableOrUnknown(data['subject_id']!, _subject_idMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_subject_idMeta);
+    }
+    if (data.containsKey('parent_id')) {
+      context.handle(
+        _parent_idMeta,
+        parent_id.isAcceptableOrUnknown(data['parent_id']!, _parent_idMeta),
+      );
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('level')) {
+      context.handle(
+        _levelMeta,
+        level.isAcceptableOrUnknown(data['level']!, _levelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_levelMeta);
+    }
+    if (data.containsKey('sort_order')) {
+      context.handle(
+        _sort_orderMeta,
+        sort_order.isAcceptableOrUnknown(data['sort_order']!, _sort_orderMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_sort_orderMeta);
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+        _descriptionMeta,
+        description.isAcceptableOrUnknown(
+          data['description']!,
+          _descriptionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _created_atMeta,
+        created_at.isAcceptableOrUnknown(data['created_at']!, _created_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_created_atMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updated_atMeta,
+        updated_at.isAcceptableOrUnknown(data['updated_at']!, _updated_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updated_atMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  Category map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return Category(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      subject_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}subject_id'],
+      )!,
+      parent_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}parent_id'],
+      ),
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      level: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}level'],
+      )!,
+      sort_order: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sort_order'],
+      )!,
+      description: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}description'],
+      ),
+      created_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updated_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  $CategoriesTable createAlias(String alias) {
+    return $CategoriesTable(attachedDatabase, alias);
+  }
+}
+
+class Category extends DataClass implements Insertable<Category> {
+  /// 分类ID，主键
+  final String id;
+
+  /// 所属学科
+  final String subject_id;
+
+  /// 父分类ID，顶级分类为空
+  final String? parent_id;
+
+  /// 分类名称
+  final String name;
+
+  /// 分类层级
+  final int level;
+
+  /// 同级排序
+  final int sort_order;
+
+  /// 分类描述
+  final String? description;
+
+  /// 创建时间，毫秒级时间戳
+  final int created_at;
+
+  /// 修改时间，毫秒级时间戳
+  final int updated_at;
+  const Category({
+    required this.id,
+    required this.subject_id,
+    this.parent_id,
+    required this.name,
+    required this.level,
+    required this.sort_order,
+    this.description,
+    required this.created_at,
+    required this.updated_at,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['subject_id'] = Variable<String>(subject_id);
+    if (!nullToAbsent || parent_id != null) {
+      map['parent_id'] = Variable<String>(parent_id);
+    }
+    map['name'] = Variable<String>(name);
+    map['level'] = Variable<int>(level);
+    map['sort_order'] = Variable<int>(sort_order);
+    if (!nullToAbsent || description != null) {
+      map['description'] = Variable<String>(description);
+    }
+    map['created_at'] = Variable<int>(created_at);
+    map['updated_at'] = Variable<int>(updated_at);
+    return map;
+  }
+
+  CategoriesCompanion toCompanion(bool nullToAbsent) {
+    return CategoriesCompanion(
+      id: Value(id),
+      subject_id: Value(subject_id),
+      parent_id: parent_id == null && nullToAbsent
+          ? const Value.absent()
+          : Value(parent_id),
+      name: Value(name),
+      level: Value(level),
+      sort_order: Value(sort_order),
+      description: description == null && nullToAbsent
+          ? const Value.absent()
+          : Value(description),
+      created_at: Value(created_at),
+      updated_at: Value(updated_at),
+    );
+  }
+
+  factory Category.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return Category(
+      id: serializer.fromJson<String>(json['id']),
+      subject_id: serializer.fromJson<String>(json['subject_id']),
+      parent_id: serializer.fromJson<String?>(json['parent_id']),
+      name: serializer.fromJson<String>(json['name']),
+      level: serializer.fromJson<int>(json['level']),
+      sort_order: serializer.fromJson<int>(json['sort_order']),
+      description: serializer.fromJson<String?>(json['description']),
+      created_at: serializer.fromJson<int>(json['created_at']),
+      updated_at: serializer.fromJson<int>(json['updated_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'subject_id': serializer.toJson<String>(subject_id),
+      'parent_id': serializer.toJson<String?>(parent_id),
+      'name': serializer.toJson<String>(name),
+      'level': serializer.toJson<int>(level),
+      'sort_order': serializer.toJson<int>(sort_order),
+      'description': serializer.toJson<String?>(description),
+      'created_at': serializer.toJson<int>(created_at),
+      'updated_at': serializer.toJson<int>(updated_at),
+    };
+  }
+
+  Category copyWith({
+    String? id,
+    String? subject_id,
+    Value<String?> parent_id = const Value.absent(),
+    String? name,
+    int? level,
+    int? sort_order,
+    Value<String?> description = const Value.absent(),
+    int? created_at,
+    int? updated_at,
+  }) => Category(
+    id: id ?? this.id,
+    subject_id: subject_id ?? this.subject_id,
+    parent_id: parent_id.present ? parent_id.value : this.parent_id,
+    name: name ?? this.name,
+    level: level ?? this.level,
+    sort_order: sort_order ?? this.sort_order,
+    description: description.present ? description.value : this.description,
+    created_at: created_at ?? this.created_at,
+    updated_at: updated_at ?? this.updated_at,
+  );
+  Category copyWithCompanion(CategoriesCompanion data) {
+    return Category(
+      id: data.id.present ? data.id.value : this.id,
+      subject_id: data.subject_id.present
+          ? data.subject_id.value
+          : this.subject_id,
+      parent_id: data.parent_id.present ? data.parent_id.value : this.parent_id,
+      name: data.name.present ? data.name.value : this.name,
+      level: data.level.present ? data.level.value : this.level,
+      sort_order: data.sort_order.present
+          ? data.sort_order.value
+          : this.sort_order,
+      description: data.description.present
+          ? data.description.value
+          : this.description,
+      created_at: data.created_at.present
+          ? data.created_at.value
+          : this.created_at,
+      updated_at: data.updated_at.present
+          ? data.updated_at.value
+          : this.updated_at,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('Category(')
+          ..write('id: $id, ')
+          ..write('subject_id: $subject_id, ')
+          ..write('parent_id: $parent_id, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('sort_order: $sort_order, ')
+          ..write('description: $description, ')
+          ..write('created_at: $created_at, ')
+          ..write('updated_at: $updated_at')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    subject_id,
+    parent_id,
+    name,
+    level,
+    sort_order,
+    description,
+    created_at,
+    updated_at,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is Category &&
+          other.id == this.id &&
+          other.subject_id == this.subject_id &&
+          other.parent_id == this.parent_id &&
+          other.name == this.name &&
+          other.level == this.level &&
+          other.sort_order == this.sort_order &&
+          other.description == this.description &&
+          other.created_at == this.created_at &&
+          other.updated_at == this.updated_at);
+}
+
+class CategoriesCompanion extends UpdateCompanion<Category> {
+  final Value<String> id;
+  final Value<String> subject_id;
+  final Value<String?> parent_id;
+  final Value<String> name;
+  final Value<int> level;
+  final Value<int> sort_order;
+  final Value<String?> description;
+  final Value<int> created_at;
+  final Value<int> updated_at;
+  final Value<int> rowid;
+  const CategoriesCompanion({
+    this.id = const Value.absent(),
+    this.subject_id = const Value.absent(),
+    this.parent_id = const Value.absent(),
+    this.name = const Value.absent(),
+    this.level = const Value.absent(),
+    this.sort_order = const Value.absent(),
+    this.description = const Value.absent(),
+    this.created_at = const Value.absent(),
+    this.updated_at = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  CategoriesCompanion.insert({
+    required String id,
+    required String subject_id,
+    this.parent_id = const Value.absent(),
+    required String name,
+    required int level,
+    required int sort_order,
+    this.description = const Value.absent(),
+    required int created_at,
+    required int updated_at,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       subject_id = Value(subject_id),
+       name = Value(name),
+       level = Value(level),
+       sort_order = Value(sort_order),
+       created_at = Value(created_at),
+       updated_at = Value(updated_at);
+  static Insertable<Category> custom({
+    Expression<String>? id,
+    Expression<String>? subject_id,
+    Expression<String>? parent_id,
+    Expression<String>? name,
+    Expression<int>? level,
+    Expression<int>? sort_order,
+    Expression<String>? description,
+    Expression<int>? created_at,
+    Expression<int>? updated_at,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (subject_id != null) 'subject_id': subject_id,
+      if (parent_id != null) 'parent_id': parent_id,
+      if (name != null) 'name': name,
+      if (level != null) 'level': level,
+      if (sort_order != null) 'sort_order': sort_order,
+      if (description != null) 'description': description,
+      if (created_at != null) 'created_at': created_at,
+      if (updated_at != null) 'updated_at': updated_at,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  CategoriesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? subject_id,
+    Value<String?>? parent_id,
+    Value<String>? name,
+    Value<int>? level,
+    Value<int>? sort_order,
+    Value<String?>? description,
+    Value<int>? created_at,
+    Value<int>? updated_at,
+    Value<int>? rowid,
+  }) {
+    return CategoriesCompanion(
+      id: id ?? this.id,
+      subject_id: subject_id ?? this.subject_id,
+      parent_id: parent_id ?? this.parent_id,
+      name: name ?? this.name,
+      level: level ?? this.level,
+      sort_order: sort_order ?? this.sort_order,
+      description: description ?? this.description,
+      created_at: created_at ?? this.created_at,
+      updated_at: updated_at ?? this.updated_at,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (subject_id.present) {
+      map['subject_id'] = Variable<String>(subject_id.value);
+    }
+    if (parent_id.present) {
+      map['parent_id'] = Variable<String>(parent_id.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (level.present) {
+      map['level'] = Variable<int>(level.value);
+    }
+    if (sort_order.present) {
+      map['sort_order'] = Variable<int>(sort_order.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (created_at.present) {
+      map['created_at'] = Variable<int>(created_at.value);
+    }
+    if (updated_at.present) {
+      map['updated_at'] = Variable<int>(updated_at.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CategoriesCompanion(')
+          ..write('id: $id, ')
+          ..write('subject_id: $subject_id, ')
+          ..write('parent_id: $parent_id, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('sort_order: $sort_order, ')
+          ..write('description: $description, ')
+          ..write('created_at: $created_at, ')
+          ..write('updated_at: $updated_at, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
   late final $SubjectsTable subjects = $SubjectsTable(this);
   late final $StudyItemsTable studyItems = $StudyItemsTable(this);
+  late final $CategoriesTable categories = $CategoriesTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities => [subjects, studyItems];
+  List<DatabaseSchemaEntity> get allSchemaEntities => [
+    subjects,
+    studyItems,
+    categories,
+  ];
 }
 
 typedef $$SubjectsTableCreateCompanionBuilder = SubjectsCompanion Function({
@@ -2238,6 +2831,293 @@ typedef $$StudyItemsTableProcessedTableManager =
       StudyItem,
       PrefetchHooks Function()
     >;
+typedef $$CategoriesTableCreateCompanionBuilder = CategoriesCompanion Function({
+  required String id,
+  required String subject_id,
+  Value<String?> parent_id,
+  required String name,
+  required int level,
+  required int sort_order,
+  Value<String?> description,
+  required int created_at,
+  required int updated_at,
+  Value<int> rowid,
+});
+typedef $$CategoriesTableUpdateCompanionBuilder = CategoriesCompanion Function({
+  Value<String> id,
+  Value<String> subject_id,
+  Value<String?> parent_id,
+  Value<String> name,
+  Value<int> level,
+  Value<int> sort_order,
+  Value<String?> description,
+  Value<int> created_at,
+  Value<int> updated_at,
+  Value<int> rowid,
+});
+
+class $$CategoriesTableFilterComposer
+    extends Composer<_$AppDatabase, $CategoriesTable> {
+  $$CategoriesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get subject_id => $composableBuilder(
+    column: $table.subject_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get parent_id => $composableBuilder(
+    column: $table.parent_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get sort_order => $composableBuilder(
+    column: $table.sort_order,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$CategoriesTableOrderingComposer
+    extends Composer<_$AppDatabase, $CategoriesTable> {
+  $$CategoriesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get subject_id => $composableBuilder(
+    column: $table.subject_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get parent_id => $composableBuilder(
+    column: $table.parent_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get sort_order => $composableBuilder(
+    column: $table.sort_order,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$CategoriesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $CategoriesTable> {
+  $$CategoriesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get subject_id => $composableBuilder(
+    column: $table.subject_id,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get parent_id =>
+      $composableBuilder(column: $table.parent_id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<int> get level =>
+      $composableBuilder(column: $table.level, builder: (column) => column);
+
+  GeneratedColumn<int> get sort_order => $composableBuilder(
+    column: $table.sort_order,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => column,
+  );
+}
+
+class $$CategoriesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $CategoriesTable,
+          Category,
+          $$CategoriesTableFilterComposer,
+          $$CategoriesTableOrderingComposer,
+          $$CategoriesTableAnnotationComposer,
+          $$CategoriesTableCreateCompanionBuilder,
+          $$CategoriesTableUpdateCompanionBuilder,
+          (Category, BaseReferences<_$AppDatabase, $CategoriesTable, Category>),
+          Category,
+          PrefetchHooks Function()
+        > {
+  $$CategoriesTableTableManager(_$AppDatabase db, $CategoriesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CategoriesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CategoriesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CategoriesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> subject_id = const Value.absent(),
+                Value<String?> parent_id = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<int> level = const Value.absent(),
+                Value<int> sort_order = const Value.absent(),
+                Value<String?> description = const Value.absent(),
+                Value<int> created_at = const Value.absent(),
+                Value<int> updated_at = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CategoriesCompanion(
+                id: id,
+                subject_id: subject_id,
+                parent_id: parent_id,
+                name: name,
+                level: level,
+                sort_order: sort_order,
+                description: description,
+                created_at: created_at,
+                updated_at: updated_at,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String subject_id,
+                Value<String?> parent_id = const Value.absent(),
+                required String name,
+                required int level,
+                required int sort_order,
+                Value<String?> description = const Value.absent(),
+                required int created_at,
+                required int updated_at,
+                Value<int> rowid = const Value.absent(),
+              }) => CategoriesCompanion.insert(
+                id: id,
+                subject_id: subject_id,
+                parent_id: parent_id,
+                name: name,
+                level: level,
+                sort_order: sort_order,
+                description: description,
+                created_at: created_at,
+                updated_at: updated_at,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$CategoriesTable, Category>(table),
+                  BaseReferences<_$AppDatabase, $CategoriesTable, Category>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$CategoriesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $CategoriesTable,
+      Category,
+      $$CategoriesTableFilterComposer,
+      $$CategoriesTableOrderingComposer,
+      $$CategoriesTableAnnotationComposer,
+      $$CategoriesTableCreateCompanionBuilder,
+      $$CategoriesTableUpdateCompanionBuilder,
+      (Category, BaseReferences<_$AppDatabase, $CategoriesTable, Category>),
+      Category,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -2246,4 +3126,6 @@ class $AppDatabaseManager {
       $$SubjectsTableTableManager(_db, _db.subjects);
   $$StudyItemsTableTableManager get studyItems =>
       $$StudyItemsTableTableManager(_db, _db.studyItems);
+  $$CategoriesTableTableManager get categories =>
+      $$CategoriesTableTableManager(_db, _db.categories);
 }

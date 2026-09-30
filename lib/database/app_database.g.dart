@@ -3250,6 +3250,757 @@ class StudyItemTagsCompanion extends UpdateCompanion<StudyItemTagRecord> {
   }
 }
 
+class $FsrsCardsTable extends FsrsCards
+    with TableInfo<$FsrsCardsTable, FsrsCardRecord> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $FsrsCardsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _study_item_idMeta = const VerificationMeta(
+    'study_item_id',
+  );
+  @override
+  late final GeneratedColumn<String> study_item_id = GeneratedColumn<String>(
+    'study_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dueMeta = const VerificationMeta('due');
+  @override
+  late final GeneratedColumn<int> due = GeneratedColumn<int>(
+    'due',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _stabilityMeta = const VerificationMeta(
+    'stability',
+  );
+  @override
+  late final GeneratedColumn<double> stability = GeneratedColumn<double>(
+    'stability',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _difficultyMeta = const VerificationMeta(
+    'difficulty',
+  );
+  @override
+  late final GeneratedColumn<double> difficulty = GeneratedColumn<double>(
+    'difficulty',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _elapsed_daysMeta = const VerificationMeta(
+    'elapsed_days',
+  );
+  @override
+  late final GeneratedColumn<int> elapsed_days = GeneratedColumn<int>(
+    'elapsed_days',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _scheduled_daysMeta = const VerificationMeta(
+    'scheduled_days',
+  );
+  @override
+  late final GeneratedColumn<int> scheduled_days = GeneratedColumn<int>(
+    'scheduled_days',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _repsMeta = const VerificationMeta('reps');
+  @override
+  late final GeneratedColumn<int> reps = GeneratedColumn<int>(
+    'reps',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lapsesMeta = const VerificationMeta('lapses');
+  @override
+  late final GeneratedColumn<int> lapses = GeneratedColumn<int>(
+    'lapses',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _stateMeta = const VerificationMeta('state');
+  @override
+  late final GeneratedColumn<int> state = GeneratedColumn<int>(
+    'state',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _last_reviewMeta = const VerificationMeta(
+    'last_review',
+  );
+  @override
+  late final GeneratedColumn<int> last_review = GeneratedColumn<int>(
+    'last_review',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _created_atMeta = const VerificationMeta(
+    'created_at',
+  );
+  @override
+  late final GeneratedColumn<int> created_at = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updated_atMeta = const VerificationMeta(
+    'updated_at',
+  );
+  @override
+  late final GeneratedColumn<int> updated_at = GeneratedColumn<int>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    study_item_id,
+    due,
+    stability,
+    difficulty,
+    elapsed_days,
+    scheduled_days,
+    reps,
+    lapses,
+    state,
+    last_review,
+    created_at,
+    updated_at,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'fsrs_cards';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<FsrsCardRecord> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('study_item_id')) {
+      context.handle(
+        _study_item_idMeta,
+        study_item_id.isAcceptableOrUnknown(
+          data['study_item_id']!,
+          _study_item_idMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_study_item_idMeta);
+    }
+    if (data.containsKey('due')) {
+      context.handle(
+        _dueMeta,
+        due.isAcceptableOrUnknown(data['due']!, _dueMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dueMeta);
+    }
+    if (data.containsKey('stability')) {
+      context.handle(
+        _stabilityMeta,
+        stability.isAcceptableOrUnknown(data['stability']!, _stabilityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_stabilityMeta);
+    }
+    if (data.containsKey('difficulty')) {
+      context.handle(
+        _difficultyMeta,
+        difficulty.isAcceptableOrUnknown(data['difficulty']!, _difficultyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_difficultyMeta);
+    }
+    if (data.containsKey('elapsed_days')) {
+      context.handle(
+        _elapsed_daysMeta,
+        elapsed_days.isAcceptableOrUnknown(
+          data['elapsed_days']!,
+          _elapsed_daysMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_elapsed_daysMeta);
+    }
+    if (data.containsKey('scheduled_days')) {
+      context.handle(
+        _scheduled_daysMeta,
+        scheduled_days.isAcceptableOrUnknown(
+          data['scheduled_days']!,
+          _scheduled_daysMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_scheduled_daysMeta);
+    }
+    if (data.containsKey('reps')) {
+      context.handle(
+        _repsMeta,
+        reps.isAcceptableOrUnknown(data['reps']!, _repsMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_repsMeta);
+    }
+    if (data.containsKey('lapses')) {
+      context.handle(
+        _lapsesMeta,
+        lapses.isAcceptableOrUnknown(data['lapses']!, _lapsesMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_lapsesMeta);
+    }
+    if (data.containsKey('state')) {
+      context.handle(
+        _stateMeta,
+        state.isAcceptableOrUnknown(data['state']!, _stateMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_stateMeta);
+    }
+    if (data.containsKey('last_review')) {
+      context.handle(
+        _last_reviewMeta,
+        last_review.isAcceptableOrUnknown(
+          data['last_review']!,
+          _last_reviewMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _created_atMeta,
+        created_at.isAcceptableOrUnknown(data['created_at']!, _created_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_created_atMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updated_atMeta,
+        updated_at.isAcceptableOrUnknown(data['updated_at']!, _updated_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updated_atMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {study_item_id};
+  @override
+  FsrsCardRecord map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return FsrsCardRecord(
+      study_item_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}study_item_id'],
+      )!,
+      due: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}due'],
+      )!,
+      stability: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}stability'],
+      )!,
+      difficulty: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}difficulty'],
+      )!,
+      elapsed_days: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}elapsed_days'],
+      )!,
+      scheduled_days: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}scheduled_days'],
+      )!,
+      reps: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reps'],
+      )!,
+      lapses: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}lapses'],
+      )!,
+      state: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}state'],
+      )!,
+      last_review: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}last_review'],
+      ),
+      created_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updated_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  $FsrsCardsTable createAlias(String alias) {
+    return $FsrsCardsTable(attachedDatabase, alias);
+  }
+}
+
+class FsrsCardRecord extends DataClass implements Insertable<FsrsCardRecord> {
+  /// 学习内容ID，主键
+  final String study_item_id;
+
+  /// 下一次到期时间，毫秒级时间戳
+  final int due;
+
+  /// FSRS 稳定性
+  final double stability;
+
+  /// FSRS 内部难度
+  final double difficulty;
+
+  /// 距上次复习天数
+  final int elapsed_days;
+
+  /// 当前计划间隔
+  final int scheduled_days;
+
+  /// 复习次数
+  final int reps;
+
+  /// Again / 遗忘次数
+  final int lapses;
+
+  /// FSRS 状态
+  final int state;
+
+  /// 上一次复习时间，毫秒级时间戳；尚未复习过的新卡片为空
+  final int? last_review;
+
+  /// 创建时间，毫秒级时间戳
+  final int created_at;
+
+  /// 修改时间，毫秒级时间戳
+  final int updated_at;
+  const FsrsCardRecord({
+    required this.study_item_id,
+    required this.due,
+    required this.stability,
+    required this.difficulty,
+    required this.elapsed_days,
+    required this.scheduled_days,
+    required this.reps,
+    required this.lapses,
+    required this.state,
+    this.last_review,
+    required this.created_at,
+    required this.updated_at,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['study_item_id'] = Variable<String>(study_item_id);
+    map['due'] = Variable<int>(due);
+    map['stability'] = Variable<double>(stability);
+    map['difficulty'] = Variable<double>(difficulty);
+    map['elapsed_days'] = Variable<int>(elapsed_days);
+    map['scheduled_days'] = Variable<int>(scheduled_days);
+    map['reps'] = Variable<int>(reps);
+    map['lapses'] = Variable<int>(lapses);
+    map['state'] = Variable<int>(state);
+    if (!nullToAbsent || last_review != null) {
+      map['last_review'] = Variable<int>(last_review);
+    }
+    map['created_at'] = Variable<int>(created_at);
+    map['updated_at'] = Variable<int>(updated_at);
+    return map;
+  }
+
+  FsrsCardsCompanion toCompanion(bool nullToAbsent) {
+    return FsrsCardsCompanion(
+      study_item_id: Value(study_item_id),
+      due: Value(due),
+      stability: Value(stability),
+      difficulty: Value(difficulty),
+      elapsed_days: Value(elapsed_days),
+      scheduled_days: Value(scheduled_days),
+      reps: Value(reps),
+      lapses: Value(lapses),
+      state: Value(state),
+      last_review: last_review == null && nullToAbsent
+          ? const Value.absent()
+          : Value(last_review),
+      created_at: Value(created_at),
+      updated_at: Value(updated_at),
+    );
+  }
+
+  factory FsrsCardRecord.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return FsrsCardRecord(
+      study_item_id: serializer.fromJson<String>(json['study_item_id']),
+      due: serializer.fromJson<int>(json['due']),
+      stability: serializer.fromJson<double>(json['stability']),
+      difficulty: serializer.fromJson<double>(json['difficulty']),
+      elapsed_days: serializer.fromJson<int>(json['elapsed_days']),
+      scheduled_days: serializer.fromJson<int>(json['scheduled_days']),
+      reps: serializer.fromJson<int>(json['reps']),
+      lapses: serializer.fromJson<int>(json['lapses']),
+      state: serializer.fromJson<int>(json['state']),
+      last_review: serializer.fromJson<int?>(json['last_review']),
+      created_at: serializer.fromJson<int>(json['created_at']),
+      updated_at: serializer.fromJson<int>(json['updated_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'study_item_id': serializer.toJson<String>(study_item_id),
+      'due': serializer.toJson<int>(due),
+      'stability': serializer.toJson<double>(stability),
+      'difficulty': serializer.toJson<double>(difficulty),
+      'elapsed_days': serializer.toJson<int>(elapsed_days),
+      'scheduled_days': serializer.toJson<int>(scheduled_days),
+      'reps': serializer.toJson<int>(reps),
+      'lapses': serializer.toJson<int>(lapses),
+      'state': serializer.toJson<int>(state),
+      'last_review': serializer.toJson<int?>(last_review),
+      'created_at': serializer.toJson<int>(created_at),
+      'updated_at': serializer.toJson<int>(updated_at),
+    };
+  }
+
+  FsrsCardRecord copyWith({
+    String? study_item_id,
+    int? due,
+    double? stability,
+    double? difficulty,
+    int? elapsed_days,
+    int? scheduled_days,
+    int? reps,
+    int? lapses,
+    int? state,
+    Value<int?> last_review = const Value.absent(),
+    int? created_at,
+    int? updated_at,
+  }) => FsrsCardRecord(
+    study_item_id: study_item_id ?? this.study_item_id,
+    due: due ?? this.due,
+    stability: stability ?? this.stability,
+    difficulty: difficulty ?? this.difficulty,
+    elapsed_days: elapsed_days ?? this.elapsed_days,
+    scheduled_days: scheduled_days ?? this.scheduled_days,
+    reps: reps ?? this.reps,
+    lapses: lapses ?? this.lapses,
+    state: state ?? this.state,
+    last_review: last_review.present ? last_review.value : this.last_review,
+    created_at: created_at ?? this.created_at,
+    updated_at: updated_at ?? this.updated_at,
+  );
+  FsrsCardRecord copyWithCompanion(FsrsCardsCompanion data) {
+    return FsrsCardRecord(
+      study_item_id: data.study_item_id.present
+          ? data.study_item_id.value
+          : this.study_item_id,
+      due: data.due.present ? data.due.value : this.due,
+      stability: data.stability.present ? data.stability.value : this.stability,
+      difficulty: data.difficulty.present
+          ? data.difficulty.value
+          : this.difficulty,
+      elapsed_days: data.elapsed_days.present
+          ? data.elapsed_days.value
+          : this.elapsed_days,
+      scheduled_days: data.scheduled_days.present
+          ? data.scheduled_days.value
+          : this.scheduled_days,
+      reps: data.reps.present ? data.reps.value : this.reps,
+      lapses: data.lapses.present ? data.lapses.value : this.lapses,
+      state: data.state.present ? data.state.value : this.state,
+      last_review: data.last_review.present
+          ? data.last_review.value
+          : this.last_review,
+      created_at: data.created_at.present
+          ? data.created_at.value
+          : this.created_at,
+      updated_at: data.updated_at.present
+          ? data.updated_at.value
+          : this.updated_at,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FsrsCardRecord(')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('due: $due, ')
+          ..write('stability: $stability, ')
+          ..write('difficulty: $difficulty, ')
+          ..write('elapsed_days: $elapsed_days, ')
+          ..write('scheduled_days: $scheduled_days, ')
+          ..write('reps: $reps, ')
+          ..write('lapses: $lapses, ')
+          ..write('state: $state, ')
+          ..write('last_review: $last_review, ')
+          ..write('created_at: $created_at, ')
+          ..write('updated_at: $updated_at')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    study_item_id,
+    due,
+    stability,
+    difficulty,
+    elapsed_days,
+    scheduled_days,
+    reps,
+    lapses,
+    state,
+    last_review,
+    created_at,
+    updated_at,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is FsrsCardRecord &&
+          other.study_item_id == this.study_item_id &&
+          other.due == this.due &&
+          other.stability == this.stability &&
+          other.difficulty == this.difficulty &&
+          other.elapsed_days == this.elapsed_days &&
+          other.scheduled_days == this.scheduled_days &&
+          other.reps == this.reps &&
+          other.lapses == this.lapses &&
+          other.state == this.state &&
+          other.last_review == this.last_review &&
+          other.created_at == this.created_at &&
+          other.updated_at == this.updated_at);
+}
+
+class FsrsCardsCompanion extends UpdateCompanion<FsrsCardRecord> {
+  final Value<String> study_item_id;
+  final Value<int> due;
+  final Value<double> stability;
+  final Value<double> difficulty;
+  final Value<int> elapsed_days;
+  final Value<int> scheduled_days;
+  final Value<int> reps;
+  final Value<int> lapses;
+  final Value<int> state;
+  final Value<int?> last_review;
+  final Value<int> created_at;
+  final Value<int> updated_at;
+  final Value<int> rowid;
+  const FsrsCardsCompanion({
+    this.study_item_id = const Value.absent(),
+    this.due = const Value.absent(),
+    this.stability = const Value.absent(),
+    this.difficulty = const Value.absent(),
+    this.elapsed_days = const Value.absent(),
+    this.scheduled_days = const Value.absent(),
+    this.reps = const Value.absent(),
+    this.lapses = const Value.absent(),
+    this.state = const Value.absent(),
+    this.last_review = const Value.absent(),
+    this.created_at = const Value.absent(),
+    this.updated_at = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  FsrsCardsCompanion.insert({
+    required String study_item_id,
+    required int due,
+    required double stability,
+    required double difficulty,
+    required int elapsed_days,
+    required int scheduled_days,
+    required int reps,
+    required int lapses,
+    required int state,
+    this.last_review = const Value.absent(),
+    required int created_at,
+    required int updated_at,
+    this.rowid = const Value.absent(),
+  }) : study_item_id = Value(study_item_id),
+       due = Value(due),
+       stability = Value(stability),
+       difficulty = Value(difficulty),
+       elapsed_days = Value(elapsed_days),
+       scheduled_days = Value(scheduled_days),
+       reps = Value(reps),
+       lapses = Value(lapses),
+       state = Value(state),
+       created_at = Value(created_at),
+       updated_at = Value(updated_at);
+  static Insertable<FsrsCardRecord> custom({
+    Expression<String>? study_item_id,
+    Expression<int>? due,
+    Expression<double>? stability,
+    Expression<double>? difficulty,
+    Expression<int>? elapsed_days,
+    Expression<int>? scheduled_days,
+    Expression<int>? reps,
+    Expression<int>? lapses,
+    Expression<int>? state,
+    Expression<int>? last_review,
+    Expression<int>? created_at,
+    Expression<int>? updated_at,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (study_item_id != null) 'study_item_id': study_item_id,
+      if (due != null) 'due': due,
+      if (stability != null) 'stability': stability,
+      if (difficulty != null) 'difficulty': difficulty,
+      if (elapsed_days != null) 'elapsed_days': elapsed_days,
+      if (scheduled_days != null) 'scheduled_days': scheduled_days,
+      if (reps != null) 'reps': reps,
+      if (lapses != null) 'lapses': lapses,
+      if (state != null) 'state': state,
+      if (last_review != null) 'last_review': last_review,
+      if (created_at != null) 'created_at': created_at,
+      if (updated_at != null) 'updated_at': updated_at,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  FsrsCardsCompanion copyWith({
+    Value<String>? study_item_id,
+    Value<int>? due,
+    Value<double>? stability,
+    Value<double>? difficulty,
+    Value<int>? elapsed_days,
+    Value<int>? scheduled_days,
+    Value<int>? reps,
+    Value<int>? lapses,
+    Value<int>? state,
+    Value<int?>? last_review,
+    Value<int>? created_at,
+    Value<int>? updated_at,
+    Value<int>? rowid,
+  }) {
+    return FsrsCardsCompanion(
+      study_item_id: study_item_id ?? this.study_item_id,
+      due: due ?? this.due,
+      stability: stability ?? this.stability,
+      difficulty: difficulty ?? this.difficulty,
+      elapsed_days: elapsed_days ?? this.elapsed_days,
+      scheduled_days: scheduled_days ?? this.scheduled_days,
+      reps: reps ?? this.reps,
+      lapses: lapses ?? this.lapses,
+      state: state ?? this.state,
+      last_review: last_review ?? this.last_review,
+      created_at: created_at ?? this.created_at,
+      updated_at: updated_at ?? this.updated_at,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (study_item_id.present) {
+      map['study_item_id'] = Variable<String>(study_item_id.value);
+    }
+    if (due.present) {
+      map['due'] = Variable<int>(due.value);
+    }
+    if (stability.present) {
+      map['stability'] = Variable<double>(stability.value);
+    }
+    if (difficulty.present) {
+      map['difficulty'] = Variable<double>(difficulty.value);
+    }
+    if (elapsed_days.present) {
+      map['elapsed_days'] = Variable<int>(elapsed_days.value);
+    }
+    if (scheduled_days.present) {
+      map['scheduled_days'] = Variable<int>(scheduled_days.value);
+    }
+    if (reps.present) {
+      map['reps'] = Variable<int>(reps.value);
+    }
+    if (lapses.present) {
+      map['lapses'] = Variable<int>(lapses.value);
+    }
+    if (state.present) {
+      map['state'] = Variable<int>(state.value);
+    }
+    if (last_review.present) {
+      map['last_review'] = Variable<int>(last_review.value);
+    }
+    if (created_at.present) {
+      map['created_at'] = Variable<int>(created_at.value);
+    }
+    if (updated_at.present) {
+      map['updated_at'] = Variable<int>(updated_at.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FsrsCardsCompanion(')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('due: $due, ')
+          ..write('stability: $stability, ')
+          ..write('difficulty: $difficulty, ')
+          ..write('elapsed_days: $elapsed_days, ')
+          ..write('scheduled_days: $scheduled_days, ')
+          ..write('reps: $reps, ')
+          ..write('lapses: $lapses, ')
+          ..write('state: $state, ')
+          ..write('last_review: $last_review, ')
+          ..write('created_at: $created_at, ')
+          ..write('updated_at: $updated_at, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -3259,6 +4010,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $ImagesTable images = $ImagesTable(this);
   late final $TagsTable tags = $TagsTable(this);
   late final $StudyItemTagsTable studyItemTags = $StudyItemTagsTable(this);
+  late final $FsrsCardsTable fsrsCards = $FsrsCardsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -3270,6 +4022,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     images,
     tags,
     studyItemTags,
+    fsrsCards,
   ];
 }
 
@@ -4901,6 +5654,360 @@ typedef $$StudyItemTagsTableProcessedTableManager =
       StudyItemTagRecord,
       PrefetchHooks Function()
     >;
+typedef $$FsrsCardsTableCreateCompanionBuilder = FsrsCardsCompanion Function({
+  required String study_item_id,
+  required int due,
+  required double stability,
+  required double difficulty,
+  required int elapsed_days,
+  required int scheduled_days,
+  required int reps,
+  required int lapses,
+  required int state,
+  Value<int?> last_review,
+  required int created_at,
+  required int updated_at,
+  Value<int> rowid,
+});
+typedef $$FsrsCardsTableUpdateCompanionBuilder = FsrsCardsCompanion Function({
+  Value<String> study_item_id,
+  Value<int> due,
+  Value<double> stability,
+  Value<double> difficulty,
+  Value<int> elapsed_days,
+  Value<int> scheduled_days,
+  Value<int> reps,
+  Value<int> lapses,
+  Value<int> state,
+  Value<int?> last_review,
+  Value<int> created_at,
+  Value<int> updated_at,
+  Value<int> rowid,
+});
+
+class $$FsrsCardsTableFilterComposer
+    extends Composer<_$AppDatabase, $FsrsCardsTable> {
+  $$FsrsCardsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get due => $composableBuilder(
+    column: $table.due,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get stability => $composableBuilder(
+    column: $table.stability,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get elapsed_days => $composableBuilder(
+    column: $table.elapsed_days,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get scheduled_days => $composableBuilder(
+    column: $table.scheduled_days,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get reps => $composableBuilder(
+    column: $table.reps,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lapses => $composableBuilder(
+    column: $table.lapses,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get state => $composableBuilder(
+    column: $table.state,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get last_review => $composableBuilder(
+    column: $table.last_review,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$FsrsCardsTableOrderingComposer
+    extends Composer<_$AppDatabase, $FsrsCardsTable> {
+  $$FsrsCardsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get due => $composableBuilder(
+    column: $table.due,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get stability => $composableBuilder(
+    column: $table.stability,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get elapsed_days => $composableBuilder(
+    column: $table.elapsed_days,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get scheduled_days => $composableBuilder(
+    column: $table.scheduled_days,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get reps => $composableBuilder(
+    column: $table.reps,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lapses => $composableBuilder(
+    column: $table.lapses,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get state => $composableBuilder(
+    column: $table.state,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get last_review => $composableBuilder(
+    column: $table.last_review,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$FsrsCardsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $FsrsCardsTable> {
+  $$FsrsCardsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get due =>
+      $composableBuilder(column: $table.due, builder: (column) => column);
+
+  GeneratedColumn<double> get stability =>
+      $composableBuilder(column: $table.stability, builder: (column) => column);
+
+  GeneratedColumn<double> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get elapsed_days => $composableBuilder(
+    column: $table.elapsed_days,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get scheduled_days => $composableBuilder(
+    column: $table.scheduled_days,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get reps =>
+      $composableBuilder(column: $table.reps, builder: (column) => column);
+
+  GeneratedColumn<int> get lapses =>
+      $composableBuilder(column: $table.lapses, builder: (column) => column);
+
+  GeneratedColumn<int> get state =>
+      $composableBuilder(column: $table.state, builder: (column) => column);
+
+  GeneratedColumn<int> get last_review => $composableBuilder(
+    column: $table.last_review,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get updated_at => $composableBuilder(
+    column: $table.updated_at,
+    builder: (column) => column,
+  );
+}
+
+class $$FsrsCardsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FsrsCardsTable,
+          FsrsCardRecord,
+          $$FsrsCardsTableFilterComposer,
+          $$FsrsCardsTableOrderingComposer,
+          $$FsrsCardsTableAnnotationComposer,
+          $$FsrsCardsTableCreateCompanionBuilder,
+          $$FsrsCardsTableUpdateCompanionBuilder,
+          (
+            FsrsCardRecord,
+            BaseReferences<_$AppDatabase, $FsrsCardsTable, FsrsCardRecord>,
+          ),
+          FsrsCardRecord,
+          PrefetchHooks Function()
+        > {
+  $$FsrsCardsTableTableManager(_$AppDatabase db, $FsrsCardsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$FsrsCardsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$FsrsCardsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$FsrsCardsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> study_item_id = const Value.absent(),
+                Value<int> due = const Value.absent(),
+                Value<double> stability = const Value.absent(),
+                Value<double> difficulty = const Value.absent(),
+                Value<int> elapsed_days = const Value.absent(),
+                Value<int> scheduled_days = const Value.absent(),
+                Value<int> reps = const Value.absent(),
+                Value<int> lapses = const Value.absent(),
+                Value<int> state = const Value.absent(),
+                Value<int?> last_review = const Value.absent(),
+                Value<int> created_at = const Value.absent(),
+                Value<int> updated_at = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => FsrsCardsCompanion(
+                study_item_id: study_item_id,
+                due: due,
+                stability: stability,
+                difficulty: difficulty,
+                elapsed_days: elapsed_days,
+                scheduled_days: scheduled_days,
+                reps: reps,
+                lapses: lapses,
+                state: state,
+                last_review: last_review,
+                created_at: created_at,
+                updated_at: updated_at,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String study_item_id,
+                required int due,
+                required double stability,
+                required double difficulty,
+                required int elapsed_days,
+                required int scheduled_days,
+                required int reps,
+                required int lapses,
+                required int state,
+                Value<int?> last_review = const Value.absent(),
+                required int created_at,
+                required int updated_at,
+                Value<int> rowid = const Value.absent(),
+              }) => FsrsCardsCompanion.insert(
+                study_item_id: study_item_id,
+                due: due,
+                stability: stability,
+                difficulty: difficulty,
+                elapsed_days: elapsed_days,
+                scheduled_days: scheduled_days,
+                reps: reps,
+                lapses: lapses,
+                state: state,
+                last_review: last_review,
+                created_at: created_at,
+                updated_at: updated_at,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$FsrsCardsTable, FsrsCardRecord>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $FsrsCardsTable,
+                    FsrsCardRecord
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$FsrsCardsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FsrsCardsTable,
+      FsrsCardRecord,
+      $$FsrsCardsTableFilterComposer,
+      $$FsrsCardsTableOrderingComposer,
+      $$FsrsCardsTableAnnotationComposer,
+      $$FsrsCardsTableCreateCompanionBuilder,
+      $$FsrsCardsTableUpdateCompanionBuilder,
+      (
+        FsrsCardRecord,
+        BaseReferences<_$AppDatabase, $FsrsCardsTable, FsrsCardRecord>,
+      ),
+      FsrsCardRecord,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -4916,4 +6023,6 @@ class $AppDatabaseManager {
   $$TagsTableTableManager get tags => $$TagsTableTableManager(_db, _db.tags);
   $$StudyItemTagsTableTableManager get studyItemTags =>
       $$StudyItemTagsTableTableManager(_db, _db.studyItemTags);
+  $$FsrsCardsTableTableManager get fsrsCards =>
+      $$FsrsCardsTableTableManager(_db, _db.fsrsCards);
 }

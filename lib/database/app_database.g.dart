@@ -5592,6 +5592,240 @@ class MistakeReasonsCompanion extends UpdateCompanion<MistakeReason> {
   }
 }
 
+class $MistakeRecordReasonsTable extends MistakeRecordReasons
+    with TableInfo<$MistakeRecordReasonsTable, MistakeRecordReason> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MistakeRecordReasonsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _mistake_record_idMeta = const VerificationMeta(
+    'mistake_record_id',
+  );
+  @override
+  late final GeneratedColumn<String> mistake_record_id =
+      GeneratedColumn<String>(
+        'mistake_record_id',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _reason_idMeta = const VerificationMeta(
+    'reason_id',
+  );
+  @override
+  late final GeneratedColumn<String> reason_id = GeneratedColumn<String>(
+    'reason_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [mistake_record_id, reason_id];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'mistake_record_reasons';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MistakeRecordReason> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('mistake_record_id')) {
+      context.handle(
+        _mistake_record_idMeta,
+        mistake_record_id.isAcceptableOrUnknown(
+          data['mistake_record_id']!,
+          _mistake_record_idMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mistake_record_idMeta);
+    }
+    if (data.containsKey('reason_id')) {
+      context.handle(
+        _reason_idMeta,
+        reason_id.isAcceptableOrUnknown(data['reason_id']!, _reason_idMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_reason_idMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {mistake_record_id, reason_id};
+  @override
+  MistakeRecordReason map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MistakeRecordReason(
+      mistake_record_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}mistake_record_id'],
+      )!,
+      reason_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}reason_id'],
+      )!,
+    );
+  }
+
+  @override
+  $MistakeRecordReasonsTable createAlias(String alias) {
+    return $MistakeRecordReasonsTable(attachedDatabase, alias);
+  }
+}
+
+class MistakeRecordReason extends DataClass
+    implements Insertable<MistakeRecordReason> {
+  /// 错误记录ID
+  final String mistake_record_id;
+
+  /// 错误原因ID
+  final String reason_id;
+  const MistakeRecordReason({
+    required this.mistake_record_id,
+    required this.reason_id,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['mistake_record_id'] = Variable<String>(mistake_record_id);
+    map['reason_id'] = Variable<String>(reason_id);
+    return map;
+  }
+
+  MistakeRecordReasonsCompanion toCompanion(bool nullToAbsent) {
+    return MistakeRecordReasonsCompanion(
+      mistake_record_id: Value(mistake_record_id),
+      reason_id: Value(reason_id),
+    );
+  }
+
+  factory MistakeRecordReason.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MistakeRecordReason(
+      mistake_record_id: serializer.fromJson<String>(json['mistake_record_id']),
+      reason_id: serializer.fromJson<String>(json['reason_id']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'mistake_record_id': serializer.toJson<String>(mistake_record_id),
+      'reason_id': serializer.toJson<String>(reason_id),
+    };
+  }
+
+  MistakeRecordReason copyWith({
+    String? mistake_record_id,
+    String? reason_id,
+  }) => MistakeRecordReason(
+    mistake_record_id: mistake_record_id ?? this.mistake_record_id,
+    reason_id: reason_id ?? this.reason_id,
+  );
+  MistakeRecordReason copyWithCompanion(MistakeRecordReasonsCompanion data) {
+    return MistakeRecordReason(
+      mistake_record_id: data.mistake_record_id.present
+          ? data.mistake_record_id.value
+          : this.mistake_record_id,
+      reason_id: data.reason_id.present ? data.reason_id.value : this.reason_id,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MistakeRecordReason(')
+          ..write('mistake_record_id: $mistake_record_id, ')
+          ..write('reason_id: $reason_id')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(mistake_record_id, reason_id);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MistakeRecordReason &&
+          other.mistake_record_id == this.mistake_record_id &&
+          other.reason_id == this.reason_id);
+}
+
+class MistakeRecordReasonsCompanion
+    extends UpdateCompanion<MistakeRecordReason> {
+  final Value<String> mistake_record_id;
+  final Value<String> reason_id;
+  final Value<int> rowid;
+  const MistakeRecordReasonsCompanion({
+    this.mistake_record_id = const Value.absent(),
+    this.reason_id = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  MistakeRecordReasonsCompanion.insert({
+    required String mistake_record_id,
+    required String reason_id,
+    this.rowid = const Value.absent(),
+  }) : mistake_record_id = Value(mistake_record_id),
+       reason_id = Value(reason_id);
+  static Insertable<MistakeRecordReason> custom({
+    Expression<String>? mistake_record_id,
+    Expression<String>? reason_id,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (mistake_record_id != null) 'mistake_record_id': mistake_record_id,
+      if (reason_id != null) 'reason_id': reason_id,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  MistakeRecordReasonsCompanion copyWith({
+    Value<String>? mistake_record_id,
+    Value<String>? reason_id,
+    Value<int>? rowid,
+  }) {
+    return MistakeRecordReasonsCompanion(
+      mistake_record_id: mistake_record_id ?? this.mistake_record_id,
+      reason_id: reason_id ?? this.reason_id,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (mistake_record_id.present) {
+      map['mistake_record_id'] = Variable<String>(mistake_record_id.value);
+    }
+    if (reason_id.present) {
+      map['reason_id'] = Variable<String>(reason_id.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MistakeRecordReasonsCompanion(')
+          ..write('mistake_record_id: $mistake_record_id, ')
+          ..write('reason_id: $reason_id, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -5605,6 +5839,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $ReviewRecordsTable reviewRecords = $ReviewRecordsTable(this);
   late final $MistakeRecordsTable mistakeRecords = $MistakeRecordsTable(this);
   late final $MistakeReasonsTable mistakeReasons = $MistakeReasonsTable(this);
+  late final $MistakeRecordReasonsTable mistakeRecordReasons =
+      $MistakeRecordReasonsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -5620,6 +5856,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     reviewRecords,
     mistakeRecords,
     mistakeReasons,
+    mistakeRecordReasons,
   ];
 }
 
@@ -8422,6 +8659,178 @@ typedef $$MistakeReasonsTableProcessedTableManager =
       MistakeReason,
       PrefetchHooks Function()
     >;
+typedef $$MistakeRecordReasonsTableCreateCompanionBuilder =
+    MistakeRecordReasonsCompanion Function({
+      required String mistake_record_id,
+      required String reason_id,
+      Value<int> rowid,
+    });
+typedef $$MistakeRecordReasonsTableUpdateCompanionBuilder =
+    MistakeRecordReasonsCompanion Function({
+      Value<String> mistake_record_id,
+      Value<String> reason_id,
+      Value<int> rowid,
+    });
+
+class $$MistakeRecordReasonsTableFilterComposer
+    extends Composer<_$AppDatabase, $MistakeRecordReasonsTable> {
+  $$MistakeRecordReasonsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get mistake_record_id => $composableBuilder(
+    column: $table.mistake_record_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get reason_id => $composableBuilder(
+    column: $table.reason_id,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$MistakeRecordReasonsTableOrderingComposer
+    extends Composer<_$AppDatabase, $MistakeRecordReasonsTable> {
+  $$MistakeRecordReasonsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get mistake_record_id => $composableBuilder(
+    column: $table.mistake_record_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get reason_id => $composableBuilder(
+    column: $table.reason_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$MistakeRecordReasonsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MistakeRecordReasonsTable> {
+  $$MistakeRecordReasonsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get mistake_record_id => $composableBuilder(
+    column: $table.mistake_record_id,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get reason_id =>
+      $composableBuilder(column: $table.reason_id, builder: (column) => column);
+}
+
+class $$MistakeRecordReasonsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $MistakeRecordReasonsTable,
+          MistakeRecordReason,
+          $$MistakeRecordReasonsTableFilterComposer,
+          $$MistakeRecordReasonsTableOrderingComposer,
+          $$MistakeRecordReasonsTableAnnotationComposer,
+          $$MistakeRecordReasonsTableCreateCompanionBuilder,
+          $$MistakeRecordReasonsTableUpdateCompanionBuilder,
+          (
+            MistakeRecordReason,
+            BaseReferences<
+              _$AppDatabase,
+              $MistakeRecordReasonsTable,
+              MistakeRecordReason
+            >,
+          ),
+          MistakeRecordReason,
+          PrefetchHooks Function()
+        > {
+  $$MistakeRecordReasonsTableTableManager(
+    _$AppDatabase db,
+    $MistakeRecordReasonsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MistakeRecordReasonsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MistakeRecordReasonsTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$MistakeRecordReasonsTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> mistake_record_id = const Value.absent(),
+                Value<String> reason_id = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MistakeRecordReasonsCompanion(
+                mistake_record_id: mistake_record_id,
+                reason_id: reason_id,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String mistake_record_id,
+                required String reason_id,
+                Value<int> rowid = const Value.absent(),
+              }) => MistakeRecordReasonsCompanion.insert(
+                mistake_record_id: mistake_record_id,
+                reason_id: reason_id,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$MistakeRecordReasonsTable, MistakeRecordReason>(
+                    table,
+                  ),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $MistakeRecordReasonsTable,
+                    MistakeRecordReason
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$MistakeRecordReasonsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $MistakeRecordReasonsTable,
+      MistakeRecordReason,
+      $$MistakeRecordReasonsTableFilterComposer,
+      $$MistakeRecordReasonsTableOrderingComposer,
+      $$MistakeRecordReasonsTableAnnotationComposer,
+      $$MistakeRecordReasonsTableCreateCompanionBuilder,
+      $$MistakeRecordReasonsTableUpdateCompanionBuilder,
+      (
+        MistakeRecordReason,
+        BaseReferences<
+          _$AppDatabase,
+          $MistakeRecordReasonsTable,
+          MistakeRecordReason
+        >,
+      ),
+      MistakeRecordReason,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -8445,4 +8854,6 @@ class $AppDatabaseManager {
       $$MistakeRecordsTableTableManager(_db, _db.mistakeRecords);
   $$MistakeReasonsTableTableManager get mistakeReasons =>
       $$MistakeReasonsTableTableManager(_db, _db.mistakeReasons);
+  $$MistakeRecordReasonsTableTableManager get mistakeRecordReasons =>
+      $$MistakeRecordReasonsTableTableManager(_db, _db.mistakeRecordReasons);
 }

@@ -4001,6 +4001,660 @@ class FsrsCardsCompanion extends UpdateCompanion<FsrsCardRecord> {
   }
 }
 
+class $ReviewRecordsTable extends ReviewRecords
+    with TableInfo<$ReviewRecordsTable, ReviewRecord> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ReviewRecordsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _study_item_idMeta = const VerificationMeta(
+    'study_item_id',
+  );
+  @override
+  late final GeneratedColumn<String> study_item_id = GeneratedColumn<String>(
+    'study_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _review_timeMeta = const VerificationMeta(
+    'review_time',
+  );
+  @override
+  late final GeneratedColumn<int> review_time = GeneratedColumn<int>(
+    'review_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _ratingMeta = const VerificationMeta('rating');
+  @override
+  late final GeneratedColumn<String> rating = GeneratedColumn<String>(
+    'rating',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _response_timeMeta = const VerificationMeta(
+    'response_time',
+  );
+  @override
+  late final GeneratedColumn<int> response_time = GeneratedColumn<int>(
+    'response_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _previous_dueMeta = const VerificationMeta(
+    'previous_due',
+  );
+  @override
+  late final GeneratedColumn<int> previous_due = GeneratedColumn<int>(
+    'previous_due',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _next_dueMeta = const VerificationMeta(
+    'next_due',
+  );
+  @override
+  late final GeneratedColumn<int> next_due = GeneratedColumn<int>(
+    'next_due',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _scheduled_daysMeta = const VerificationMeta(
+    'scheduled_days',
+  );
+  @override
+  late final GeneratedColumn<int> scheduled_days = GeneratedColumn<int>(
+    'scheduled_days',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _is_overdueMeta = const VerificationMeta(
+    'is_overdue',
+  );
+  @override
+  late final GeneratedColumn<int> is_overdue = GeneratedColumn<int>(
+    'is_overdue',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _created_atMeta = const VerificationMeta(
+    'created_at',
+  );
+  @override
+  late final GeneratedColumn<int> created_at = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    study_item_id,
+    review_time,
+    rating,
+    response_time,
+    previous_due,
+    next_due,
+    scheduled_days,
+    is_overdue,
+    created_at,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'review_records';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ReviewRecord> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('study_item_id')) {
+      context.handle(
+        _study_item_idMeta,
+        study_item_id.isAcceptableOrUnknown(
+          data['study_item_id']!,
+          _study_item_idMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_study_item_idMeta);
+    }
+    if (data.containsKey('review_time')) {
+      context.handle(
+        _review_timeMeta,
+        review_time.isAcceptableOrUnknown(
+          data['review_time']!,
+          _review_timeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_review_timeMeta);
+    }
+    if (data.containsKey('rating')) {
+      context.handle(
+        _ratingMeta,
+        rating.isAcceptableOrUnknown(data['rating']!, _ratingMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_ratingMeta);
+    }
+    if (data.containsKey('response_time')) {
+      context.handle(
+        _response_timeMeta,
+        response_time.isAcceptableOrUnknown(
+          data['response_time']!,
+          _response_timeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_response_timeMeta);
+    }
+    if (data.containsKey('previous_due')) {
+      context.handle(
+        _previous_dueMeta,
+        previous_due.isAcceptableOrUnknown(
+          data['previous_due']!,
+          _previous_dueMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_previous_dueMeta);
+    }
+    if (data.containsKey('next_due')) {
+      context.handle(
+        _next_dueMeta,
+        next_due.isAcceptableOrUnknown(data['next_due']!, _next_dueMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_next_dueMeta);
+    }
+    if (data.containsKey('scheduled_days')) {
+      context.handle(
+        _scheduled_daysMeta,
+        scheduled_days.isAcceptableOrUnknown(
+          data['scheduled_days']!,
+          _scheduled_daysMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_scheduled_daysMeta);
+    }
+    if (data.containsKey('is_overdue')) {
+      context.handle(
+        _is_overdueMeta,
+        is_overdue.isAcceptableOrUnknown(data['is_overdue']!, _is_overdueMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_is_overdueMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _created_atMeta,
+        created_at.isAcceptableOrUnknown(data['created_at']!, _created_atMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_created_atMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ReviewRecord map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ReviewRecord(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      study_item_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}study_item_id'],
+      )!,
+      review_time: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}review_time'],
+      )!,
+      rating: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}rating'],
+      )!,
+      response_time: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}response_time'],
+      )!,
+      previous_due: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}previous_due'],
+      )!,
+      next_due: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}next_due'],
+      )!,
+      scheduled_days: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}scheduled_days'],
+      )!,
+      is_overdue: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_overdue'],
+      )!,
+      created_at: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $ReviewRecordsTable createAlias(String alias) {
+    return $ReviewRecordsTable(attachedDatabase, alias);
+  }
+}
+
+class ReviewRecord extends DataClass implements Insertable<ReviewRecord> {
+  /// 复习记录ID，主键
+  final String id;
+
+  /// 学习内容ID
+  final String study_item_id;
+
+  /// 复习时间，毫秒级时间戳
+  final int review_time;
+
+  /// 复习评价：Again / Hard / Good / Easy
+  final String rating;
+
+  /// 复习耗时
+  final int response_time;
+
+  /// 复习前到期时间，毫秒级时间戳
+  final int previous_due;
+
+  /// 复习后时间，毫秒级时间戳
+  final int next_due;
+
+  /// 本次计划间隔
+  final int scheduled_days;
+
+  /// 是否逾期
+  final int is_overdue;
+
+  /// 创建时间，毫秒级时间戳
+  final int created_at;
+  const ReviewRecord({
+    required this.id,
+    required this.study_item_id,
+    required this.review_time,
+    required this.rating,
+    required this.response_time,
+    required this.previous_due,
+    required this.next_due,
+    required this.scheduled_days,
+    required this.is_overdue,
+    required this.created_at,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['study_item_id'] = Variable<String>(study_item_id);
+    map['review_time'] = Variable<int>(review_time);
+    map['rating'] = Variable<String>(rating);
+    map['response_time'] = Variable<int>(response_time);
+    map['previous_due'] = Variable<int>(previous_due);
+    map['next_due'] = Variable<int>(next_due);
+    map['scheduled_days'] = Variable<int>(scheduled_days);
+    map['is_overdue'] = Variable<int>(is_overdue);
+    map['created_at'] = Variable<int>(created_at);
+    return map;
+  }
+
+  ReviewRecordsCompanion toCompanion(bool nullToAbsent) {
+    return ReviewRecordsCompanion(
+      id: Value(id),
+      study_item_id: Value(study_item_id),
+      review_time: Value(review_time),
+      rating: Value(rating),
+      response_time: Value(response_time),
+      previous_due: Value(previous_due),
+      next_due: Value(next_due),
+      scheduled_days: Value(scheduled_days),
+      is_overdue: Value(is_overdue),
+      created_at: Value(created_at),
+    );
+  }
+
+  factory ReviewRecord.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ReviewRecord(
+      id: serializer.fromJson<String>(json['id']),
+      study_item_id: serializer.fromJson<String>(json['study_item_id']),
+      review_time: serializer.fromJson<int>(json['review_time']),
+      rating: serializer.fromJson<String>(json['rating']),
+      response_time: serializer.fromJson<int>(json['response_time']),
+      previous_due: serializer.fromJson<int>(json['previous_due']),
+      next_due: serializer.fromJson<int>(json['next_due']),
+      scheduled_days: serializer.fromJson<int>(json['scheduled_days']),
+      is_overdue: serializer.fromJson<int>(json['is_overdue']),
+      created_at: serializer.fromJson<int>(json['created_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'study_item_id': serializer.toJson<String>(study_item_id),
+      'review_time': serializer.toJson<int>(review_time),
+      'rating': serializer.toJson<String>(rating),
+      'response_time': serializer.toJson<int>(response_time),
+      'previous_due': serializer.toJson<int>(previous_due),
+      'next_due': serializer.toJson<int>(next_due),
+      'scheduled_days': serializer.toJson<int>(scheduled_days),
+      'is_overdue': serializer.toJson<int>(is_overdue),
+      'created_at': serializer.toJson<int>(created_at),
+    };
+  }
+
+  ReviewRecord copyWith({
+    String? id,
+    String? study_item_id,
+    int? review_time,
+    String? rating,
+    int? response_time,
+    int? previous_due,
+    int? next_due,
+    int? scheduled_days,
+    int? is_overdue,
+    int? created_at,
+  }) => ReviewRecord(
+    id: id ?? this.id,
+    study_item_id: study_item_id ?? this.study_item_id,
+    review_time: review_time ?? this.review_time,
+    rating: rating ?? this.rating,
+    response_time: response_time ?? this.response_time,
+    previous_due: previous_due ?? this.previous_due,
+    next_due: next_due ?? this.next_due,
+    scheduled_days: scheduled_days ?? this.scheduled_days,
+    is_overdue: is_overdue ?? this.is_overdue,
+    created_at: created_at ?? this.created_at,
+  );
+  ReviewRecord copyWithCompanion(ReviewRecordsCompanion data) {
+    return ReviewRecord(
+      id: data.id.present ? data.id.value : this.id,
+      study_item_id: data.study_item_id.present
+          ? data.study_item_id.value
+          : this.study_item_id,
+      review_time: data.review_time.present
+          ? data.review_time.value
+          : this.review_time,
+      rating: data.rating.present ? data.rating.value : this.rating,
+      response_time: data.response_time.present
+          ? data.response_time.value
+          : this.response_time,
+      previous_due: data.previous_due.present
+          ? data.previous_due.value
+          : this.previous_due,
+      next_due: data.next_due.present ? data.next_due.value : this.next_due,
+      scheduled_days: data.scheduled_days.present
+          ? data.scheduled_days.value
+          : this.scheduled_days,
+      is_overdue: data.is_overdue.present
+          ? data.is_overdue.value
+          : this.is_overdue,
+      created_at: data.created_at.present
+          ? data.created_at.value
+          : this.created_at,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReviewRecord(')
+          ..write('id: $id, ')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('review_time: $review_time, ')
+          ..write('rating: $rating, ')
+          ..write('response_time: $response_time, ')
+          ..write('previous_due: $previous_due, ')
+          ..write('next_due: $next_due, ')
+          ..write('scheduled_days: $scheduled_days, ')
+          ..write('is_overdue: $is_overdue, ')
+          ..write('created_at: $created_at')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    study_item_id,
+    review_time,
+    rating,
+    response_time,
+    previous_due,
+    next_due,
+    scheduled_days,
+    is_overdue,
+    created_at,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ReviewRecord &&
+          other.id == this.id &&
+          other.study_item_id == this.study_item_id &&
+          other.review_time == this.review_time &&
+          other.rating == this.rating &&
+          other.response_time == this.response_time &&
+          other.previous_due == this.previous_due &&
+          other.next_due == this.next_due &&
+          other.scheduled_days == this.scheduled_days &&
+          other.is_overdue == this.is_overdue &&
+          other.created_at == this.created_at);
+}
+
+class ReviewRecordsCompanion extends UpdateCompanion<ReviewRecord> {
+  final Value<String> id;
+  final Value<String> study_item_id;
+  final Value<int> review_time;
+  final Value<String> rating;
+  final Value<int> response_time;
+  final Value<int> previous_due;
+  final Value<int> next_due;
+  final Value<int> scheduled_days;
+  final Value<int> is_overdue;
+  final Value<int> created_at;
+  final Value<int> rowid;
+  const ReviewRecordsCompanion({
+    this.id = const Value.absent(),
+    this.study_item_id = const Value.absent(),
+    this.review_time = const Value.absent(),
+    this.rating = const Value.absent(),
+    this.response_time = const Value.absent(),
+    this.previous_due = const Value.absent(),
+    this.next_due = const Value.absent(),
+    this.scheduled_days = const Value.absent(),
+    this.is_overdue = const Value.absent(),
+    this.created_at = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ReviewRecordsCompanion.insert({
+    required String id,
+    required String study_item_id,
+    required int review_time,
+    required String rating,
+    required int response_time,
+    required int previous_due,
+    required int next_due,
+    required int scheduled_days,
+    required int is_overdue,
+    required int created_at,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       study_item_id = Value(study_item_id),
+       review_time = Value(review_time),
+       rating = Value(rating),
+       response_time = Value(response_time),
+       previous_due = Value(previous_due),
+       next_due = Value(next_due),
+       scheduled_days = Value(scheduled_days),
+       is_overdue = Value(is_overdue),
+       created_at = Value(created_at);
+  static Insertable<ReviewRecord> custom({
+    Expression<String>? id,
+    Expression<String>? study_item_id,
+    Expression<int>? review_time,
+    Expression<String>? rating,
+    Expression<int>? response_time,
+    Expression<int>? previous_due,
+    Expression<int>? next_due,
+    Expression<int>? scheduled_days,
+    Expression<int>? is_overdue,
+    Expression<int>? created_at,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (study_item_id != null) 'study_item_id': study_item_id,
+      if (review_time != null) 'review_time': review_time,
+      if (rating != null) 'rating': rating,
+      if (response_time != null) 'response_time': response_time,
+      if (previous_due != null) 'previous_due': previous_due,
+      if (next_due != null) 'next_due': next_due,
+      if (scheduled_days != null) 'scheduled_days': scheduled_days,
+      if (is_overdue != null) 'is_overdue': is_overdue,
+      if (created_at != null) 'created_at': created_at,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ReviewRecordsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? study_item_id,
+    Value<int>? review_time,
+    Value<String>? rating,
+    Value<int>? response_time,
+    Value<int>? previous_due,
+    Value<int>? next_due,
+    Value<int>? scheduled_days,
+    Value<int>? is_overdue,
+    Value<int>? created_at,
+    Value<int>? rowid,
+  }) {
+    return ReviewRecordsCompanion(
+      id: id ?? this.id,
+      study_item_id: study_item_id ?? this.study_item_id,
+      review_time: review_time ?? this.review_time,
+      rating: rating ?? this.rating,
+      response_time: response_time ?? this.response_time,
+      previous_due: previous_due ?? this.previous_due,
+      next_due: next_due ?? this.next_due,
+      scheduled_days: scheduled_days ?? this.scheduled_days,
+      is_overdue: is_overdue ?? this.is_overdue,
+      created_at: created_at ?? this.created_at,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (study_item_id.present) {
+      map['study_item_id'] = Variable<String>(study_item_id.value);
+    }
+    if (review_time.present) {
+      map['review_time'] = Variable<int>(review_time.value);
+    }
+    if (rating.present) {
+      map['rating'] = Variable<String>(rating.value);
+    }
+    if (response_time.present) {
+      map['response_time'] = Variable<int>(response_time.value);
+    }
+    if (previous_due.present) {
+      map['previous_due'] = Variable<int>(previous_due.value);
+    }
+    if (next_due.present) {
+      map['next_due'] = Variable<int>(next_due.value);
+    }
+    if (scheduled_days.present) {
+      map['scheduled_days'] = Variable<int>(scheduled_days.value);
+    }
+    if (is_overdue.present) {
+      map['is_overdue'] = Variable<int>(is_overdue.value);
+    }
+    if (created_at.present) {
+      map['created_at'] = Variable<int>(created_at.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReviewRecordsCompanion(')
+          ..write('id: $id, ')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('review_time: $review_time, ')
+          ..write('rating: $rating, ')
+          ..write('response_time: $response_time, ')
+          ..write('previous_due: $previous_due, ')
+          ..write('next_due: $next_due, ')
+          ..write('scheduled_days: $scheduled_days, ')
+          ..write('is_overdue: $is_overdue, ')
+          ..write('created_at: $created_at, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -4011,6 +4665,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $TagsTable tags = $TagsTable(this);
   late final $StudyItemTagsTable studyItemTags = $StudyItemTagsTable(this);
   late final $FsrsCardsTable fsrsCards = $FsrsCardsTable(this);
+  late final $ReviewRecordsTable reviewRecords = $ReviewRecordsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -4023,6 +4678,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     tags,
     studyItemTags,
     fsrsCards,
+    reviewRecords,
   ];
 }
 
@@ -6008,6 +6664,324 @@ typedef $$FsrsCardsTableProcessedTableManager =
       FsrsCardRecord,
       PrefetchHooks Function()
     >;
+typedef $$ReviewRecordsTableCreateCompanionBuilder =
+    ReviewRecordsCompanion Function({
+      required String id,
+      required String study_item_id,
+      required int review_time,
+      required String rating,
+      required int response_time,
+      required int previous_due,
+      required int next_due,
+      required int scheduled_days,
+      required int is_overdue,
+      required int created_at,
+      Value<int> rowid,
+    });
+typedef $$ReviewRecordsTableUpdateCompanionBuilder =
+    ReviewRecordsCompanion Function({
+      Value<String> id,
+      Value<String> study_item_id,
+      Value<int> review_time,
+      Value<String> rating,
+      Value<int> response_time,
+      Value<int> previous_due,
+      Value<int> next_due,
+      Value<int> scheduled_days,
+      Value<int> is_overdue,
+      Value<int> created_at,
+      Value<int> rowid,
+    });
+
+class $$ReviewRecordsTableFilterComposer
+    extends Composer<_$AppDatabase, $ReviewRecordsTable> {
+  $$ReviewRecordsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get review_time => $composableBuilder(
+    column: $table.review_time,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get rating => $composableBuilder(
+    column: $table.rating,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get response_time => $composableBuilder(
+    column: $table.response_time,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get previous_due => $composableBuilder(
+    column: $table.previous_due,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get next_due => $composableBuilder(
+    column: $table.next_due,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get scheduled_days => $composableBuilder(
+    column: $table.scheduled_days,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get is_overdue => $composableBuilder(
+    column: $table.is_overdue,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ReviewRecordsTableOrderingComposer
+    extends Composer<_$AppDatabase, $ReviewRecordsTable> {
+  $$ReviewRecordsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get review_time => $composableBuilder(
+    column: $table.review_time,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get rating => $composableBuilder(
+    column: $table.rating,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get response_time => $composableBuilder(
+    column: $table.response_time,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get previous_due => $composableBuilder(
+    column: $table.previous_due,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get next_due => $composableBuilder(
+    column: $table.next_due,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get scheduled_days => $composableBuilder(
+    column: $table.scheduled_days,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get is_overdue => $composableBuilder(
+    column: $table.is_overdue,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ReviewRecordsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ReviewRecordsTable> {
+  $$ReviewRecordsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get review_time => $composableBuilder(
+    column: $table.review_time,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get rating =>
+      $composableBuilder(column: $table.rating, builder: (column) => column);
+
+  GeneratedColumn<int> get response_time => $composableBuilder(
+    column: $table.response_time,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get previous_due => $composableBuilder(
+    column: $table.previous_due,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get next_due =>
+      $composableBuilder(column: $table.next_due, builder: (column) => column);
+
+  GeneratedColumn<int> get scheduled_days => $composableBuilder(
+    column: $table.scheduled_days,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get is_overdue => $composableBuilder(
+    column: $table.is_overdue,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get created_at => $composableBuilder(
+    column: $table.created_at,
+    builder: (column) => column,
+  );
+}
+
+class $$ReviewRecordsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ReviewRecordsTable,
+          ReviewRecord,
+          $$ReviewRecordsTableFilterComposer,
+          $$ReviewRecordsTableOrderingComposer,
+          $$ReviewRecordsTableAnnotationComposer,
+          $$ReviewRecordsTableCreateCompanionBuilder,
+          $$ReviewRecordsTableUpdateCompanionBuilder,
+          (
+            ReviewRecord,
+            BaseReferences<_$AppDatabase, $ReviewRecordsTable, ReviewRecord>,
+          ),
+          ReviewRecord,
+          PrefetchHooks Function()
+        > {
+  $$ReviewRecordsTableTableManager(_$AppDatabase db, $ReviewRecordsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ReviewRecordsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ReviewRecordsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ReviewRecordsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> study_item_id = const Value.absent(),
+                Value<int> review_time = const Value.absent(),
+                Value<String> rating = const Value.absent(),
+                Value<int> response_time = const Value.absent(),
+                Value<int> previous_due = const Value.absent(),
+                Value<int> next_due = const Value.absent(),
+                Value<int> scheduled_days = const Value.absent(),
+                Value<int> is_overdue = const Value.absent(),
+                Value<int> created_at = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ReviewRecordsCompanion(
+                id: id,
+                study_item_id: study_item_id,
+                review_time: review_time,
+                rating: rating,
+                response_time: response_time,
+                previous_due: previous_due,
+                next_due: next_due,
+                scheduled_days: scheduled_days,
+                is_overdue: is_overdue,
+                created_at: created_at,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String study_item_id,
+                required int review_time,
+                required String rating,
+                required int response_time,
+                required int previous_due,
+                required int next_due,
+                required int scheduled_days,
+                required int is_overdue,
+                required int created_at,
+                Value<int> rowid = const Value.absent(),
+              }) => ReviewRecordsCompanion.insert(
+                id: id,
+                study_item_id: study_item_id,
+                review_time: review_time,
+                rating: rating,
+                response_time: response_time,
+                previous_due: previous_due,
+                next_due: next_due,
+                scheduled_days: scheduled_days,
+                is_overdue: is_overdue,
+                created_at: created_at,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$ReviewRecordsTable, ReviewRecord>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $ReviewRecordsTable,
+                    ReviewRecord
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ReviewRecordsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ReviewRecordsTable,
+      ReviewRecord,
+      $$ReviewRecordsTableFilterComposer,
+      $$ReviewRecordsTableOrderingComposer,
+      $$ReviewRecordsTableAnnotationComposer,
+      $$ReviewRecordsTableCreateCompanionBuilder,
+      $$ReviewRecordsTableUpdateCompanionBuilder,
+      (
+        ReviewRecord,
+        BaseReferences<_$AppDatabase, $ReviewRecordsTable, ReviewRecord>,
+      ),
+      ReviewRecord,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -6025,4 +6999,6 @@ class $AppDatabaseManager {
       $$StudyItemTagsTableTableManager(_db, _db.studyItemTags);
   $$FsrsCardsTableTableManager get fsrsCards =>
       $$FsrsCardsTableTableManager(_db, _db.fsrsCards);
+  $$ReviewRecordsTableTableManager get reviewRecords =>
+      $$ReviewRecordsTableTableManager(_db, _db.reviewRecords);
 }

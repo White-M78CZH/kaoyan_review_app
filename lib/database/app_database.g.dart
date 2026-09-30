@@ -3025,6 +3025,231 @@ class TagsCompanion extends UpdateCompanion<TagRecord> {
   }
 }
 
+class $StudyItemTagsTable extends StudyItemTags
+    with TableInfo<$StudyItemTagsTable, StudyItemTagRecord> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $StudyItemTagsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _study_item_idMeta = const VerificationMeta(
+    'study_item_id',
+  );
+  @override
+  late final GeneratedColumn<String> study_item_id = GeneratedColumn<String>(
+    'study_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _tag_idMeta = const VerificationMeta('tag_id');
+  @override
+  late final GeneratedColumn<String> tag_id = GeneratedColumn<String>(
+    'tag_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [study_item_id, tag_id];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'study_item_tags';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<StudyItemTagRecord> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('study_item_id')) {
+      context.handle(
+        _study_item_idMeta,
+        study_item_id.isAcceptableOrUnknown(
+          data['study_item_id']!,
+          _study_item_idMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_study_item_idMeta);
+    }
+    if (data.containsKey('tag_id')) {
+      context.handle(
+        _tag_idMeta,
+        tag_id.isAcceptableOrUnknown(data['tag_id']!, _tag_idMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_tag_idMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {study_item_id, tag_id};
+  @override
+  StudyItemTagRecord map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return StudyItemTagRecord(
+      study_item_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}study_item_id'],
+      )!,
+      tag_id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tag_id'],
+      )!,
+    );
+  }
+
+  @override
+  $StudyItemTagsTable createAlias(String alias) {
+    return $StudyItemTagsTable(attachedDatabase, alias);
+  }
+}
+
+class StudyItemTagRecord extends DataClass
+    implements Insertable<StudyItemTagRecord> {
+  /// 学习内容ID
+  final String study_item_id;
+
+  /// 标签ID
+  final String tag_id;
+  const StudyItemTagRecord({required this.study_item_id, required this.tag_id});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['study_item_id'] = Variable<String>(study_item_id);
+    map['tag_id'] = Variable<String>(tag_id);
+    return map;
+  }
+
+  StudyItemTagsCompanion toCompanion(bool nullToAbsent) {
+    return StudyItemTagsCompanion(
+      study_item_id: Value(study_item_id),
+      tag_id: Value(tag_id),
+    );
+  }
+
+  factory StudyItemTagRecord.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return StudyItemTagRecord(
+      study_item_id: serializer.fromJson<String>(json['study_item_id']),
+      tag_id: serializer.fromJson<String>(json['tag_id']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'study_item_id': serializer.toJson<String>(study_item_id),
+      'tag_id': serializer.toJson<String>(tag_id),
+    };
+  }
+
+  StudyItemTagRecord copyWith({String? study_item_id, String? tag_id}) =>
+      StudyItemTagRecord(
+        study_item_id: study_item_id ?? this.study_item_id,
+        tag_id: tag_id ?? this.tag_id,
+      );
+  StudyItemTagRecord copyWithCompanion(StudyItemTagsCompanion data) {
+    return StudyItemTagRecord(
+      study_item_id: data.study_item_id.present
+          ? data.study_item_id.value
+          : this.study_item_id,
+      tag_id: data.tag_id.present ? data.tag_id.value : this.tag_id,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StudyItemTagRecord(')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('tag_id: $tag_id')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(study_item_id, tag_id);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is StudyItemTagRecord &&
+          other.study_item_id == this.study_item_id &&
+          other.tag_id == this.tag_id);
+}
+
+class StudyItemTagsCompanion extends UpdateCompanion<StudyItemTagRecord> {
+  final Value<String> study_item_id;
+  final Value<String> tag_id;
+  final Value<int> rowid;
+  const StudyItemTagsCompanion({
+    this.study_item_id = const Value.absent(),
+    this.tag_id = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  StudyItemTagsCompanion.insert({
+    required String study_item_id,
+    required String tag_id,
+    this.rowid = const Value.absent(),
+  }) : study_item_id = Value(study_item_id),
+       tag_id = Value(tag_id);
+  static Insertable<StudyItemTagRecord> custom({
+    Expression<String>? study_item_id,
+    Expression<String>? tag_id,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (study_item_id != null) 'study_item_id': study_item_id,
+      if (tag_id != null) 'tag_id': tag_id,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  StudyItemTagsCompanion copyWith({
+    Value<String>? study_item_id,
+    Value<String>? tag_id,
+    Value<int>? rowid,
+  }) {
+    return StudyItemTagsCompanion(
+      study_item_id: study_item_id ?? this.study_item_id,
+      tag_id: tag_id ?? this.tag_id,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (study_item_id.present) {
+      map['study_item_id'] = Variable<String>(study_item_id.value);
+    }
+    if (tag_id.present) {
+      map['tag_id'] = Variable<String>(tag_id.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StudyItemTagsCompanion(')
+          ..write('study_item_id: $study_item_id, ')
+          ..write('tag_id: $tag_id, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -3033,6 +3258,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $CategoriesTable categories = $CategoriesTable(this);
   late final $ImagesTable images = $ImagesTable(this);
   late final $TagsTable tags = $TagsTable(this);
+  late final $StudyItemTagsTable studyItemTags = $StudyItemTagsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -3043,6 +3269,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     categories,
     images,
     tags,
+    studyItemTags,
   ];
 }
 
@@ -4516,6 +4743,164 @@ typedef $$TagsTableProcessedTableManager =
       TagRecord,
       PrefetchHooks Function()
     >;
+typedef $$StudyItemTagsTableCreateCompanionBuilder =
+    StudyItemTagsCompanion Function({
+      required String study_item_id,
+      required String tag_id,
+      Value<int> rowid,
+    });
+typedef $$StudyItemTagsTableUpdateCompanionBuilder =
+    StudyItemTagsCompanion Function({
+      Value<String> study_item_id,
+      Value<String> tag_id,
+      Value<int> rowid,
+    });
+
+class $$StudyItemTagsTableFilterComposer
+    extends Composer<_$AppDatabase, $StudyItemTagsTable> {
+  $$StudyItemTagsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get tag_id => $composableBuilder(
+    column: $table.tag_id,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$StudyItemTagsTableOrderingComposer
+    extends Composer<_$AppDatabase, $StudyItemTagsTable> {
+  $$StudyItemTagsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get tag_id => $composableBuilder(
+    column: $table.tag_id,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$StudyItemTagsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $StudyItemTagsTable> {
+  $$StudyItemTagsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get study_item_id => $composableBuilder(
+    column: $table.study_item_id,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get tag_id =>
+      $composableBuilder(column: $table.tag_id, builder: (column) => column);
+}
+
+class $$StudyItemTagsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $StudyItemTagsTable,
+          StudyItemTagRecord,
+          $$StudyItemTagsTableFilterComposer,
+          $$StudyItemTagsTableOrderingComposer,
+          $$StudyItemTagsTableAnnotationComposer,
+          $$StudyItemTagsTableCreateCompanionBuilder,
+          $$StudyItemTagsTableUpdateCompanionBuilder,
+          (
+            StudyItemTagRecord,
+            BaseReferences<
+              _$AppDatabase,
+              $StudyItemTagsTable,
+              StudyItemTagRecord
+            >,
+          ),
+          StudyItemTagRecord,
+          PrefetchHooks Function()
+        > {
+  $$StudyItemTagsTableTableManager(_$AppDatabase db, $StudyItemTagsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$StudyItemTagsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$StudyItemTagsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$StudyItemTagsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> study_item_id = const Value.absent(),
+                Value<String> tag_id = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => StudyItemTagsCompanion(
+                study_item_id: study_item_id,
+                tag_id: tag_id,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String study_item_id,
+                required String tag_id,
+                Value<int> rowid = const Value.absent(),
+              }) => StudyItemTagsCompanion.insert(
+                study_item_id: study_item_id,
+                tag_id: tag_id,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$StudyItemTagsTable, StudyItemTagRecord>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $StudyItemTagsTable,
+                    StudyItemTagRecord
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$StudyItemTagsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $StudyItemTagsTable,
+      StudyItemTagRecord,
+      $$StudyItemTagsTableFilterComposer,
+      $$StudyItemTagsTableOrderingComposer,
+      $$StudyItemTagsTableAnnotationComposer,
+      $$StudyItemTagsTableCreateCompanionBuilder,
+      $$StudyItemTagsTableUpdateCompanionBuilder,
+      (
+        StudyItemTagRecord,
+        BaseReferences<_$AppDatabase, $StudyItemTagsTable, StudyItemTagRecord>,
+      ),
+      StudyItemTagRecord,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -4529,4 +4914,6 @@ class $AppDatabaseManager {
   $$ImagesTableTableManager get images =>
       $$ImagesTableTableManager(_db, _db.images);
   $$TagsTableTableManager get tags => $$TagsTableTableManager(_db, _db.tags);
+  $$StudyItemTagsTableTableManager get studyItemTags =>
+      $$StudyItemTagsTableTableManager(_db, _db.studyItemTags);
 }
